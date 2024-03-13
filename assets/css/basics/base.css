@@ -1,9 +1,17 @@
+
+html{
+    font-family: poppins-medium
+}
+
 body {
     margin: 0;
     padding: 10px 10px;
     margin: 5;
-    background-color: yellow;
+    background-color: var(--main-clr);
+    color: var(--txt-clr);
 }
+
+
 
 h1,
 h2,
