@@ -1,6 +1,22 @@
 // note service
+import { storageService } from '../../../services/async-storage.service'
+import { utilService } from '../../../services/util.service'
+
+const NOTE_KEY = 'notesDB'
+
+function query(filterBy) {
+    return storageService.query(NOTE_KEY).then((notes) => {
+        if (!notes || notes.length) {
+            notes = gNotes
+            _saveNotesToStorage()
+        }
+    })
+}
 
 
+function _saveNotesToStorage(){
+    return Promise.resolve(notes)
+}
 
 const notes = [
     {
