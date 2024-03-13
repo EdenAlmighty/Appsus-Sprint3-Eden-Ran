@@ -79,5 +79,53 @@ const gNotes = [
                 { txt: 'Coding power', doneAt: 187111111 }
             ]
         }
+    },
+    {
+        id: 'n102',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: '../../../assets/img/audi.jpg',
+            title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: '#00d'
+        }
+    },
+    {
+        id: 'n103',
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+            title: 'Get my stuff together',
+            todos: [
+                { txt: 'Driving license', doneAt: null },
+                { txt: 'Coding power', doneAt: 187111111 }
+            ]
+        }
+    },
+    {
+        id: 'n102',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: '../../../assets/img/audi.jpg',
+            title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: '#00d'
+        }
+    },
+    {
+        id: 'n103',
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+            title: 'Get my stuff together',
+            todos: [
+                { txt: 'Driving license', doneAt: null },
+                { txt: 'Coding power', doneAt: 187111111 }
+            ]
+        }
     }
 ]
