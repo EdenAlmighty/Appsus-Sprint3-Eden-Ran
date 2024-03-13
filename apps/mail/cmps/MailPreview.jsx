@@ -1,17 +1,17 @@
 const { useState, useEffect, Fragment } = React
+const { Link } = ReactRouterDOM
+const { useNavigate } = ReactRouter
+
 
 import { mailService } from "../services/mail.service.js"
 
-export function MailPreview({ mail , onSetRead, onRemoveMail }) {
+export function MailPreview({ mail, onSetRead, onRemoveMail }) {
+
+    const navigate = useNavigate()
 
     function getFormattedDate(mail) {
         const date = new Date(mail.sentAt)
         return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
-    }
-
-    function setRead(isRead, mailId) {
-        onSetRead(isRead, mailId)
-            .then((mail) => console.log(mail))
     }
 
     function getFormattedSubject(mail) {
@@ -21,15 +21,19 @@ export function MailPreview({ mail , onSetRead, onRemoveMail }) {
         return mail.subject
     }
 
+    function moveToPage(mailId) {
+        navigate(`/mail/${mailId}`)
+    }
+
     return <Fragment>
-        <td>{mail.sender}</td>
+        <td onClick={() => moveToPage(mail.id)}>{mail.sender}</td>
         {/* <td>{mail.from}</td> */}
-        <td>{getFormattedSubject(mail)}</td>
-        <td>{mail.body}</td>
-        <td>{getFormattedDate(mail)}</td>
+        <td onClick={() => moveToPage(mail.id)}>{getFormattedSubject(mail)}</td>
+        <td onClick={() => moveToPage(mail.id)}>{mail.body}</td>
+        <td onClick={() => moveToPage(mail.id)}>{getFormattedDate(mail)}</td>
         <td>
-            <button onClick={() => onSetRead(!mail.isRead,mail.id)}>{mail.isRead ? 'Unread' : 'Read'}</button>
-            <button onClick={() => onRemoveMail(mail.id)}>Delete</button>
+            <button className="mail-actions" onClick={() => onSetRead(!mail.isRead, mail.id)}>{mail.isRead ? '💌' : '📧'}</button>
+            <button className="mail-actions" onClick={() => onRemoveMail(mail.id)}>🗑️</button>
         </td>
     </Fragment>
 }

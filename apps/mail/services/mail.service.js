@@ -58,7 +58,17 @@ const loggedinUser = {
 
 function query(filterBy = getFilterBy()) {
     return storageService.query(MAIL_KEY)
-        // .then()
+        .then(mails => {
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt,'i')
+                mails = mails.filter(mail => regex.test(mail.body) || regex.test(mail.subject) || regex.test(mail.sender))
+            }
+       
+            if (filterBy.isRead){
+                mails = mails.filter(mail => mail.isRead)
+            }
+            return mails
+        })
     
     
     // return Promise.resolve(emails)
@@ -98,10 +108,10 @@ function _createBooks(){
 
 const criteria = {
     status: 'inbox',
-    txt: 'puki', // no need to support complex text search
-    isRead: true, // (optional property, if missing: show all)
+    txt: '', // no need to support complex text search
+    isRead: false, // (optional property, if missing: show all)
     isStared: true, // (optional property, if missing: show all)
-    lables: ['important', 'romantic'] // has any of the labels
+    lables: [] // has any of the labels
     }
 
 // statuses arr should be: 'inbox/sent/trash/draft'

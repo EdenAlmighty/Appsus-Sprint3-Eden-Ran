@@ -5,6 +5,7 @@ const { Link } = ReactRouterDOM
 import { mailService } from '../services/mail.service.js'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailList } from '../cmps/MailList.jsx'
+import { MailFolderList } from '../cmps/MailFolderList.jsx'
 
 
 export function MailIndex() {
@@ -28,11 +29,16 @@ export function MailIndex() {
             })
     }
 
-    function onSetFilter() {
-
+    function onSetFilter(filterBy) {
+        setFilterBy(filterBy)
     }
 
     return <section className="mail-index">
+        <h2 className="page-title">Mail</h2>
+        <MailFolderList
+            onSetFilter={onSetFilter}
+            filterBy={filterBy}
+        />
         <MailFilter
             onSetFilter={onSetFilter}
             loadMails={loadMails}

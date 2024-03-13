@@ -1,32 +1,51 @@
-const { useState } = React
+const { useState , useEffect } = React
 
-export function MailFilter({onSetFilter,filterBy}){
+export function MailFilter({ onSetFilter, filterBy }) {
 
     const [filterByToUpdate, setFilterByToUpdate] = useState(filterBy)
-    
-    function handleChange({ target }){
-        console.log(target.value);
+
+    useEffect(() => {
+        onSetFilter(filterByToUpdate)
+    },[filterByToUpdate])
+
+    function handleChange({ target }) {
+        let { value, name: field, type } = target
+        console.log(value, field, type)
+        if (type = 'checkbox') {
+            value = target.checked
+        }
+        setFilterByToUpdate((prevfilterByToUpdate) => ({ ...prevfilterByToUpdate, [field]: value }))
     }
 
-    function onFilter(ev){
-        ev.preventDefault()
-        console.log(ev);
-    }
-    
-    return <section className="mail-filter">
+
+function onFilter(ev) {
+    ev.preventDefault()
+    onSetFilter(filterByToUpdate)
+}
+
+return <section className="mail-filter">
     <h2>Filter Mails</h2>
     <form onSubmit={onFilter}>
         <div className="filter-input-container">
-        <label htmlFor="search-email">Title</label>
-        <input 
-        type="text" 
-        name="search-mail" 
-        id="search-email" 
-        // value={filterByToUpdate.title}
-        onChange={handleChange}
-        placeholder="By title"
-        />
-        <button>Search</button>
+            <label htmlFor="search-email">Search</label>
+            <input
+                type="text"
+                name="txt"
+                id="search-email"
+                value={filterByToUpdate.txt}
+                onChange={handleChange}
+                placeholder="Search email"
+            />
+            <label htmlFor="search-isread">Read</label>
+            <input
+                type="checkbox"
+                name="isRead"
+                id="search-isread"
+                value={filterByToUpdate.isRead}
+                onChange={handleChange}
+            // placeholder="By title"
+            />
+            <button>Search</button>
         </div>
     </form>
 </section>

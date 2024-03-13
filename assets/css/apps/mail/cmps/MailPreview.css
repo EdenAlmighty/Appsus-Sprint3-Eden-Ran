@@ -1,3 +1,21 @@
 .read-mail{
     opacity: 0.5;
 }
+
+.mail-actions{
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.row-mail:hover .mail-actions{
+    opacity: 1;
+}
+
+.mail-actions{
+    border: none;
+    background-color: transparent;
+}
+
+.mail-actions{
+    cursor: pointer;
+}
