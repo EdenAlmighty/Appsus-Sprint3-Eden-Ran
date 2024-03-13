@@ -73,10 +73,13 @@ function query(filterBy = getFilterBy()) {
                     mails = mails.filter(mail => mail.to === loggedinUser.email)
                 }
                 if (filterBy.status === 'sent') {
-                    mails = mails.filter(mail => mail.from === loggedinUser.email)
+                    mails = mails.filter(mail => mail.from === loggedinUser.email && !mail.isDraft)
                 }
                 if (filterBy.status === 'trash') {
                     mails = mails.filter(mail => mail.removedAt !== null)
+                }
+                if (filterBy.status === 'draft') {
+                    mails = mails.filter(mail => mail.isDraft)
                 }
             }
             return mails
@@ -109,7 +112,7 @@ function getFilterBy(){
 
 function getNewMail(){
     return {
-        id: utilService.makeId(),
+        // id: utilService.makeId(),
         sender: 'Mahatma Appsus',
         subject: '',
         body: '',

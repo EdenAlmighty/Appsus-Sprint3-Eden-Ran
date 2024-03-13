@@ -16,7 +16,7 @@ export function MailFolderList({ onSetFilter, filterBy }){
             <li onClick={() => handleChange('inbox')}>Inbox</li>
             <li onClick={() => handleChange('sent')}>Sent</li>
             <li onClick={() => handleChange('trash')}>Trash</li>
-            {/* <li onClick={() => handleChange('draft')}>Draft</li> */}
+            <li onClick={() => handleChange('draft')}>Draft</li>
         </ul>
     </section>
     
