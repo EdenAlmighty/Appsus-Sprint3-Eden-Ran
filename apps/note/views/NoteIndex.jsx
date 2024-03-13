@@ -11,23 +11,28 @@ export function NoteIndex() {
     useEffect(() => {
         loadNotes()
     }, [setNotes])
-    
+
     function loadNotes() {
         noteService.query(notes)
             .then(setNotes)
     }
 
-    function onSaveNote(note){
+    function onSaveNote(note) {
         console.log(note);
         noteService.save(note)
-        .then(loadNotes)
+            .then(loadNotes)
     }
 
-    if (!notes) return <div>Loading...</div>
+    function onRemoveNote(noteId) {
+        noteService.remove(noteId)
+            .then(loadNotes)
+    }
+
+    if (!notes) return <div className="loader"><span>III</span></div>
     return <section className="note-main-container">
         <h2 className="page-title">Note app</h2>
         {/* <input type="text" placeholder="Take a note..." /> */}
-        <AddNote onSaveNote={onSaveNote}/>
-        <NoteList notes={notes} />
+        <AddNote onSaveNote={onSaveNote} />
+        <NoteList notes={notes}  onRemoveNote={onRemoveNote}/>
     </section>
 }

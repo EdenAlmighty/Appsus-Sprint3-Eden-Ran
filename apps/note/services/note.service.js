@@ -104,7 +104,6 @@ _createNotes()
 
 
 function query(filterBy) {
-    console.log(gNotes);
     return storageService.query(NOTE_KEY).then((notes) => {
         if (!notes || !notes.length) {
             notes = gNotes
@@ -139,7 +138,6 @@ function remove(noteId) {
 }
 
 function save(note) {
-    console.log(note.id);
     if (note.id) {
         return storageService.put(NOTE_KEY, note)
     } else {
@@ -150,7 +148,6 @@ function save(note) {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) notes = gNotes
-    console.log(notes);
     utilService.saveToStorage(NOTE_KEY, notes)
 }
 
