@@ -4,6 +4,7 @@ const { Link } = ReactRouterDOM
 
 import { bookService } from '../services/mail.service.js'
 import { MailFilter } from '../cmps/MailFilter.jsx'
+import { MailList } from '../cmps/MailList.jsx'
 
 
 export function MailIndex() {
@@ -34,6 +35,9 @@ export function MailIndex() {
         <MailFilter 
         onSetFilter={onSetFilter}
         filterBy={filterBy}/>
+        <MailList 
+        mails={mails}
+        />
     </section>
 }
 

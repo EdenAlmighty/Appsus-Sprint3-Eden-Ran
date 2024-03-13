@@ -11,6 +11,7 @@ export const bookService = {
 const emails = [
     {
         id: 'e101',
+        sender: 'Puki',
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: false,
@@ -21,6 +22,7 @@ const emails = [
     },
     {
         id: 'e102',
+        sender: 'Muki',
         subject: 'Miss you!',
         body: 'Have you been through our meeting?',
         isRead: false,
@@ -31,6 +33,7 @@ const emails = [
     },
     {
         id: 'e103',
+        sender: 'Shuki',
         subject: 'Miss you!',
         body: 'Any update on the last quote sent?',
         isRead: false,
