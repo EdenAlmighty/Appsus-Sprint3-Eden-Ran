@@ -1,24 +1,49 @@
 // note service
-import { storageService } from '../../../services/async-storage.service'
-import { utilService } from '../../../services/util.service'
+import { storageService } from '../../../services/async-storage.service.js'
+import { utilService } from '../../../services/util.service.js'
+
+
+export const noteService = {
+    query,
+    get,
+    remove,
+    save,
+}
 
 const NOTE_KEY = 'notesDB'
 
 function query(filterBy) {
-    return storageService.query(NOTE_KEY).then((notes) => {
-        if (!notes || notes.length) {
-            notes = gNotes
-            _saveNotesToStorage()
-        }
-    })
+    console.log(gNotes);
+    return Promise.resolve(gNotes)
+
 }
 
 
-function _saveNotesToStorage(){
-    return Promise.resolve(notes)
+// function query() {
+//     return storageService.query(NOTE_KEY).then((notes) => {
+//         if (!notes || !notes.length)
+//             notes = gNotes
+//     })
+
+// }
+
+function get(noteId) {
+    return storageService.get(NOTE_KEY, noteId)
 }
 
-const notes = [
+function remove(noteId) {
+    return storageService.remove(NOTE_KEY, noteId)
+}
+
+function save(note) {
+    if (note.id) storageService.put(NOTE_KEY, note)
+    return storageService.post(NOTE_KEY, note)
+}
+
+function _saveNotesToStorage() {
+    storageService.put(KEY, gBooks)
+}
+const gNotes = [
     {
         id: 'n101',
         createdAt: 1112222,
@@ -36,7 +61,7 @@ const notes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'http://some-img/me',
+            url: '../../../assets/img/audi.jpg',
             title: 'Bobi and Me'
         },
         style: {

@@ -1,1 +1,19 @@
  /* note list */
+
+ .note-list-container {
+     text-align: center;
+     margin: 20px auto;
+     columns: 4;
+     column-gap: 30px;
+     column-width: auto;
+     /* flex-direction: column; */
+     background-color: rgb(46, 124, 124);
+     /* gap: 1em; */
+ }
+
+ /* .note-list-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(46, 124, 124);
+    gap: 1em;
+ } */

@@ -1,0 +1,19 @@
+.note-preview-container{
+background-color: bisque;
+padding: 1em;
+border-radius: 1em;
+}
+
+
+.note-card img {
+    width: 100%;
+    border-radius: 1em;
+    display: block;
+}
+
+.note-card{
+    display: flex;
+    break-inside: avoid;
+    /* min-width: 140px; */
+    flex-direction: column;
+}
