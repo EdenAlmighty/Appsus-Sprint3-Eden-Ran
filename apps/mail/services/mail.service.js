@@ -3,12 +3,18 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
-export const bookService = {
+const MAIL_KEY = 'mailDB'
+
+export const mailService = {
     query,
     getFilterBy,
+    get,
+    remove,
+    save
 }
 
-const emails = [
+
+const gEmails = [
     {
         id: 'e101',
         sender: 'Puki',
@@ -43,6 +49,7 @@ const emails = [
         to: 'user@appsus.com',
     }
 ]
+_createBooks()
 
 const loggedinUser = {
     email: 'user@appsus.com',
@@ -50,14 +57,42 @@ const loggedinUser = {
     }
 
 function query(filterBy = getFilterBy()) {
-    return Promise.resolve(emails)
+    return storageService.query(MAIL_KEY)
+        // .then()
+    
+    
+    // return Promise.resolve(emails)
+}
+
+function get(mailId){
+    return storageService.get(MAIL_KEY,mailId)
+}
+
+function remove(mailId){
+    return storageService.remove(MAIL_KEY,mailId)
+}
+
+function save(mail){
+    console.log(mail);
+    if (mail.id) {
+        return storageService.put(MAIL_KEY, mail)
+    } else {
+        return storageService.post(MAIL_KEY, mail)
+    }
 }
 
 function getFilterBy(){
     return criteria
 }
 
+// Private funcs
 
+function _createBooks(){
+    let mails = utilService.loadFromStorage(MAIL_KEY)
+    if (!mails || !mails.length) mails = gEmails
+    console.log(mails);
+    utilService.saveToStorage(MAIL_KEY,mails)
+}
 
 
 

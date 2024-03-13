@@ -12,10 +12,7 @@ export function MailFilter({onSetFilter,filterBy}){
         ev.preventDefault()
         console.log(ev);
     }
-
-
-    console.log(onSetFilter,filterBy);
-
+    
     return <section className="mail-filter">
     <h2>Filter Mails</h2>
     <form onSubmit={onFilter}>

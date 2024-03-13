@@ -2,14 +2,14 @@ const { useState, useEffect } = React
 const { Link } = ReactRouterDOM
 
 
-import { bookService } from '../services/mail.service.js'
+import { mailService } from '../services/mail.service.js'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailList } from '../cmps/MailList.jsx'
 
 
 export function MailIndex() {
     
-    const [filterBy,setFilterBy] = useState(bookService.getFilterBy())
+    const [filterBy,setFilterBy] = useState(mailService.getFilterBy())
     // console.log(filterBy);
     const [mails, setMails] = useState(null)
     
@@ -18,7 +18,7 @@ export function MailIndex() {
     },[filterBy])
 
     function loadMails() {
-        bookService.query(filterBy)
+        mailService.query(filterBy)
             .then((mails) => {
                 setMails(mails)
             })
@@ -28,12 +28,10 @@ export function MailIndex() {
 
     }
 
-    console.log(mails);
-
-
     return <section className="mail-index">
         <MailFilter 
         onSetFilter={onSetFilter}
+        loadMails={loadMails}
         filterBy={filterBy}/>
         <MailList 
         mails={mails}

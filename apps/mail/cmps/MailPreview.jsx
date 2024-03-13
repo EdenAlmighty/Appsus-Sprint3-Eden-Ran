@@ -1,23 +1,39 @@
+const { Fragment } = React
 
 
-export function MailPreview({ mail }) {
-    function getFormattedDate(){
-        const date = new Date (mail.sentAt)
+export function MailPreview({ mails, onSetRead }) {
+    function getFormattedDate(mail) {
+        const date = new Date(mail.sentAt)
         return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
     }
 
-    function getFormattedSubject(){
-        if(mail.subject.length > 20){
-            return mail.subject.substring(0,20)
+    function setRead(isRead,mailId){
+        onSetRead(isRead,mailId)
+    }
+
+    function getFormattedSubject(mail) {
+        if (mail.subject.length > 20) {
+            return mail.subject.substring(0, 20)
         }
         return mail.subject
     }
 
-    return <React.Fragment>
-        <td>{mail.sender}</td>
-        {/* <td>{mail.from}</td> */}
-        <td>{getFormattedSubject()}</td>
-        <td>{mail.body}</td>
-        <td>{getFormattedDate()}</td>
-    </React.Fragment>
+    function getMailClass(isRead){
+        return isRead ? 'row-mail read-mail' : 'row-mail'
+    }
+
+    return <Fragment>
+        {
+            mails.map(mail => {
+                return (<tr key={mail.id} onClick={() => setRead(true,mail.id)} className={getMailClass(mail.isRead)}>
+                    <td>{mail.sender}</td>
+                    {/* <td>{mail.from}</td> */}
+                    <td>{getFormattedSubject(mail)}</td>
+                    <td>{mail.body}</td>
+                    <td>{getFormattedDate(mail)}</td>
+                </tr>
+                )
+            })
+        }
+    </Fragment>
 }

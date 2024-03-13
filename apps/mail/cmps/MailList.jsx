@@ -1,25 +1,28 @@
 const { useState } = React
 
 import { MailPreview } from "./MailPreview.jsx"
+import { mailService } from "../services/mail.service.js"
 
-export function MailList({ mails }) {
-    console.log(mails);
+export function MailList({ mails ,loadMails}) {
+
+    function onSetRead(isRead,mailId){
+        mailService.get(mailId)
+            .then(mail => {
+                mail.isRead = isRead
+                return mailService.save(mail)
+            })
+            .then(loadMails)
+    }
 
     if (!mails) return <div className="loader"><span>III</span></div>
-    return <section className="mail-list">
-        <h2>Inbox Messages</h2>
-        <table>
+    return <table className="mail-list">
             <tbody>
-            {
-                mails.map(mail => {
-                    return (
-                        <tr key={mail.id} onClick={() => setRead(prevRead => !prevRead)}>
-                            <MailPreview mail={mail}/>
-                        </tr>
-                    )
-                })
-            }
+                {
+                    <MailPreview 
+                    mails={mails}
+                    onSetRead = {onSetRead}
+                     />
+                }
             </tbody>
         </table>
-    </section>
 }
