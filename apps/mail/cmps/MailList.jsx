@@ -47,11 +47,6 @@ export function MailList({ mails, loadMails }) {
                                 onSetRead={onSetRead}
                                 onRemoveMail={onRemoveMail}
                             />
-                        
-                        {/* <td>
-                            <button className="mail-actions" onClick={(ev) => onSetRead(ev,!mail.isRead, mail.id)}>{mail.isRead ? '💌' : '📧'}</button>
-                            <button className="mail-actions" onClick={(ev) => onRemoveMail(ev,mail.id)}>🗑️</button>
-                        </td> */}
                         </tr>
                     </Fragment>
                 })
