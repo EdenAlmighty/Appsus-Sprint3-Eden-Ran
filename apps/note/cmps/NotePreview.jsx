@@ -1,9 +1,9 @@
-const { useState } = React
+const { useState, useEffect, useRef } = React
 
 export function NotePreview({ note }) {
     const [editing, setEditing] = useState(false)
     const [content, setContent] = useState('')
-
+    
     let currContent
 
     function handleChange(idx) {
@@ -52,10 +52,5 @@ export function NotePreview({ note }) {
             onInput={(ev) => setContent(ev.target.innerText)}>
             {currContent}
         </blockquote>
-
-        {/* <cite
-            suppressContentEditableWarning
-            contentEditable="true">-- Write your own name here
-        </cite> */}
     </article>
 }

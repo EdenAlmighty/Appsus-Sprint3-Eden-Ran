@@ -28,11 +28,19 @@ export function NoteIndex() {
             .then(loadNotes)
     }
 
+    function onDuplicateNote(noteId) {
+        noteService.duplicateNote(noteId)
+            .then(loadNotes)
+    }
+
     if (!notes) return <div className="loader"><span>III</span></div>
     return <section className="note-main-container">
         <h2 className="page-title">Note app</h2>
         {/* <input type="text" placeholder="Take a note..." /> */}
         <AddNote onSaveNote={onSaveNote} />
-        <NoteList notes={notes}  onRemoveNote={onRemoveNote}/>
+        <NoteList notes={notes}
+            onRemoveNote={onRemoveNote}
+            onSaveNote={onSaveNote}
+            onDuplicateNote={onDuplicateNote} />
     </section>
 }

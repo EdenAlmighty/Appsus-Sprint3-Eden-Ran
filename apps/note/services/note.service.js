@@ -9,7 +9,8 @@ export const noteService = {
     get,
     remove,
     save,
-    getEmptyNote
+    getEmptyNote,
+    duplicateNote
 }
 
 const NOTE_KEY = 'notesDB'
@@ -128,6 +129,20 @@ function getEmptyNote() {
         }
     }
 }
+
+function duplicateNote(noteId) {
+    return storageService.get(NOTE_KEY, noteId)
+        .then((noteToDuplicate) => {
+            if (!noteToDuplicate) {
+                throw new Error("Note not found...")
+            }
+            const newNote = { ...noteToDuplicate }
+            newNote.id = utilService.makeId()
+            return storageService.post(NOTE_KEY, newNote)
+        })
+}
+
+
 
 function get(noteId) {
     return storageService.get(NOTE_KEY, noteId)
