@@ -32,6 +32,8 @@ export function EmailCompose() {
 
     function updateMailToCompose(){
         console.log(mailToCompose);
+        mailService.save(mailToCompose)
+            .then(mail => setMailToCompose(prevMailToCompose => ({...prevMailToCompose,id:mail.id})))
         // saveDraftMail(mailToCompose)
     }
 
