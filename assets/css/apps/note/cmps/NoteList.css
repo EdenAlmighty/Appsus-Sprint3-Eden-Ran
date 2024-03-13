@@ -1,14 +1,11 @@
  /* note list */
 
  .note-list-container {
-
      margin: 20px auto;
      columns: 4;
      column-gap: 2em;
      row-gap: 2em;
-
      margin: 2em;
-     /* background-color: rgb(46, 124, 124); */
  }
  
 

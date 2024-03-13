@@ -1,6 +1,7 @@
 const { useState } = React
 
 export function NotePreview({ note }) {
+    const [editing, setEditing] = useState(false)
     const [content, setContent] = useState('')
 
     let currContent
@@ -11,6 +12,7 @@ export function NotePreview({ note }) {
         setContent(updatedTodo)
     }
 
+    //TODO: Refactor to Dynamic Cmp
     switch (note.type) {
         case 'NoteTxt':
             currContent = note.info.txt
@@ -45,12 +47,14 @@ export function NotePreview({ note }) {
     return <article className='note-preview-container '>
         <h1 className='note-card-title'>{note.info.title}</h1>
         <blockquote
+            suppressContentEditableWarning
             contentEditable="true"
             onInput={(ev) => setContent(ev.target.innerText)}>
             {currContent}
         </blockquote>
 
         {/* <cite
+            suppressContentEditableWarning
             contentEditable="true">-- Write your own name here
         </cite> */}
     </article>
