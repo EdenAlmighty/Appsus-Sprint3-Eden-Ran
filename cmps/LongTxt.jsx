@@ -5,7 +5,7 @@ export function LongTxt({ txt, length = 100 }) {
 
 
     return <section className="long-txt">
-        <span>{isSeeMore ? txt : txt.slice(0, length)}</span>
+        <span>{isSeeMore ? txt :  txt.slice(0, length) + '...'}</span>
         {!isSeeMore && <button className="see-more-btn" onClick={() => setSeeMore(prevIsSeeMore => !prevIsSeeMore)}>See more</button>}
     </section>
 
