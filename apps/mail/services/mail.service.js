@@ -10,7 +10,8 @@ export const mailService = {
     getFilterBy,
     get,
     remove,
-    save
+    save,
+    getNewMail
 }
 
 
@@ -104,6 +105,20 @@ function save(mail){
 
 function getFilterBy(){
     return criteria
+}
+
+function getNewMail(){
+    return {
+        id: utilService.makeId(),
+        sender: 'Mahatma Appsus',
+        subject: '',
+        body: '',
+        isRead: false,
+        removedAt: null,
+        from: 'user@appsus.com',
+        to: '',
+        isDraft: true
+    }
 }
 
 // Private funcs

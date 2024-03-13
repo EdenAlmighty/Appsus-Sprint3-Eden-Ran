@@ -6,11 +6,13 @@ import { mailService } from '../services/mail.service.js'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailList } from '../cmps/MailList.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
+import { EmailCompose } from '../cmps/EmailCompose.jsx'
 
 
 export function MailIndex() {
 
     const [filterBy, setFilterBy] = useState(mailService.getFilterBy())
+    const [isComposing, setIsComposing] = useState(false)
     // console.log(filterBy);
     const [mails, setMails] = useState(null)
 
@@ -35,6 +37,9 @@ export function MailIndex() {
 
     return <section className="mail-index">
         <h2 className="page-title">Mail</h2>
+        <button onClick={() => setIsComposing((prevComposing => !prevComposing))}>Compose New Mail</button>
+        {isComposing && <EmailCompose/>}
+
         <MailFolderList
             onSetFilter={onSetFilter}
             filterBy={filterBy}
