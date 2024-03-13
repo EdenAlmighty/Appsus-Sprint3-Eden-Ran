@@ -67,6 +67,17 @@ function query(filterBy = getFilterBy()) {
             if (filterBy.isRead){
                 mails = mails.filter(mail => mail.isRead)
             }
+            if (filterBy.status){
+                if (filterBy.status === 'inbox') {
+                    mails = mails.filter(mail => mail.to === loggedinUser.email)
+                }
+                if (filterBy.status === 'sent') {
+                    mails = mails.filter(mail => mail.from === loggedinUser.email)
+                }
+                if (filterBy.status === 'trash') {
+                    mails = mails.filter(mail => mail.removedAt !== null)
+                }
+            }
             return mails
         })
     
@@ -107,7 +118,7 @@ function _createBooks(){
 
 
 const criteria = {
-    status: 'inbox',
+    status: '',
     txt: '', // no need to support complex text search
     isRead: false, // (optional property, if missing: show all)
     isStared: true, // (optional property, if missing: show all)
