@@ -8,33 +8,38 @@ import { MailList } from '../cmps/MailList.jsx'
 
 
 export function MailIndex() {
-    
-    const [filterBy,setFilterBy] = useState(mailService.getFilterBy())
+
+    const [filterBy, setFilterBy] = useState(mailService.getFilterBy())
     // console.log(filterBy);
     const [mails, setMails] = useState(null)
-    
+
     useEffect(() => {
         loadMails()
-    },[filterBy])
+    }, [filterBy])
+
+    // useEffect(() => {
+    //     loadMails()
+    // },[mails])
 
     function loadMails() {
-        mailService.query(filterBy)
+        return mailService.query(filterBy)
             .then((mails) => {
                 setMails(mails)
             })
     }
 
-    function onSetFilter(){
+    function onSetFilter() {
 
     }
 
     return <section className="mail-index">
-        <MailFilter 
-        onSetFilter={onSetFilter}
-        loadMails={loadMails}
-        filterBy={filterBy}/>
-        <MailList 
-        mails={mails}
+        <MailFilter
+            onSetFilter={onSetFilter}
+            loadMails={loadMails}
+            filterBy={filterBy} />
+        <MailList
+            mails={mails}
+            loadMails={loadMails}
         />
     </section>
 }
