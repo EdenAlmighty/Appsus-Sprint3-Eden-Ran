@@ -22,7 +22,6 @@ export function NotePreview({ note }) {
             break
         case 'NoteTodos':
             currContent = (
-
                 <ul className="clean-list">
                     {
                         note.info.todos.map((todo, idx) => (

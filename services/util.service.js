@@ -8,7 +8,9 @@ export const utilService = {
     getMonthName,
     loadFromStorage,
     saveToStorage,
+    getRandomNoteColor
 }
+// window.cs = utilService
 
 function makeId(length = 6) {
     var txt = ''
@@ -47,6 +49,12 @@ function getRandomColor() {
     for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)]
     }
+    return color
+}
+
+function getRandomNoteColor() {
+    const colors = ['#B4FF9F', '#F9FFA4', '#FFCF96', '#FF8080']
+    const color = colors[getRandomIntInclusive(0, colors.length)]
     return color
 }
 

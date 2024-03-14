@@ -13,6 +13,7 @@ export function NoteIndex() {
     }, [setNotes])
 
     function loadNotes() {
+        console.log(notes);
         noteService.query(notes)
             .then(setNotes)
     }
@@ -38,16 +39,46 @@ export function NoteIndex() {
             .then(loadNotes)
     }
 
+    function handleAction(func, ...args) {
+        return () => {
+            return func(...args)
+                .then(() => loadNotes())
+        }
+    }
+
     if (!notes) return <div className="loader"><span>III</span></div>
     return <section className="note-main-container">
         <h2 className="page-title">Note app</h2>
-        {/* <input type="text" placeholder="Take a note..." /> */}
         <AddNote onSaveNote={onSaveNote} />
-        <NoteList notes={notes}
+
+        <h1>Pinned</h1>
+
+        <NoteList notes={notes.filter(note => note.isPinned)}
             onRemoveNote={onRemoveNote}
             onSaveNote={onSaveNote}
             onDuplicateNote={onDuplicateNote}
             onToggleNotePin={onToggleNotePin}
-             />
+        />
+
+        <h1>Notes</h1>
+        <NoteList notes={notes.filter(note => !note.isPinned)}
+            onRemoveNote={onRemoveNote}
+            onSaveNote={onSaveNote}
+            onDuplicateNote={onDuplicateNote}
+            onToggleNotePin={onToggleNotePin}
+        />
+
     </section>
 }
+
+// function NoteListView({ notes, handleAction }) {
+//     return (
+//         <NoteList
+//             notes={notes}
+//             onRemoveNote={noteId => handleAction(noteService.remove(noteId))}
+//             onSaveNote={handleAction(noteService.save)}
+//             onDuplicateNote={handleAction(noteService.duplicateNote)}
+//             onToggleNotePin={handleAction(noteService.toggleNotePin)}
+//         />
+//     )
+// }

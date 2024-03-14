@@ -113,6 +113,9 @@ function query(filterBy) {
             notes = gNotes
             _saveNotesToStorage()
         }
+        if(filterBy && filterBy === 'pinned'){
+            notes = notes.filter(note => note.isPinned)
+        }
         return notes
     })
 }
@@ -120,7 +123,7 @@ function query(filterBy) {
 function getEmptyNote() {
     return {
         // id,
-        type: 'NoteTxt',
+        type: '',
         createdAt: new Date().getDate(),
         isPinned: false,
         style: {
@@ -141,32 +144,22 @@ function duplicateNote(noteId) {
             }
             const newNote = { ...noteToDuplicate }
             newNote.id = utilService.makeId()
+            newNote.isPinned = false
             return storageService.post(NOTE_KEY, newNote)
         })
 }
 
 function toggleNotePin(noteId) {
-    return storageService.query(NOTE_KEY)
-        .then((notes) => {
-            const idx = notes.findIndex(note => note.id === noteId)
-            const noteToToggle = notes[idx]
-            console.log(noteToToggle);
-            
-            noteToToggle.isPinned = !noteToToggle.isPinned
-            
-            notes.splice(idx, 1)
-
-            if (noteToToggle.isPinned) {
-                notes.unshift(noteToToggle)
-            } else {
-                notes.push(noteToToggle)
+    return storageService.get(NOTE_KEY, noteId)
+        .then((noteToToggle) => {
+            if (!noteToToggle) {
+                throw new Error("Note not found...")
             }
+            console.log(noteToToggle);
+            noteToToggle.isPinned = !noteToToggle.isPinned
             return storageService.put(NOTE_KEY, noteToToggle)
         })
 }
-
-
-
 
 function get(noteId) {
     return storageService.get(NOTE_KEY, noteId)
