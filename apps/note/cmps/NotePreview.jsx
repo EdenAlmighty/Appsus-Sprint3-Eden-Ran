@@ -1,9 +1,23 @@
 const { useState, useEffect, useRef } = React
 
+import { noteService  } from "../services/note.service.js"
+
 export function NotePreview({ note }) {
     const [editing, setEditing] = useState(false)
     const [content, setContent] = useState('')
-    
+
+    const [editedNote, setEditedNote] = useState(note)
+
+    function handleChangeInfo({ target }) {
+        setEditedNote((prevEditedNote) => ({...prevEditedNote, info:{txt:target.innerText} }))
+        saveUpdatedNote()
+    }
+
+    function saveUpdatedNote(){
+        noteService.save(editedNote)
+    }
+
+
     let currContent
 
     function handleChange(idx) {
@@ -48,7 +62,7 @@ export function NotePreview({ note }) {
         <blockquote
             suppressContentEditableWarning
             contentEditable="true"
-            onInput={(ev) => setContent(ev.target.innerText)}>
+            onInput={(ev) => handleChangeInfo(ev)}>
             {currContent}
         </blockquote>
     </article>
