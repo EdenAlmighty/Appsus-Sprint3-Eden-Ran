@@ -1,13 +1,14 @@
  /* mail index  */
 
  .mail-index {
-
+    /* background-color: white; */
 }
 
  .mail-main-layout {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 16.25em 1fr;
+    column-gap: 1em;
 }
 
  .mail-folder-list {

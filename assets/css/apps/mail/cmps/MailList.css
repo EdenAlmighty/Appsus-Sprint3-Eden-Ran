@@ -1,10 +1,10 @@
  /* mail list */
 
-.row-mail {
+ .row-mail {
    cursor: pointer;
    /* box-shadow:  0px 0px 10px 0px #00000096; */
-
-}
+   padding: 2px 2px;
+ }
 
 
  .row-mail:hover {
@@ -13,23 +13,66 @@
 
  .row-mail:hover {
    /* scale: 1.1; */
-   box-shadow: 0px 0px 10px 0px #000000bd
+   /* box-shadow: 0px 0px 10px 0px #000000bd */
+   box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+   z-index: 2;
  }
 
- .main-mail-list-folder{
+ .main-mail-list-folder {
    /* display: grid; */
    grid-auto-flow: column;
-   grid-template-columns: minmax(auto,5vw) minmax(auto,1080px) 5vw;
-   width: 100%;
+   grid-template-columns: minmax(auto, 5vw) minmax(auto, 1080px) 5vw;
+   width: 16.25em;
    margin-left: auto;
    margin-right: auto;
    justify-self: center;
+   background: rgb(246,248,252);
  }
 
- .mail-list {
+ table.mail-list {
    justify-self: start;
    width: 100%;
    z-index: -1;
+   background: white;
+   height: 100%;
  }
 
- 
+ .mail-folder-list-items {
+  position: relative;
+  top: 4vh;
+  display: grid;
+  row-gap: 0.5vh;
+  transition: 0.5s;
+  align-content: top;
+  /* background-color: rgb(231 238 251); */
+}
+
+.mail-folder-list-items li.focused{
+  background: rgb(211,227,253);
+}
+
+.mail-folder-list-items :hover {
+  background-color: rgb(227, 227, 227);
+}
+
+.mail-folder-list-items li{
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  height: 32px;
+  cursor: pointer;
+  width: 100%;
+
+
+}
+
+.mail-folder-list-items li.inbox{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.unread-count { 
+  margin-right: 1em;
+}
+

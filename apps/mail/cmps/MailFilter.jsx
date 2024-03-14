@@ -43,7 +43,6 @@ return <section className="mail-filter">
                 id="search-isread"
                 value={filterByToUpdate.isRead}
                 onChange={handleChange}
-            // placeholder="By title"
             />
     </form>
 </section>
