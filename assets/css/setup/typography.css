@@ -17,3 +17,8 @@
     font-family: poppins-semi-bold;
     src: url(../../fonts/Poppins/Poppins-SemiBold.ttf);
 }
+
+@font-face {
+    font-family: poppins-light;
+    src: url(../../fonts/Poppins/Poppins-Light.ttf);
+}

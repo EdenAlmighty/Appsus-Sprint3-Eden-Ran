@@ -11,7 +11,7 @@ export function MailFilter({ onSetFilter, filterBy }) {
     function handleChange({ target }) {
         let { value, name: field, type } = target
         console.log(value, field, type)
-        if (type = 'checkbox') {
+        if (type === 'checkbox') {
             value = target.checked
         }
         setFilterByToUpdate((prevfilterByToUpdate) => ({ ...prevfilterByToUpdate, [field]: value }))
@@ -24,18 +24,18 @@ function onFilter(ev) {
 }
 
 return <section className="mail-filter">
-    <h2>Filter Mails</h2>
     <form onSubmit={onFilter}>
         <div className="filter-input-container">
-            <label htmlFor="search-email">Search</label>
+            <label htmlFor="search-email" className="search-email-label"></label>
             <input
                 type="text"
                 name="txt"
                 id="search-email"
                 value={filterByToUpdate.txt}
                 onChange={handleChange}
-                placeholder="Search email"
+                placeholder="Search mail"
             />
+           </div>
             <label htmlFor="search-isread">Read</label>
             <input
                 type="checkbox"
@@ -45,8 +45,6 @@ return <section className="mail-filter">
                 onChange={handleChange}
             // placeholder="By title"
             />
-            <button>Search</button>
-        </div>
     </form>
 </section>
 }

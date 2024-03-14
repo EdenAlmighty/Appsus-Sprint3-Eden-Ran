@@ -1,0 +1,9 @@
+.email-compose{
+    /* position: fixed; */
+    width: 40vw;
+    height: 35vh;
+    background-color: cadetblue;
+    position: absolute;
+    right: 2vw;
+    bottom: 2vh;
+}

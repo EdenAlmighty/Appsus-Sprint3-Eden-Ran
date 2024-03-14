@@ -1,5 +1,6 @@
 .read-mail{
-    opacity: 0.5;
+    color: var(--fade-clr);
+    font-family: poppins-light;
 }
 
 .mail-actions{

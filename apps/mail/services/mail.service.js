@@ -113,7 +113,7 @@ function getFilterBy(){
 function getNewMail(){
     return {
         // id: utilService.makeId(),
-        sender: 'Mahatma Appsus',
+        sender: utilService.makeLorem(3),
         subject: '',
         body: '',
         isRead: false,

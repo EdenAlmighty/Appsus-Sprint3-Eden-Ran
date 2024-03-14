@@ -34,8 +34,9 @@ export function MailList({ mails, loadMails }) {
     function moveToPage(mailId) {
         navigate(`/mail/${mailId}`)
     }
-
+    console.log(mails);
     if (!mails) return <div className="loader"><span>III</span></div>
+    if (!mails.length) return <div>No Mails</div>
     return <table className="mail-list">
         <tbody>
             {
