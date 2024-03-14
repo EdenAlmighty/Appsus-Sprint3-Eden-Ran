@@ -1,0 +1,26 @@
+.read-mail{
+    color: var(--fade-clr);
+    font-family: poppins-light;
+}
+
+.mail-actions {
+    transition: 0.5s;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.mail-actions.right {
+    opacity: 0;
+}
+
+.mail-actions.left {
+    opacity: 0.5;
+}
+
+.row-mail:hover .mail-actions.left{
+    opacity: 1;
+    scale: 1.1;
+}
+

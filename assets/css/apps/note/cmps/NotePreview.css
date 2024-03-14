@@ -1,0 +1,29 @@
+/* .note-preview-container {
+    padding: 1em;
+    border-radius: .5em;
+    
+} */
+
+
+
+.note-card img {
+    width: 100%;
+    border-radius: 1em;
+    display: block;
+}
+
+.note-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+    margin: auto;
+    min-width: 140px;
+    min-height: 70px;
+    margin-bottom: 15px;
+    padding: 20px;
+    padding-bottom: 40px;
+    line-height: 1.7rem;
+    border-radius: 15px;
+    background-color: rgba(36, 182, 201, 0.428);
+}
