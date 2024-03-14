@@ -27,7 +27,7 @@ let gNotes = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: utilService.getRandomNoteColor()
         },
         info: {
             txt: 'Fullstack Me Baby!'
@@ -38,11 +38,11 @@ let gNotes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: '../../../assets/img/audi.jpg',
-            title: 'Bobi and Me'
+            url: 'https://picsum.photos/250/300',
+            title: 'Random Image 1'
         },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: utilService.getRandomNoteColor()
         }
     },
     {
@@ -55,6 +55,9 @@ let gNotes = [
                 { txt: 'Driving license', doneAt: null },
                 { txt: 'Coding power', doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
         }
     },
     {
@@ -62,11 +65,11 @@ let gNotes = [
         type: 'NoteVideo',
         isPinned: false,
         info: {
-            url: 'https://youtu.be/rkRJJHJtgdc?si=e1jmii32hZTOQYCT',
-            title: 'Bobi and Me'
+            url: 'https://www.youtube.com/watch?v=QNTeq4QdOsQ',
+            title: 'Rick Astley - Never Gonna Give You Up'
         },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: utilService.getRandomNoteColor()
         }
     },
     {
@@ -79,6 +82,9 @@ let gNotes = [
                 { txt: 'Driving license', doneAt: null },
                 { txt: 'Coding power', doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
         }
     },
     {
@@ -86,11 +92,11 @@ let gNotes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: '../../../assets/img/audi.jpg',
-            title: 'Bobi and Me'
+            url: 'https://picsum.photos/200/300',
+            title: 'Random Image 2'
         },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: utilService.getRandomNoteColor()
         }
     },
     {
@@ -103,9 +109,14 @@ let gNotes = [
                 { txt: 'Driving license', doneAt: null },
                 { txt: 'Coding power', doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
         }
-    }
-]
+    },
+    // Add a few more notes here
+];
+
 _createNotes()
 
 
@@ -137,7 +148,7 @@ function getEmptyNote() {
         createdAt: new Date().getDate(),
         isPinned: false,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: utilService.getRandomNoteColor()
         },
         info: {
             txt: '',

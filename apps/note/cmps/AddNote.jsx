@@ -7,7 +7,7 @@ export function AddNote({ onSaveNote }) {
 
     function onAddNote(ev) {
         ev.preventDefault()
-        // if (!note.info.title || !note.info.txt) return
+        if (!cmpType) return
         onSaveNote(note)
         setNote(noteService.getEmptyNote())
         setCmpType(null)
