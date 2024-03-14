@@ -13,17 +13,16 @@ export function AddNote({ onSaveNote }) {
         setCmpType(null)
     }
 
-
     function handleChange({ target }) {
         let { value, name } = target
         if (name === 'cmpType') {
             setCmpType(value)
             setNote(prevNote => ({
                 ...prevNote,
-                type: value, 
+                type: value,
                 info: { ...prevNote.info, [name]: value }
             }))
-        } else if (cmpType === 'NoteImg') {
+        } else if (cmpType === 'NoteImg' || cmpType === 'NoteVideo') {
             setNote(prevNote => ({
                 ...prevNote,
                 info: { ...prevNote.info, url: value }
@@ -39,8 +38,9 @@ export function AddNote({ onSaveNote }) {
                 info: { ...prevNote.info, txt: value }
             }))
 
-        } 
+        }
     }
+
 
     return (
         <form onSubmit={onAddNote} >
@@ -57,8 +57,8 @@ export function AddNote({ onSaveNote }) {
                 <input type="radio" id="NoteImg" name="cmpType" value="NoteImg" checked={cmpType === 'NoteImg'} onChange={handleChange} />
                 <label htmlFor="NoteImg">Image</label>
 
-                <input type="radio" id="youtube" name="cmpType" value="youtube" checked={cmpType === 'youtube'} onChange={handleChange} />
-                <label htmlFor="youtube">YouTube</label>
+                <input type="radio" id="NoteVideo" name="cmpType" value="NoteVideo" checked={cmpType === 'NoteVideo'} onChange={handleChange} />
+                <label htmlFor="NoteVideo">YouTube</label>
 
                 <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChange} />
                 <label htmlFor="NoteTodos">Todo List</label>
@@ -71,58 +71,34 @@ export function AddNote({ onSaveNote }) {
     )
 }
 
-// function getVideoFromUrl
-
 //TODO: Make dynCmp
 function DynamicCmp({ cmpType, name, value, onChange }) {
     switch (cmpType) {
-        case 'NoteImg':
+        case 'NoteImg' || 'NoteVideo':
             return (
                 <input type="text"
                     placeholder="Paste image URL here..."
                     name={name}
-                    // value={'value'}
-                    onChange={onChange}
-                />)
-        case 'youtube':
+                    onChange={onChange} />)
+        case 'NoteVideo':
             return (
-                <div>
-
                 <input type="text"
                     placeholder="Paste YouTube Video URL here..."
                     name={name}
-                    onChange={onChange}
-                    />
-                {
-                    value && (
-                        <iframe
-                        width="560"
-                        height="315"
-                        src={videoUrl}
-                        frameBorder="0"
-                        allowFullScreen
-                        ></iframe>
-                    )
-                }
-                </div>
-            )
+                    onChange={onChange} />)
         case 'NoteTodos':
             return (
                 <textarea
                     placeholder="Create Todo List:"
                     name={name}
-                    onChange={onChange}
-                />
-            )
+                    onChange={onChange} />)
         case 'NoteTxt':
             return (
                 <input
                     type="text"
                     placeholder="Take a note..."
                     name="text"
-                    onChange={onChange}
-                />
-            )
+                    onChange={onChange} />)
         default:
             return null
 

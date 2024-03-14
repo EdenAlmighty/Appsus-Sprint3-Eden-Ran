@@ -59,10 +59,10 @@ let gNotes = [
     },
     {
         id: 'n104',
-        type: 'NoteImg',
+        type: 'NoteVideo',
         isPinned: false,
         info: {
-            url: '../../../assets/img/audi.jpg',
+            url: 'https://youtu.be/rkRJJHJtgdc?si=e1jmii32hZTOQYCT',
             title: 'Bobi and Me'
         },
         style: {
