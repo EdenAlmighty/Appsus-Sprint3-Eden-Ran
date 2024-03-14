@@ -12,7 +12,9 @@ export const noteService = {
     save,
     getEmptyNote,
     duplicateNote,
-    toggleNotePin
+    toggleNotePin,
+    getPinnedNotes,
+    getUnPinnedNotes
 
 }
 
@@ -120,6 +122,14 @@ function query(filterBy) {
     })
 }
 
+function getPinnedNotes(notes){
+    return notes.filter(note => note.isPinned)
+}
+
+function getUnPinnedNotes(notes) {
+    return notes.filter(note => !note.isPinned)
+}
+
 function getEmptyNote() {
     return {
         // id,
@@ -130,8 +140,12 @@ function getEmptyNote() {
             backgroundColor: '#00d'
         },
         info: {
-            txt: 'text',
-            title: 'title',
+            txt: '',
+            title: '',
+            todos: [
+                { txt: '', doneAt: '' },
+                
+            ]
         }
     }
 }

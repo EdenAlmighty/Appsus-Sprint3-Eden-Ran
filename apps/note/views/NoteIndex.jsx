@@ -10,7 +10,7 @@ export function NoteIndex() {
 
     useEffect(() => {
         loadNotes()
-    }, [setNotes])
+    }, [])
 
     function loadNotes() {
         console.log(notes);
@@ -39,46 +39,16 @@ export function NoteIndex() {
             .then(loadNotes)
     }
 
-    function handleAction(func, ...args) {
-        return () => {
-            return func(...args)
-                .then(() => loadNotes())
-        }
-    }
-
     if (!notes) return <div className="loader"><span>III</span></div>
+
     return <section className="note-main-container">
         <h2 className="page-title">Note app</h2>
         <AddNote onSaveNote={onSaveNote} />
-
-        <h1>Pinned</h1>
-
-        <NoteList notes={notes.filter(note => note.isPinned)}
+        <NoteList notes={notes}
             onRemoveNote={onRemoveNote}
             onSaveNote={onSaveNote}
             onDuplicateNote={onDuplicateNote}
             onToggleNotePin={onToggleNotePin}
         />
-
-        <h1>Notes</h1>
-        <NoteList notes={notes.filter(note => !note.isPinned)}
-            onRemoveNote={onRemoveNote}
-            onSaveNote={onSaveNote}
-            onDuplicateNote={onDuplicateNote}
-            onToggleNotePin={onToggleNotePin}
-        />
-
     </section>
 }
-
-// function NoteListView({ notes, handleAction }) {
-//     return (
-//         <NoteList
-//             notes={notes}
-//             onRemoveNote={noteId => handleAction(noteService.remove(noteId))}
-//             onSaveNote={handleAction(noteService.save)}
-//             onDuplicateNote={handleAction(noteService.duplicateNote)}
-//             onToggleNotePin={handleAction(noteService.toggleNotePin)}
-//         />
-//     )
-// }

@@ -1,6 +1,8 @@
  /* note list */
 
- .note-list-container {
+
+ .pinned-notes,
+ .unPinned-notes {
      margin: 20px auto;
      columns: 4;
      column-gap: 2em;

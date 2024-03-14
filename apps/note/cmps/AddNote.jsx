@@ -7,41 +7,39 @@ export function AddNote({ onSaveNote }) {
 
     function onAddNote(ev) {
         ev.preventDefault()
-        if (!note.info.title || !note.info.txt) return
+        // if (!note.info.title || !note.info.txt) return
         onSaveNote(note)
         setNote(noteService.getEmptyNote())
+        setCmpType(null)
     }
 
 
-    // function handleChange({ target }) {
-    //     let { value, name: field } = target
-
-    //     setNote(prevNote => {
-    //         return { ...prevNote, info: { ...prevNote.info, [field]: value } }
-    //     })
-    // }
     function handleChange({ target }) {
         let { value, name } = target
         if (name === 'cmpType') {
             setCmpType(value)
             setNote(prevNote => ({
-                ...prevNote, type: value, info: { ...prevNote.info, [name]: value }
+                ...prevNote,
+                type: value, 
+                info: { ...prevNote.info, [name]: value }
             }))
         } else if (cmpType === 'NoteImg') {
             setNote(prevNote => ({
                 ...prevNote,
-            info: {
-                ...prevNote.info,
-                url: value }
+                info: { ...prevNote.info, url: value }
             }))
-        } else {
+        } else if (cmpType === 'NoteTodos') {
             setNote(prevNote => ({
                 ...prevNote,
-                info: { ...prevNote.info, [name]: value }
-
+                info: { ...prevNote.info, todos: value }
             }))
-            console.log(cmpType);
-        }
+        } else if (cmpType === 'NoteTxt') {
+            setNote(prevNote => ({
+                ...prevNote,
+                info: { ...prevNote.info, txt: value }
+            }))
+
+        } 
     }
 
     return (
@@ -58,8 +56,8 @@ export function AddNote({ onSaveNote }) {
                 onChange={handleChange}
             /> */}
             <section>
-                <input type="radio" id="text" name="cmpType" value="text" checked={cmpType === 'text'} onChange={handleChange} />
-                <label htmlFor="text">Text</label>
+                <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChange} />
+                <label htmlFor="NoteTxt">Text</label>
 
                 <input type="radio" id="NoteImg" name="cmpType" value="NoteImg" checked={cmpType === 'NoteImg'} onChange={handleChange} />
                 <label htmlFor="NoteImg">Image</label>
@@ -67,8 +65,8 @@ export function AddNote({ onSaveNote }) {
                 <input type="radio" id="youtube" name="cmpType" value="youtube" checked={cmpType === 'youtube'} onChange={handleChange} />
                 <label htmlFor="youtube">YouTube</label>
 
-                <input type="radio" id="todo" name="cmpType" value="todo" checked={cmpType === 'todo'} onChange={handleChange} />
-                <label htmlFor="todo">Todo List</label>
+                <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChange} />
+                <label htmlFor="NoteTodos">Todo List</label>
             </section>
             <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChange} />
 
@@ -97,7 +95,7 @@ function DynamicCmp({ cmpType, name, value, onChange }) {
                     onChange={onChange}
                 />
             )
-        case 'todo':
+        case 'NoteTodos':
             return (
                 <textarea
                     placeholder="Create Todo List:"
@@ -105,7 +103,7 @@ function DynamicCmp({ cmpType, name, value, onChange }) {
                     onChange={onChange}
                 />
             )
-        case 'text':
+        case 'NoteTxt':
             return (
                 <input
                     type="text"
