@@ -4,6 +4,8 @@ export function NotePreview({ note }) {
     const [editing, setEditing] = useState(false)
     const [content, setContent] = useState('')
     
+
+    
     let currContent
 
     function handleChange(idx) {

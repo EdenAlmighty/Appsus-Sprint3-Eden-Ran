@@ -50,11 +50,6 @@ export function AddNote({ onSaveNote }) {
                 name="title"
                 onChange={handleChange}
             /> */}
-            {/* <input
-                placeholder="Take a note..."
-                name="txt"
-                onChange={handleChange}
-            /> */}
             <section>
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChange} />
                 <label htmlFor="NoteTxt">Text</label>
@@ -76,6 +71,8 @@ export function AddNote({ onSaveNote }) {
     )
 }
 
+// function getVideoFromUrl
+
 //TODO: Make dynCmp
 function DynamicCmp({ cmpType, name, value, onChange }) {
     switch (cmpType) {
@@ -89,11 +86,25 @@ function DynamicCmp({ cmpType, name, value, onChange }) {
                 />)
         case 'youtube':
             return (
+                <div>
+
                 <input type="text"
                     placeholder="Paste YouTube Video URL here..."
                     name={name}
                     onChange={onChange}
-                />
+                    />
+                {
+                    value && (
+                        <iframe
+                        width="560"
+                        height="315"
+                        src={videoUrl}
+                        frameBorder="0"
+                        allowFullScreen
+                        ></iframe>
+                    )
+                }
+                </div>
             )
         case 'NoteTodos':
             return (
