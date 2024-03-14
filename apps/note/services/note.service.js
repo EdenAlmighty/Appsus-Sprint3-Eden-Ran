@@ -2,6 +2,7 @@
 
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
+import { localStorageService } from '../../../services/storage.service.js'
 
 
 export const noteService = {
@@ -10,7 +11,9 @@ export const noteService = {
     remove,
     save,
     getEmptyNote,
-    duplicateNote
+    duplicateNote,
+    toggleNotePin
+
 }
 
 const NOTE_KEY = 'notesDB'
@@ -141,6 +144,27 @@ function duplicateNote(noteId) {
             return storageService.post(NOTE_KEY, newNote)
         })
 }
+
+function toggleNotePin(noteId) {
+    return storageService.query(NOTE_KEY)
+        .then((notes) => {
+            const idx = notes.findIndex(note => note.id === noteId)
+            const noteToToggle = notes[idx]
+            console.log(noteToToggle);
+            
+            noteToToggle.isPinned = !noteToToggle.isPinned
+            
+            notes.splice(idx, 1)
+
+            if (noteToToggle.isPinned) {
+                notes.unshift(noteToToggle)
+            } else {
+                notes.push(noteToToggle)
+            }
+            return storageService.put(NOTE_KEY, noteToToggle)
+        })
+}
+
 
 
 

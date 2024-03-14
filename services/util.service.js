@@ -7,7 +7,7 @@ export const utilService = {
     getDayName,
     getMonthName,
     loadFromStorage,
-    saveToStorage
+    saveToStorage,
 }
 
 function makeId(length = 6) {

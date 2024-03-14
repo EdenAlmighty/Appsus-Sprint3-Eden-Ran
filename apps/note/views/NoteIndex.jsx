@@ -33,6 +33,11 @@ export function NoteIndex() {
             .then(loadNotes)
     }
 
+    function onToggleNotePin(noteId) {
+        noteService.toggleNotePin(noteId)
+            .then(loadNotes)
+    }
+
     if (!notes) return <div className="loader"><span>III</span></div>
     return <section className="note-main-container">
         <h2 className="page-title">Note app</h2>
@@ -41,6 +46,8 @@ export function NoteIndex() {
         <NoteList notes={notes}
             onRemoveNote={onRemoveNote}
             onSaveNote={onSaveNote}
-            onDuplicateNote={onDuplicateNote} />
+            onDuplicateNote={onDuplicateNote}
+            onToggleNotePin={onToggleNotePin}
+             />
     </section>
 }
