@@ -38,7 +38,7 @@ export function MailIndex() {
     return <section className="mail-index">
 
         <h2 className="page-title">Mail</h2>
-            {isComposing && <EmailCompose />}
+            {isComposing && <EmailCompose setIsComposing={setIsComposing} />}
         <section className="mail-main-layout">
 
 

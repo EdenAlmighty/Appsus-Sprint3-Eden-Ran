@@ -2,43 +2,58 @@ const { useState, useRef, useEffect } = React
 
 import { mailService } from '../services/mail.service.js'
 
-export function EmailCompose() {
+export function EmailCompose({setIsComposing}) {
 
 
+    const [isExpanded,setIsExpanded] = useState(false)
     const [mailToCompose, setMailToCompose] = useState(mailService.getNewMail())
     console.log(mailToCompose);
 
     const intervalIdRef = useRef()
 
     useEffect(() => {
+
+
+        // return setIsExpanded(false)
+    },[isExpanded])
+
+    useEffect(() => {
         intervalIdRef.current = setInterval(() => {
             updateMailToCompose()
-        },5000)
+        }, 5000)
 
         return () => {
             clearInterval(intervalIdRef.current)
         }
-    },[mailToCompose])
+    }, [mailToCompose])
 
     function onSubmit() {
 
     }
 
-    function handleChange({target}){
-        let {value, name: field} = target
-        console.log(value,field);
-        setMailToCompose((prevMailToCompose) => ({...prevMailToCompose,[field]:value}))
+    function handleChange({ target }) {
+        let { value, name: field } = target
+        console.log(value, field);
+        setMailToCompose((prevMailToCompose) => ({ ...prevMailToCompose, [field]: value }))
     }
 
-    function updateMailToCompose(){
+    function updateMailToCompose() {
         console.log(mailToCompose);
         mailService.save(mailToCompose)
-            .then(mail => setMailToCompose(prevMailToCompose => ({...prevMailToCompose,id:mail.id})))
+            .then(mail => setMailToCompose(prevMailToCompose => ({ ...prevMailToCompose, id: mail.id })))
         // saveDraftMail(mailToCompose)
     }
 
-    return <section className="email-compose">
+    return <section className={`email-compose ${isExpanded ? 'expanded' : ''}`}>
+        <div className={`${isExpanded ? 'backdrop-compose' : ''}`}></div>
         <form onClick={onSubmit}>
+            <div className='email-compose-header'>
+                <h2 >New Message</h2>
+                <div className="compose-small-actions">
+                    <button onClick={() => setIsComposing((prevIsComposing) => !prevIsComposing)}>-</button>
+                    <button onClick={() => setIsExpanded((prevIsExpanded) => !prevIsExpanded)}>+</button>
+                </div>
+            </div>
             <p>From: {mailToCompose.from}</p>
             <label htmlFor="compose-to-input"></label>
             <input type="text"
@@ -55,10 +70,10 @@ export function EmailCompose() {
                 onChange={handleChange}
             />
             <label htmlFor="compose-body-text"></label>
-            <input type="text" 
-            id='compose-body-text'
-            name='body'
-            onChange={handleChange}
+            <input type="text"
+                id='compose-body-text'
+                name='body'
+                onChange={handleChange}
             />
         </form>
     </section>

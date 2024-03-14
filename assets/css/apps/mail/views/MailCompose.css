@@ -1,9 +1,72 @@
-.email-compose{
+.email-compose {
     /* position: fixed; */
     width: 40vw;
-    height: 35vh;
-    background-color: cadetblue;
-    position: absolute;
+    height: 50vh;
+    background-color: white;
+    position: fixed;
     right: 2vw;
     bottom: 2vh;
+    border-radius: 0.5em;
+    z-index: 111;
 }
+
+.email-compose form {
+    display: grid;
+}
+
+.email-compose input {
+    height: 3vh;
+    border: 0;
+    inset: 0;
+    border-radius: 1em;
+    margin: 1vh 1vw;
+    border: 1px solid gray;
+}
+
+#compose-body-text {
+    height: 20vh;
+}
+
+.email-compose form p , .email-compose-header{
+    padding: 1.2vh 1.2vw;
+}
+
+.email-compose-header{
+    background: rgb(242,246,252);
+    font-size: 1em;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email-compose-header h2{
+    color: #5f6d88;
+}
+
+.compose-small-actions button{
+    border: none;
+    background: transparent;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.email-compose.expanded{
+    width: 70vw;
+    height: 70vh;
+    right: 15vw;
+    bottom: 15vh;
+}
+
+.email-compose.expanded::backdrop {
+    background: salmon;
+}
+
+.backdrop-compose {
+    position: fixed;
+    width: 99vw;
+    height: 99vh;
+    background-color: rgba(245, 245, 245, 0.769);
+    z-index: -1;
+}
+
