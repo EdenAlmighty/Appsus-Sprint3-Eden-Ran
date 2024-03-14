@@ -24,7 +24,12 @@
 }
 
 #compose-body-text {
+    vertical-align:top;
     height: 20vh;
+}
+
+#compose-body-text.input-expanded{
+    height: 50vh;
 }
 
 .email-compose form p , .email-compose-header{
@@ -58,15 +63,11 @@
     bottom: 15vh;
 }
 
-.email-compose.expanded::backdrop {
-    background: salmon;
-}
-
 .backdrop-compose {
     position: fixed;
     width: 99vw;
     height: 99vh;
-    background-color: rgba(245, 245, 245, 0.769);
+    background-color: rgba(245, 245, 245, 1);
     z-index: -1;
 }
 

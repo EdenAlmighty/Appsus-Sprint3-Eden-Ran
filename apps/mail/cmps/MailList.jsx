@@ -23,8 +23,13 @@ export function MailList({ mails, loadMails }) {
     }
 
     function onRemoveMail(mailId) {
-        mailService.remove(mailId)
-            .then(loadMails)
+        mailService.get(mailId)
+            .then((mail) => { 
+                if (mail.removedAt === null){
+                    mail.removedAt = Date.now()
+                    return mailService.save(mail)
+                } else return mailService.remove(mailId)
+            }).then(loadMails)
     }
 
     function getMailClass(isRead) {

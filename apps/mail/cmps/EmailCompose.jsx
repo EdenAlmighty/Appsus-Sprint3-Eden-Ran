@@ -1,5 +1,6 @@
 const { useState, useRef, useEffect } = React
 
+import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { mailService } from '../services/mail.service.js'
 
 export function EmailCompose({setIsComposing}) {
@@ -39,8 +40,12 @@ export function EmailCompose({setIsComposing}) {
 
     function updateMailToCompose() {
         console.log(mailToCompose);
-        mailService.save(mailToCompose)
+        const {subject,to} = mailToCompose
+        if (subject && to){
+            mailService.save(mailToCompose)
             .then(mail => setMailToCompose(prevMailToCompose => ({ ...prevMailToCompose, id: mail.id })))
+            .then(() => showSuccessMsg('Draft saved') )
+        }
         // saveDraftMail(mailToCompose)
     }
 
@@ -56,7 +61,8 @@ export function EmailCompose({setIsComposing}) {
             </div>
             <p>From: {mailToCompose.from}</p>
             <label htmlFor="compose-to-input"></label>
-            <input type="text"
+            <input type="email"
+
                 id='compose-to-input'
                 name='to'
                 placeholder='Recipients'
@@ -73,6 +79,7 @@ export function EmailCompose({setIsComposing}) {
             <input type="text"
                 id='compose-body-text'
                 name='body'
+                className={`${isExpanded ? 'input-expanded' : ''}`}
                 onChange={handleChange}
             />
         </form>

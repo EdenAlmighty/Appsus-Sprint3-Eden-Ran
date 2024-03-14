@@ -29,6 +29,7 @@
  .mail-list {
    justify-self: start;
    width: 100%;
+   z-index: -1;
  }
 
  

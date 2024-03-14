@@ -16,40 +16,6 @@ export const mailService = {
 
 
 const gEmails = [
-    // {
-    //     id: 'e101',
-    //     sender: 'Puki',
-    //     subject: 'Miss you!',
-    //     body: 'Would love to catch up sometimes',
-    //     isRead: false,
-    //     sentAt: 1551133930594,
-    //     removedAt: null,
-    //     from: 'momo@momo.com',
-    //     to: 'user@appsus.com',
-    // },
-    // {
-    //     id: 'e102',
-    //     sender: 'Muki',
-    //     subject: 'Miss you!',
-    //     body: 'Have you been through our meeting?',
-    //     isRead: false,
-    //     sentAt: 1551133930594,
-    //     removedAt: null,
-    //     from: 'momo@momo.com',
-    //     to: 'user@appsus.com',
-    // },
-    // {
-    //     id: 'e103',
-    //     sender: 'Shuki',
-    //     subject: 'Miss you!',
-    //     body: 'Any update on the last quote sent?',
-    //     isRead: false,
-    //     sentAt: 1551133930594,
-    //     removedAt: null,
-    //     from: 'momo@momo.com',
-    //     to: 'user@appsus.com',
-    // }
-    // const demoData = [
         {
           id: 'e101',
           sender: 'Puki',
@@ -269,7 +235,7 @@ function query(filterBy = getFilterBy()) {
             }
             if (filterBy.status){
                 if (filterBy.status === 'inbox') {
-                    mails = mails.filter(mail => mail.to === loggedinUser.email)
+                    mails = mails.filter(mail => mail.to === loggedinUser.email && mail.removedAt === null)
                 }
                 if (filterBy.status === 'sent') {
                     mails = mails.filter(mail => mail.from === loggedinUser.email && !mail.isDraft)
@@ -297,7 +263,7 @@ function remove(mailId){
 }
 
 function save(mail){
-    console.log(mail);
+    // console.log(mail);
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
@@ -335,7 +301,7 @@ function _createBooks(){
 
 
 const criteria = {
-    status: '',
+    status: 'inbox',
     txt: '', // no need to support complex text search
     isRead: false, // (optional property, if missing: show all)
     isStared: true, // (optional property, if missing: show all)
