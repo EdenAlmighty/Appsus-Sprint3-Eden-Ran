@@ -37,6 +37,8 @@ img {
 
 /* MAIL MENU DEFAULT */
 .material-symbols-outlined {
+    overflow: hidden;
+    position: relative;
     cursor: pointer;
     color: #444746;
     font-variation-settings:
@@ -46,6 +48,30 @@ img {
         'opsz' 24
 }
 
+.circle-icon::before {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffc0c0;
+    border-radius: 50%;
+    text-align: center;
+    /* line-height: 100px; */
+    vertical-align: middle;
+    padding: 10px;
+}
+.circle-icon::before:hover {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffc0c0;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    text-align: center;
+    /* line-height: 100px; */
+    vertical-align: middle;
+    padding: 10px;
+}
 
 .material-symbols-outlined.active {
     cursor: pointer;
@@ -56,15 +82,15 @@ img {
         'GRAD' 0,
         'opsz' 24
 }
-/* 
-.material-symbols-outlined:hover {
+
+.material-symbols-outlined.notes:hover {
     cursor: pointer;
     font-variation-settings:
         'FILL' 1,
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
-} */
+}
 
 .material-symbols-outlined.star-active {
     color: #f3c74b;

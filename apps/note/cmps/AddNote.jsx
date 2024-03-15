@@ -3,7 +3,7 @@ const { useEffect, useState } = React
 
 export function AddNote({ onSaveNote }) {
     const [note, setNote] = useState(noteService.getEmptyNote())
-    const [cmpType, setCmpType] = useState('null')
+    const [cmpType, setCmpType] = useState('NoteTxt')
 
     function onAddNote(ev) {
         ev.preventDefault()

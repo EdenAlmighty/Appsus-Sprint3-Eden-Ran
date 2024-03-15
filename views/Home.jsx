@@ -16,6 +16,7 @@ export function Home() {
         <span className="material-symbols-outlined">check_box</span>
         <span className="material-symbols-outlined">navigate_next</span>
         <span className="material-symbols-outlined">navigate_before</span>
+        <span className="material-symbols-outlined">edit</span>
 
         <h1>Mail Icons -greyed</h1>
 
@@ -32,7 +33,7 @@ export function Home() {
 
         <h1>Keep Icons</h1>
 
-        <span className="material-symbols-outlined">palette</span>
+        <span className="material-symbols-outlined circle-icon">palette</span>
         <span className="material-symbols-outlined">delete</span>
         <span className="material-symbols-outlined">content_copy</span>
         <span className="material-symbols-outlined">keep</span>
