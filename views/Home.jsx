@@ -16,6 +16,12 @@ export function Home() {
         <span className="material-symbols-outlined">check_box</span>
         <span className="material-symbols-outlined">navigate_next</span>
         <span className="material-symbols-outlined">navigate_before</span>
+        <h1>Mail Icons -greyed</h1>
+
+        <span className="material-symbols-outlined greyed">label_important</span>
+        <span className="material-symbols-outlined">star</span>
+        <span className="material-symbols-outlined">check_box_outline_blank</span>
+        <span className="material-symbols-outlined">check_box</span>
 
         <h1>Keep Icons</h1>
 
