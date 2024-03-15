@@ -137,19 +137,22 @@
    height: 32px;
    cursor: pointer;
    width: 100%;
-
-
- }
-
- .mail-folder-list-items li.inbox {
    display: grid;
    grid-auto-flow: column;
-   justify-content: space-between;
+   justify-content: left;
+   column-gap: 1em;
+   align-content: center;
+ }
+
+
+ .mail-folder-list-items li.inbox {
    align-items: center;
+   grid-template-columns: auto auto 1fr;
  }
 
  .unread-count {
    margin-right: 1em;
+   justify-self: end;
  }
 
  .mail-actions svg {
