@@ -38,5 +38,12 @@ export function Home() {
         <span className="material-symbols-outlined">content_copy</span>
         <span className="material-symbols-outlined">keep</span>
 
+        <h1>Icons Hover -circle-icon</h1>
+
+        <span className="material-symbols-outlined circle-icon">palette</span>
+        <span className="material-symbols-outlined circle-icon">delete</span>
+        <span className="material-symbols-outlined circle-icon">content_copy</span>
+        <span className="material-symbols-outlined circle-icon">keep</span>
+
     </section>
 }
