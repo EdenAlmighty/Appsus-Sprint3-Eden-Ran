@@ -67,7 +67,7 @@ export function MailIndex() {
 
 
             <div className="main-mail-list-folder">
-                <button onClick={() => setIsComposing((prevComposing => !prevComposing))}>New Mail</button>
+                <button className='compose-btn' onClick={() => setIsComposing((prevComposing => !prevComposing))}><span className="material-symbols-outlined">edit</span>Compose</button>
 
                 <MailFolderList
                     onSetFilter={onSetFilter}
