@@ -37,6 +37,8 @@ export function Home() {
         <span className="material-symbols-outlined">delete</span>
         <span className="material-symbols-outlined">content_copy</span>
         <span className="material-symbols-outlined">keep</span>
+        <span class="material-symbols-outlined">youtube_activity</span>
+        <span class="material-symbols-outlined">photo</span>
 
         <h1>Icons Hover -circle-icon</h1>
 
