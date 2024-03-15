@@ -1,12 +1,12 @@
 header {
-    font-family: poppins-black;
+    font-family: google-sans-bold;
     color: var(--main-clr);
 
     background: var(--main-bgc);
 }
 
 nav a {
-    font-family: poppins-semi-bold;
+    font-family: google-sans-medium;
 }
 
 .app-header {

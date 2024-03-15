@@ -22,3 +22,16 @@
     font-family: poppins-light;
     src: url(../../fonts/Poppins/Poppins-Light.ttf);
 }
+
+@font-face {
+    font-family: google-sans;
+    src: url(../../fonts/Google-Sans/GoogleSans-Regular.ttf);
+}
+@font-face {
+    font-family: google-sans-medium;
+    src: url(../../fonts/Google-Sans/GoogleSans-Medium.ttf);
+}
+@font-face {
+    font-family: google-sans-bold;
+    src: url(../../fonts/Google-Sans/GoogleSans-Bold.ttf);
+}

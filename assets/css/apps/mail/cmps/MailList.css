@@ -120,13 +120,13 @@
    row-gap: 0.5vh;
    transition: 0.5s;
    align-content: top;
-   font-family: poppins-light;
+   font-family: google-sans;
    /* background-color: rgb(231 238 251); */
  }
 
  .mail-folder-list-items li.focused {
    background: rgb(211, 227, 253);
-   font-family: poppins-medium;
+   font-family: google-sans-bold;
  }
 
  .mail-folder-list-items :hover {

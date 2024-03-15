@@ -28,10 +28,12 @@ export function AddNote({ onSaveNote }) {
                 info: { ...prevNote.info, url: value }
             }))
         } else if (cmpType === 'NoteTodos') {
+            const todosArray = value.split(',').map(todo => todo.trim()).filter(todo => todo !== ' ')
+            const todosObjects = todosArray.map(todo => ({ txt: todo, checked: false }))
             setNote(prevNote => ({
                 ...prevNote,
-                info: { ...prevNote.info, todos: value }
-            }))
+                info: { ...prevNote.info, todos: todosObjects }
+            }));
         } else if (cmpType === 'NoteTxt') {
             setNote(prevNote => ({
                 ...prevNote,
@@ -89,9 +91,11 @@ function DynamicCmp({ cmpType, name, value, onChange }) {
         case 'NoteTodos':
             return (
                 <textarea
-                    placeholder="Create Todo List:"
-                    name={name}
-                    onChange={onChange} />)
+                    placeholder="Create Todo List: (separate with commas)"
+                    name="info"
+                    value={value.todos.map(todo => todo.txt).join(', ')}
+                    onChange={onChange} />
+            );
         case 'NoteTxt':
             return (
                 <input
@@ -101,7 +105,6 @@ function DynamicCmp({ cmpType, name, value, onChange }) {
                     onChange={onChange} />)
         default:
             return null
-
     }
 }
 
