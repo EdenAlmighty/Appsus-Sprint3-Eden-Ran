@@ -22,12 +22,12 @@ export function App() {
                 <Route path="/note" element={<NoteIndex />} />
 
 
-                <Route path="/mail" element={<MailIndex />} >
-                    <Route path="/mail" element={<MailIndex />} />
+                <Route path="/mail" element={<MailIndex />}/>
+                    {/* <Route path="/mail" element={<MailIndex />} /> */}
                     <Route path="/mail/:mailId" element={< MailDetails />} />
                     {/* <Route path="/mail/:txt" element = {<MailIndex/>}/> */}
 
-                </Route>
+              
             </Routes>
             {/* </main> */}
         </section>

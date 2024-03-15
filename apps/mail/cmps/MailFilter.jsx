@@ -31,6 +31,18 @@ export function MailFilter({ onSetFilter, filterBy = getFilterFromParams(searchP
         onSetFilter(filterByToUpdate)
     }
 
+    function onChangeSelect({target}) {
+        let {value} = target
+        console.log(value);
+        if (value === 'star'){
+            // value = !value
+            setFilterByToUpdate(() => ({...filterBy, [value]:true}))
+        } else {
+            setFilterByToUpdate(() => ({...filterBy, ['isRead']:value,star:false}))
+        }
+        console.log(value);
+    }
+
     return <section className="mail-filter">
         <form onSubmit={onFilter}>
             <div className="filter-input-container">
@@ -44,14 +56,12 @@ export function MailFilter({ onSetFilter, filterBy = getFilterFromParams(searchP
                     placeholder="Search mail"
                 />
             </div>
-            <label htmlFor="search-isread">Read</label>
-            <input
-                type="checkbox"
-                name="isRead"
-                id="search-isread"
-                value={filterByToUpdate.isRead}
-                onChange={handleChange}
-            />
         </form>
+        <select onChange={(ev) => onChangeSelect(ev)} name="filter-by" id="filter-select">
+            <option value="all">All</option>
+            <option value="read">Read</option>
+            <option value="unread">Unread</option>
+            <option value="star">Starred</option>
+        </select>
     </section>
 }

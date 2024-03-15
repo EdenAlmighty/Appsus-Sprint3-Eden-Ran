@@ -376,8 +376,15 @@ function query(filterBy = getFilterBy(), sortBy = { sentAt: -1 }) {
                 mails = mails.filter(mail => regex.test(mail.body) || regex.test(mail.subject) || regex.test(mail.sender))
             }
 
-            if (filterBy.isRead) {
+            if (filterBy.isRead === 'read') {
                 mails = mails.filter(mail => mail.isRead)
+            }
+
+            if (filterBy.isRead === 'unread'){
+                mails = mails.filter(mail => !mail.isRead)
+            }
+            if (filterBy.star) {
+                mails = mails.filter(mail => mail.star)
             }
             if (filterBy.status) {
                 if (filterBy.status === 'inbox') {
@@ -391,6 +398,9 @@ function query(filterBy = getFilterBy(), sortBy = { sentAt: -1 }) {
                 }
                 if (filterBy.status === 'draft') {
                     mails = mails.filter(mail => mail.isDraft)
+                }
+                if (filterBy.status === 'star') { 
+                    mails = mails.filter(mail => mail.star)
                 }
             }
             return mails
@@ -440,7 +450,7 @@ function getFilterFromParams(searchParams){
         return {
             txt: searchParams.get('txt') || defaultFilter.txt,
             status: 'inbox',
-            isRead: false,
+            isRead: null,
             
         }
 
@@ -450,7 +460,7 @@ function getFilterBy() {
     return {
         status: 'inbox',
         txt: '', // no need to support complex text search
-        isRead: false, // (optional property, if missing: show all)
+        isRead: null, // (optional property, if missing: show all)
         star: false, // (optional property, if missing: show all)
         // lables: [] // has any of the labels
     

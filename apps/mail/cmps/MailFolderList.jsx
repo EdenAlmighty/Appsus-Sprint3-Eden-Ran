@@ -29,6 +29,7 @@ export function MailFolderList({ onSetFilter, filterBy = getFilterFromParams(sea
             <li className={getFolderClass('sent')}  onClick={() => handleChange('sent')}>Sent</li>
             <li className={getFolderClass('trash')}  onClick={() => handleChange('trash')}>Trash</li>
             <li className={getFolderClass('draft')}  onClick={() => handleChange('draft')}>Draft</li>
+            <li className={getFolderClass('star')}  onClick={() => handleChange('star')}>Starred</li>
         </ul>
     </section>
     
