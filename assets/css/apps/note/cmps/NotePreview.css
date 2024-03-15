@@ -22,8 +22,8 @@
     min-height: 70px;
     margin-bottom: 15px;
     padding: 20px;
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
     line-height: 1.7rem;
-    border-radius: 15px;
+    border-radius: 1em;
     background-color: rgba(36, 182, 201, 0.428);
 }

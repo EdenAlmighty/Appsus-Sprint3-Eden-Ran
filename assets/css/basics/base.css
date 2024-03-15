@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 10px 10px;
     margin: 5;
-    background-color: var(--main-clr);
+    background-color: var(--mail-bgc);
     color: var(--txt-clr);
 }
 
@@ -33,21 +33,29 @@ img {
     user-select: none;
 }
 
-
+ /* ICONS */
 .material-symbols-outlined {
     cursor: pointer;
+    color: var(--mail-icon-active);
     font-variation-settings:
         'FILL' 0,
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
         
-
 }
 
-.material-symbols-outlined.active{
+.material-symbols-outlined:hover{
     cursor: pointer;
-    transition: 0.1s;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+.material-symbols-outlined.star-active{
+    color: #f3c74b;
+    cursor: pointer;
     font-variation-settings:
         'FILL' 1,
         'wght' 400,
@@ -55,6 +63,7 @@ img {
         'opsz' 24
 }
 
+/* LOADER */
 div.loader {
     display: flex;
     justify-content: center;

@@ -1,11 +1,14 @@
 :root {
     --main-bgc: #2B2B2B;
-    --main-clr: #F9F9F9;
+    --main-clr: #f6f8fc;
 
     --cta-bgc: #007DB6;
     --cta-clr: #F9F9F9;
 
     --txt-clr: #2B2B2B;
     --fade-clr: #909090;
+
+    --mail-bgc: #f6f8fc;
+    --mail-icon-active: #041e49
 }
 
