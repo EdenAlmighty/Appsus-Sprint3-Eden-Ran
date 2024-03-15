@@ -1,0 +1,35 @@
+.book-index{
+    display: grid;
+}
+
+.book-index a{
+    justify-self: center;
+}
+
+.books-index-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.books-index-actions button{
+    text-transform: uppercase;
+    color: var(--gray3);
+    font-size: 0.8em;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0.5em;
+    margin-top: 4vh;
+    width: 10vw;
+    height: 5em;
+    transition: 0.5s;
+}
+
+.books-index-actions button:hover {
+    scale: 1.1;    
+}
+
+.book-index a button img{
+    max-width: 2em;   
+}

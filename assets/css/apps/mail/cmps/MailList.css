@@ -16,7 +16,7 @@
    /* scale: 1.1; */
    /* box-shadow: 0px 0px 10px 0px #000000bd */
    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
-   z-index: 2;
+   /* z-index: 2; */
  }
 
  .main-mail-list-folder {
@@ -32,7 +32,7 @@
 
  table.mail-list {
    width: 100%;
-   z-index: -1;
+   /* z-index: -1; */
    background: white;
    display: grid;
    justify-content: space-between;

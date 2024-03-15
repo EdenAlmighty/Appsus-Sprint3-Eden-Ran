@@ -15,7 +15,7 @@
 
 }
 
-.mail-actions.right {
+/* .mail-actions.right {
     opacity: 0;
 }
 
@@ -29,7 +29,7 @@
 
 .row-mail:hover .mail-actions.right {
     opacity: 1;
-}
+} */
 
 .actions-buttons-extended-container{
     /* position: fixed; */

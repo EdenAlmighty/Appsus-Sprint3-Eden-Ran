@@ -1,0 +1,95 @@
+.book-list {
+    display: flex;
+    /* grid-template-columns: repeat(4,1fr); */
+    /* gap: 10px 10px; */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3vh;
+}
+
+.book-card {
+    display: grid;
+    width: 325px;
+    border: 1px solid var(--gray2);
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 0px 10px 5px lightblue;
+    padding: 3px 3px;
+    justify-items: center;
+    text-align: center;
+    align-content: space-between;
+    margin: 20px;
+    background: #FFF5DC;
+}
+
+.book-card:hover {
+    /* animation: pulse; */
+    /* scale: 1.05; */
+    /* animation-duration: 1s; */
+}
+
+.card-container {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-radius: 1em;
+    padding: 10px 10px;
+}
+
+.card-container:hover {
+    animation: fadeinrow;
+    animation-direction: alternate-reverse;
+    animation-duration: 1s;
+}
+
+.card-container:hover .book-preview img {
+    animation: fadeinrow;
+    animation-direction: alternate-reverse;
+    animation-duration: 1s;
+}
+
+@keyframes fadeinrow {
+    from {
+        border-top: 2px solid var(--gray2);
+        border-bottom: 2px solid var(--gray2);
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;    
+    }
+
+    to {
+        border-left: 2px solid var(--gray2);
+        border-right: 2px solid var(--gray2);
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+    }
+}
+
+.book-preview img {
+    width: 300px;
+    height: auto;
+    border-radius: 1em;
+    align-self: center;
+    margin-top: 1vh;
+}
+
+.book-card-text {
+    padding: 16px;
+}
+
+.book-card-text h2 {
+    font-size: 2em;
+    text-transform: capitalize;
+
+}
+
+.book-card button {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.book-actions {
+    display: flex;
+}
+
+.book-actions button {}

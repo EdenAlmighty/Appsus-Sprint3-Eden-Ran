@@ -32,3 +32,13 @@
 @import './apps/mail/views/MailIndex.css';
 @import './apps/mail/views/MailCompose.css';
 @import './apps/mail/views/MailFilter.css';
+
+/* books cmps */
+
+@import './apps/books/book-add.css';
+@import './apps/books/book-details.css';
+@import './apps/books/book-edit.css';
+@import './apps/books/book-filter.css';
+@import './apps/books/book-index.css';
+@import './apps/books/book-list.css';
+@import './apps/books/user-msg.css';

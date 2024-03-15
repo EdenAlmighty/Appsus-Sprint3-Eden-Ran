@@ -1,0 +1,26 @@
+.user-msg {
+    background-color: rgba(241, 175, 41, 0.842);
+    padding: .20em 2em;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: 2px solid black
+}
+
+.user-msg.success {
+    background-color: var(--clr1);
+}
+
+.user-msg.error {
+    background-color: var(--clr2);
+}
+
+
+.user-msg button{
+    float: right;
+    margin: 1em;
+}
