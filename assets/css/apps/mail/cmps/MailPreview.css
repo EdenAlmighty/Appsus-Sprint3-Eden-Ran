@@ -1,4 +1,4 @@
-.read-mail{
+.read-mail {
     color: var(--fade-clr);
     font-family: poppins-light;
 }
@@ -11,6 +11,10 @@
 
 }
 
+.mail-actions-right-container {
+
+}
+
 .mail-actions.right {
     opacity: 0;
 }
@@ -19,8 +23,26 @@
     opacity: 0.5;
 }
 
-.row-mail:hover .mail-actions.left{
+.row-mail:hover .mail-actions.left {
     opacity: 1;
-    scale: 1.1;
 }
 
+.row-mail:hover .mail-actions.right {
+    opacity: 1;
+}
+
+.actions-buttons-extended-container{
+    /* position: fixed; */
+    right: 2vw;
+    /* bottom: 1.5em; */
+    /* right: 10vw; */
+    /* right: 1em; */
+}
+
+.mail-actions-extended {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    /* position: relative; */
+    
+}

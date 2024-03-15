@@ -1,5 +1,5 @@
 const { useState, useEffect } = React
-const { Link } = ReactRouterDOM
+const { Link, useSearchParams } = ReactRouterDOM
 
 
 import { mailService } from '../services/mail.service.js'
@@ -11,15 +11,18 @@ import { MailSort } from '../cmps/MailSort.jsx'
 
 
 export function MailIndex() {
-
-    const [filterBy, setFilterBy] = useState(mailService.getFilterBy())
+    const [searchParams, setSearchParams] = useSearchParams()
+    // const [filterBy, setFilterBy] = useState(mailService.getFilterBy())
     const [sortBy, setSortBy] = useState(mailService.getSortBy())
     const [isComposing, setIsComposing] = useState(false)
     const [unreadCount, setUnreadCount] = useState()
     // console.log(filterBy);
     const [mails, setMails] = useState(null)
+    const [filterBy, setFilterBy] = useState(mailService.getFilterFromParams(searchParams))
 
     useEffect(() => {
+        setSearchParams(filterBy)
+        console.log(filterBy);
         loadMails()
     }, [filterBy])
 
@@ -50,8 +53,6 @@ export function MailIndex() {
     function onSetSort(sortBy) {
         setSortBy(sortBy)
     }
-
-    console.log(unreadCount);
 
     return <section className="mail-index">
 

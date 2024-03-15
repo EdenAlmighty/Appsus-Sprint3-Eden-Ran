@@ -15,10 +15,6 @@
     grid-row: inherit;
  }
 
- .mail-list {
-
- }
-
  .mail-filter {
      /* display: grid; */
      justify-items: center;

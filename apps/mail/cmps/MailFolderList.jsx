@@ -1,8 +1,12 @@
 const { useState, useEffect } = React
+const { Link, useSearchParams } = ReactRouterDOM
 
 import { mailService } from '../services/mail.service.js'
 
-export function MailFolderList({ onSetFilter, filterBy, unreadCount }){
+export function MailFolderList({ onSetFilter, filterBy = getFilterFromParams(searchParams), unreadCount }){
+
+
+    console.log(filterBy);    
 
     const [filterByToUpdate, setFilterByToUpdate] = useState(filterBy)
     useEffect(() => {
@@ -10,7 +14,7 @@ export function MailFolderList({ onSetFilter, filterBy, unreadCount }){
     },[filterByToUpdate])
 
     function handleChange(value){
-        setFilterByToUpdate({'status' : value})
+        setFilterByToUpdate({...filterBy, ['status']: value})
     }
 
     function getFolderClass(value){
@@ -18,20 +22,6 @@ export function MailFolderList({ onSetFilter, filterBy, unreadCount }){
             return 'focused'
         }
     }
-
-    // function getUnreadCount(){
-    //     // return unreadCount
-    //     let result
-    //     return mailService.getUnreadCount()
-             
-                
-
-
-    // }
-
-    console.log(unreadCount);
-
-    // console.log(unreadCount);
 
     return <section className="mail-folder-list">
         <ul className="clean-list mail-folder-list-items">

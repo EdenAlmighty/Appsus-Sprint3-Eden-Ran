@@ -5,6 +5,7 @@ const { Link } = ReactRouterDOM
 import { mailService } from "../services/mail.service.js"
 
 export function MailDetails() {
+    console.log('here');
     const [isLoading, setIsLoading] = useState(true)
     const [mail, setMail] = useState(null)
     const params = useParams()

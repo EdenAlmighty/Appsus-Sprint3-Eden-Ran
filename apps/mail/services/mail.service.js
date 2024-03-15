@@ -16,7 +16,8 @@ export const mailService = {
     getSortBy,
     sortMails,
     getUnreadCount,
-    saveComposedMail
+    saveComposedMail,
+    getFilterFromParams
 }
 
 
@@ -366,6 +367,7 @@ const loggedinUser = {
 }
 
 function query(filterBy = getFilterBy(), sortBy = { sentAt: -1 }) {
+    console.log(filterBy);
     return storageService.query(MAIL_KEY)
         .then(mails => {
             mails = sortMails(sortBy, mails)
@@ -396,6 +398,7 @@ function query(filterBy = getFilterBy(), sortBy = { sentAt: -1 }) {
 }
 
 function sortMails(sortBy, mails) {
+    
     console.log(sortBy);
     if (sortBy.sentAt) {
         console.log('sorrted by sentat');
@@ -432,8 +435,26 @@ function save(mail) {
     }
 }
 
+function getFilterFromParams(searchParams){
+    const defaultFilter = getFilterBy()
+        return {
+            txt: searchParams.get('txt') || defaultFilter.txt,
+            status: 'inbox',
+            isRead: false,
+            
+        }
+
+}
+
 function getFilterBy() {
-    return criteria
+    return {
+        status: 'inbox',
+        txt: '', // no need to support complex text search
+        isRead: false, // (optional property, if missing: show all)
+        star: false, // (optional property, if missing: show all)
+        // lables: [] // has any of the labels
+    
+    }
 }
 
 function getSortBy() {

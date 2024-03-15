@@ -31,3 +31,4 @@
 @import './apps/mail/cmps/MailPreview.css';
 @import './apps/mail/views/MailIndex.css';
 @import './apps/mail/views/MailCompose.css';
+@import './apps/mail/views/MailFilter.css';
