@@ -53,7 +53,7 @@ function getRandomColor() {
 }
 
 function getRandomNoteColor() {
-    const colors = ['#B4FF9F', '#F9FFA4', '#FFCF96', '#FF8080']
+    const colors = ['#C1EFFF', '#FFE9AE', '#FFDBA4', '#FFB3B3']
     const color = colors[getRandomIntInclusive(0, colors.length)]
     return color
 }

@@ -14,7 +14,8 @@ export const noteService = {
     duplicateNote,
     toggleNotePin,
     getPinnedNotes,
-    getUnPinnedNotes
+    getUnPinnedNotes,
+    addTodo
 
 }
 
@@ -133,6 +134,16 @@ function query(filterBy) {
     })
 }
 
+function addTodo(noteId){
+    return storageService.get(NOTE_KEY, noteId)
+        .then((noteToAdd) =>{
+            const newTodo = {txt: '', doneAt: null}
+            noteToAdd.info.todos.push(newTodo)
+            return storageService.post(NOTE_KEY,noteToAdd)
+        })
+}
+
+
 function getPinnedNotes(notes){
     return notes.filter(note => note.isPinned)
 }
@@ -153,10 +164,7 @@ function getEmptyNote() {
         info: {
             txt: '',
             title: '',
-            todos: [
-                { txt: '', doneAt: '' },
-                
-            ]
+            todos: []
         }
     }
 }

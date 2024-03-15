@@ -19,7 +19,7 @@ export function NoteList({ notes, onRemoveNote, onSaveNote, onDuplicateNote, onT
     if (!notes) return <div className="loader"><span>III</span></div>
     return (
         <section className="note-list-container">
-            {pinnedNotes.length > 0 && (
+            {pinnedNotes.length !== 0 && (
                 <Fragment><h2>Pinned Notes</h2>
                     <section className="pinned-notes">
                         {pinnedNotes.map((note) => (
@@ -34,10 +34,9 @@ export function NoteList({ notes, onRemoveNote, onSaveNote, onDuplicateNote, onT
                         ))}
                     </section>
                 </Fragment>
-
             )}
 
-            {unPinnedNotes.length > 0 && (
+            {unPinnedNotes.length !== 0 && (
                 <Fragment><h2>Notes</h2>
                     <section className="unPinned-notes">
                         {notes.map((note) => (
@@ -53,7 +52,6 @@ export function NoteList({ notes, onRemoveNote, onSaveNote, onDuplicateNote, onT
                     </section>
                 </Fragment>
             )}
-
         </section>
     )
 }

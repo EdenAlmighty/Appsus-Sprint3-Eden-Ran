@@ -6,7 +6,7 @@ import { NoteVideo } from "./noteTypes/NoteVideo.jsx"
 
 export function NotePreview({ note }) {
     const [editing, setEditing] = useState(false)
-    const [content, setContent] = useState('')
+    const [content, setContent] = useState('NoteTxt')
 
     const [editedNote, setEditedNote] = useState(note)
 

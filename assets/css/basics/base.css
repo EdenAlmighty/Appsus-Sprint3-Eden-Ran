@@ -1,5 +1,4 @@
-
-html{
+html {
     font-family: poppins-medium
 }
 
@@ -31,9 +30,32 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    user-select: none;
 }
 
-div.loader{
+
+.material-symbols-outlined {
+    cursor: pointer;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+        
+
+}
+
+.material-symbols-outlined.active{
+    cursor: pointer;
+    transition: 0.1s;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+div.loader {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -48,30 +70,29 @@ div.loader{
     border-color: rgba(211, 173, 4, 0.728) transparent rgba(255, 200, 0, 0.839) transparent;
     border-radius: 50%;
     animation: rotate;
-    animation-duration: 1.5s ;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
-  }
-  
-  div.loader span{
+}
+
+div.loader span {
     position: absolute;
     display: block;
     font-size: 2em;
     animation: rubberBand;
-    animation-duration: 2s ;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
-  }
-  
-  @keyframes rotate {
-      from {
+}
+
+@keyframes rotate {
+    from {
         transform: rotate(360deg);
         scale: 1;
     }
-  
+
     to {
         transform: rotate(0deg);
         scale: 1.5;
     }
-  }
-  
+}
