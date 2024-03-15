@@ -23,13 +23,19 @@ export function MailFolderList({ onSetFilter, filterBy = getFilterFromParams(sea
         }
     }
 
+    function getIconClass(value) {
+        if (filterBy.status === value) {
+            return 'active'
+        }
+    }
+
     return <section className="mail-folder-list">
         <ul className="clean-list mail-folder-list-items">
-            <li className={`inbox ${getFolderClass('inbox')}`} onClick={() => handleChange('inbox')}><span className="material-symbols-outlined">inbox</span>Inbox <span className="unread-count">{unreadCount}</span></li>
-            <li className={getFolderClass('sent')} onClick={() => handleChange('sent')}><span className="material-symbols-outlined">send</span>Sent</li>
-            <li className={getFolderClass('trash')} onClick={() => handleChange('trash')}><span className="material-symbols-outlined">delete</span>Trash</li>
-            <li className={getFolderClass('draft')} onClick={() => handleChange('draft')}><span className="material-symbols-outlined">draft</span>Draft</li>
-            <li className={getFolderClass('star')} onClick={() => handleChange('star')}><span className="material-symbols-outlined">star</span>Starred</li>
+            <li className={`inbox ${getFolderClass('inbox')}`} onClick={() => handleChange('inbox')}><span className={`material-symbols-outlined ${getIconClass('inbox')}`}>inbox</span>Inbox <span className="unread-count">{unreadCount}</span></li>
+            <li className={getFolderClass('sent')} onClick={() => handleChange('sent')}><span className={`material-symbols-outlined ${getIconClass('sent')}`}>send</span>Sent</li>
+            <li className={getFolderClass('trash')} onClick={() => handleChange('trash')}><span className={`material-symbols-outlined ${getIconClass('trash')}`}>delete</span>Trash</li>
+            <li className={getFolderClass('draft')} onClick={() => handleChange('draft')}><span className={`material-symbols-outlined ${getIconClass('draft')}`}>draft</span>Draft</li>
+            <li className={getFolderClass('star')} onClick={() => handleChange('star')}><span className={`material-symbols-outlined ${getIconClass('star')}`}>star</span>Starred</li>
         </ul>
     </section>
 

@@ -8,18 +8,33 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
 
     const navigate = useNavigate()
 
+    const min = 1000 * 60
+    const hour = min * 60
+    const day = hour * 24
+    const week = day * 7
+    const month = day * 30
+
     const isExpended = mail.id === expandedRowId
     console.log(isExpended);
 
     function getFormattedDate(mail) {
         const date = new Date(mail.sentAt)
-        // if (Date.now() - date > 12000) {
-        //     const formattedDate = Date.now() - date / 1000 / 60
-        //     return `${formattedDate} minutes..`
-        // }
-        // if (Date.now() - date < 12000){
-        //     return `Just now...`
-        // }
+        if (Date.now() - date < min*2){
+            return `Just now...`
+        }
+        if (Date.now() - date < hour) {
+            return `${parseInt((Date.now() - date) / min)} minutes ago..`
+        }
+        if (Date.now - date < day){
+            return `${parseInt(Date.now() - date / hour)} hours ago..`
+        }
+        if (Date.now - date < week) {
+            return `${Date.now() - date - week} days ago..`
+        }
+
+        if (Date.now - date < month){
+            return `${date.getDate()} ${date.getMonth()} `
+        }
         return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
     }
 
