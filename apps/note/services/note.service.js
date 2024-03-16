@@ -15,7 +15,8 @@ export const noteService = {
     toggleNotePin,
     getPinnedNotes,
     getUnPinnedNotes,
-    addTodo
+    addTodo,
+    changeNoteColor
     
 }
 
@@ -214,6 +215,17 @@ function toggleNotePin(noteId) {
             console.log(noteToToggle)
             noteToToggle.isPinned = !noteToToggle.isPinned
             return storageService.put(NOTE_KEY, noteToToggle)
+        })
+}
+
+function changeNoteColor(noteId, newColor) {
+    return storageService.get(NOTE_KEY, noteId)
+        .then(note => {
+            if (!note) {
+                throw new Error("Note not found...")
+            }
+            note.style.backgroundColor = newColor
+            return storageService.put(NOTE_KEY, note)
         })
 }
 

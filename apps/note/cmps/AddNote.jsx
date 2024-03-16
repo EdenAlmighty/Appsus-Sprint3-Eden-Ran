@@ -3,7 +3,7 @@ const { useEffect, useState, useRef } = React
 
 export function AddNote({ onSaveNote }) {
     const [note, setNote] = useState(noteService.getEmptyNote())
-    const [cmpType, setCmpType] = useState('NoteTxt')
+    const [cmpType, setCmpType] = useState('')
     const inputRef = useRef(null)
 
     useEffect(() => {
@@ -53,12 +53,12 @@ export function AddNote({ onSaveNote }) {
 
     return (
         <form className="input-container" onSubmit={onAddNote} >
-            {/* <input
+            <input
                 type="text"
                 placeholder="Title"
                 name="title"
                 onChange={handleChange}
-            /> */}
+            />
             <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChange} inputRef={inputRef}/>
             <section>
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChange} />
@@ -119,16 +119,3 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, on
             return null
     }
 }
-
-// function DynamicCmp(props) {
-//     switch (props.cmpType) {
-//         case 'Select':
-//             return <RateSelectInput {...props} />
-//         case 'TextBox':
-//             return <RateTextInput {...props} />
-//         case 'Stars':
-//             return <RateStarsInput {...props} />
-//         default:
-//             return null
-//     }
-// }

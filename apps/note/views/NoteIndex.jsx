@@ -39,6 +39,11 @@ export function NoteIndex() {
             .then(loadNotes)
     }
 
+    function onChangeNoteColor(noteId, newColor) {
+        noteService.changeNoteColor(noteId, newColor)
+            .then(loadNotes)
+    }
+
     if (!notes) return <div className="loader"><span>III</span></div>
 
     return <section className="note-main-container">
@@ -49,6 +54,7 @@ export function NoteIndex() {
             onSaveNote={onSaveNote}
             onDuplicateNote={onDuplicateNote}
             onToggleNotePin={onToggleNotePin}
+            onChangeNoteColor={onChangeNoteColor}
         />
     </section>
 }
