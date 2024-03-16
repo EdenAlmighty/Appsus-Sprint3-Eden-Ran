@@ -1,5 +1,5 @@
 export function NoteColor({ selectedColor, handleColorChange, onClose }) {
-    const colorOptions = ['#FFADAD', '#FFD6A5', '#FDFFB6', '#CAFFBF', '#9BF6FF']
+    const colorOptions = ['#efeff1', '#e9e3d3', '#f5e2dc', '#d3bedb', '#afccdc','#d3e4ec','#b4ded3', '#e2f6d3', '#fff8b8', '#f29f75', '#faafa9']
 
     return (
         <div className="color-picker-popup">
