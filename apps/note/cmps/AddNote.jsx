@@ -52,15 +52,17 @@ export function AddNote({ onSaveNote }) {
 
 
     return (
-        <form className="input-container" onSubmit={onAddNote} >
+        <form className="main-input-container" onSubmit={onAddNote} >
             <input
                 type="text"
                 placeholder="Title"
                 name="title"
                 onChange={handleChange}
             />
+            
             <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChange} inputRef={inputRef}/>
-            <section>
+            
+            <section className="note-input-container">
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChange} />
                 <label htmlFor="NoteTxt"><span className="material-symbols-outlined">text_fields</span></label>
 
