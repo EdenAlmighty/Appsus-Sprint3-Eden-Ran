@@ -3,7 +3,7 @@ const { useEffect, useState, useRef } = React
 
 export function AddNote({ onSaveNote }) {
     const [note, setNote] = useState(noteService.getEmptyNote())
-    const [cmpType, setCmpType] = useState('NoteTxt')
+    const [cmpType, setCmpType] = useState('')
     const inputRef = useRef(null)
 
     useEffect(() => {
@@ -40,7 +40,7 @@ export function AddNote({ onSaveNote }) {
             setNote(prevNote => ({
                 ...prevNote,
                 info: { ...prevNote.info, todos: todosObjects }
-            }));
+            }))
         } else if (cmpType === 'NoteTxt') {
             setNote(prevNote => ({
                 ...prevNote,
@@ -53,33 +53,14 @@ export function AddNote({ onSaveNote }) {
 
     return (
         <form className="input-container" onSubmit={onAddNote} >
-            {/* <input
+            <input
                 type="text"
                 placeholder="Title"
                 name="title"
                 onChange={handleChange}
-            /> */}
+            />
             <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChange} inputRef={inputRef}/>
-            
-
-
-            <button type="submit">add note</button>
-        </form>
-    )
-}
-
-//TODO: Make dynCmp
-function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, onAddNote }) {
-    switch (cmpType) {
-        case 'NoteImg' || 'NoteVideo':
-            return (
-                <Fragment>
-                <input type="text"
-                    placeholder="Paste image URL here..."
-                    name={name}
-                    onChange={onChange}
-                    className="google-keep-input" />
-                    <section>
+            <section>
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChange} />
                 <label htmlFor="NoteTxt"><span className="material-symbols-outlined">text_fields</span></label>
 
@@ -92,8 +73,23 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, on
                 <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChange} />
                 <label htmlFor="NoteTodos"><span className="material-symbols-outlined">check_box</span></label>
             </section>
-            </Fragment>
-                    )
+
+
+            <button type="submit">add note</button>
+        </form>
+    )
+}
+
+//TODO: Make dynCmp
+function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, onAddNote }) {
+    switch (cmpType) {
+        case 'NoteImg' || 'NoteVideo':
+            return (
+                <input type="text"
+                    placeholder="Paste image URL here..."
+                    name={name}
+                    onChange={onChange}
+                    className="google-keep-input" />)
         case 'NoteVideo':
             return (
                 <input type="text"
@@ -109,7 +105,7 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, on
                     value={value.todos.map(todo => todo.txt).join(', ')}
                     onChange={onChange}
                     className="google-keep-input" />
-            );
+            )
         case 'NoteTxt':
             return (
                 <input
@@ -123,16 +119,3 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, on
             return null
     }
 }
-
-// function DynamicCmp(props) {
-//     switch (props.cmpType) {
-//         case 'Select':
-//             return <RateSelectInput {...props} />;
-//         case 'TextBox':
-//             return <RateTextInput {...props} />;
-//         case 'Stars':
-//             return <RateStarsInput {...props} />;
-//         default:
-//             return null;
-//     }
-// }
