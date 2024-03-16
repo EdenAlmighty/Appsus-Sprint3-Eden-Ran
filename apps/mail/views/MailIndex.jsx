@@ -76,14 +76,15 @@ export function MailIndex() {
                 />
             </div>
             <div className="mail-list-and-filter">
-                <MailSort
-                    onSetSort={onSetSort}
-                    sortBy={sortBy} 
-                    />
+               
                 <MailFilter
                     onSetFilter={onSetFilter}
                     loadMails={loadMails}
                     filterBy={filterBy} />
+                     <MailSort
+                    onSetSort={onSetSort}
+                    sortBy={sortBy} 
+                    />
                 <MailList
                     mails={mails}
                     loadMails={loadMails}

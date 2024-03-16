@@ -1,0 +1,65 @@
+.book-filter{
+    display: grid;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.book-filter form{
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 20px;
+    line-height: 6vh;
+}
+
+.book-filter form input{
+    text-align: center;
+    width: 25vw;
+    outline: none;
+    font-size: 0.8em;
+    padding: 1vh 3vw;
+
+    /* border: 2px solid whitesmoke; */
+      /* background-color: transparent; */
+    /* border-bottom: 3px solid rgba(231, 201, 30, 0.6); */
+
+    transition: 0.2s ease;
+    
+}
+
+.book-filter form input:focus{
+    animation: scaleBreath;
+    animation-duration: 0.5s;
+    animation-direction: alternate-reverse;
+
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+.book-filter form label{
+    font-size: 1.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+@keyframes scaleBreath {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+   
+}

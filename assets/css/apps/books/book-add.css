@@ -1,0 +1,11 @@
+.btn-book-google{
+    width: 3vw;
+}
+
+.google-list-result{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+
+}

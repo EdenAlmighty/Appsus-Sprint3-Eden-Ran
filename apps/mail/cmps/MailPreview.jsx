@@ -71,11 +71,11 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
     }
 
     function getStarClass() {
-        return mail.star ? 'star-active' : ''
+        return mail.star ? 'star-active circle-icon' : 'circle-icon'
     }
 
     function getReadIcon() {
-        return mail.isRead ? <span class="material-symbols-outlined">drafts</span> : <span class="material-symbols-outlined">mark_email_unread</span>
+        return mail.isRead ? <span class="material-symbols-outlined circle-icon">drafts</span> : <span class="material-symbols-outlined circle-icon">mark_email_unread</span>
     }
 
     return <Fragment>
@@ -89,7 +89,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
             <td onClick={() => moveToPageDetails(mail.id)} className="mail-body-msg">{mail.body}</td>
             <td className="mail-actions-right-container">
                 <button className="mail-actions right" onClick={() => onSetRead(!mail.isRead, mail.id)}>{getReadIcon()}</button>
-                <button className="mail-actions right" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined">delete</span></button>
+                <button className="mail-actions right" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined circle-icon">delete</span></button>
                 <button className="mail-actions right" onClick={() => moveToPagePreview(mail.id)}>Preview</button>
             </td>
             <td className="mail-date-list" onClick={() => moveToPageDetails(mail.id)}>{getFormattedDate(mail)}</td>
@@ -106,7 +106,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
                 </td>
                 <section className="actions-buttons-extended-container">
                     <button className="mail-actions-extended" onClick={() => onSetRead(!mail.isRead, mail.id)}>{getReadIcon()}</button>
-                    <button className="mail-actions-extended" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined">delete</span></button>
+                    <button className="mail-actions-extended" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined circle-icon">delete</span></button>
                     <button className="mail-actions-extended" onClick={() => moveToPageDetails(mail.id)}>Go to mail</button>
                 </section>
             </tr>

@@ -1,0 +1,52 @@
+.book-edit form{
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    row-gap: 1vh;
+}
+
+.book-edit form input{
+    text-align: center;
+    width: 25vw;
+    outline: none;
+    font-size: 0.8em;
+    padding: 1vh 3vw;
+
+    /* border: 2px solid whitesmoke; */
+      /* background-color: transparent; */
+    /* border-bottom: 3px solid rgba(231, 201, 30, 0.6); */
+
+    transition: 0.2s ease;
+    
+}
+
+#subtitle-add-booke{
+    padding-top: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 20vh;
+    text-align: left;
+    height: auto;
+    align-self: start;
+}
+
+#price-add-book{
+    justify-self: center;
+    padding: 0;
+    width: 5vw;
+}
+
+.book-filter form input:focus{
+    animation: scaleBreath;
+    animation-duration: 0.5s;
+    animation-direction: alternate-reverse;
+
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+.book-filter form label{
+    font-size: 1.5em;
+}

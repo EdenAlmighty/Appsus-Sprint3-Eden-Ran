@@ -1,0 +1,112 @@
+.price-green {
+    color: green;
+}
+
+.price-red {
+    color: red;
+}
+
+.deleted-price {
+    text-decoration: line-through;
+}
+
+.on-sale-container {
+    display: grid;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.on-sale-container .new-price {
+    font-size: 1.8rem;
+}
+
+.imgs-container {
+    display: grid;
+}
+
+.imgs-container .on-sale-img {
+    width: 6em;
+    position: absolute;
+}
+
+.imgs-container :not(.on-sale-img) {
+    max-width: 100%;
+    min-width: 300px;
+    height: auto;
+}
+
+.book-details {
+    display: grid;
+    justify-items: center;
+}
+
+.book-details-title {
+    font-size: 3em;
+    text-transform: capitalize;
+
+}
+
+/* .book-details .price {
+    font-size: 10em;
+} */
+
+.book-selector-prev-next {
+    display: flex;
+    width: 90vw;
+    justify-self: center;
+    justify-content: space-between;
+}
+
+.add-review {
+    text-align: center;
+}
+
+.add-review h1 {
+    font-size: 2em;
+}
+
+#add-review-rating {
+    overflow: hidden;
+}
+
+.add-review-form {
+    display: grid;
+    row-gap: 10px;
+    font-style: lato;
+    text-align: center;
+}
+
+#add-review-full-name {
+    width: 20vw;
+}
+
+#add-review-free-text {
+    padding-bottom: 10vh;
+}
+
+#add-review-rating {
+    width: 2vw;
+    justify-self: center;
+    text-align: center;
+}
+
+.plus-btn,
+.minus-btn {
+    display: inline;
+}
+
+.book-details-info-container{
+    margin: 10px;
+    padding: 10px 10px;
+    display: grid;
+    justify-items: center;
+    row-gap: 0.5vh;
+    border: 2px solid rgba(233, 110, 28, 0.201);
+    color: var(--gray3);
+    background: #fff5dcdc;
+}
+
+.book-details-btn-back{
+    position: absolute;
+    left: 1.5vw;
+}

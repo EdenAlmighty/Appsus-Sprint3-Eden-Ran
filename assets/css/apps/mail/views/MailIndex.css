@@ -12,7 +12,8 @@
 }
 
  .mail-folder-list {
-    grid-row: inherit;
+    /* position: absolute; */
+    position: sticky;
  }
 
  .mail-filter {
@@ -37,14 +38,14 @@
  }
 
  #search-email {
-     /* border-radius: 2em;
+     border-radius: 2em;
      border-color: transparent;
      padding: 10px;
      height: 40px;
      background-color: rgb(233, 241, 251);
      text-align: start;
      position: relative;
-     width: 100%; */
+     width: 100%;
 
  }
 
