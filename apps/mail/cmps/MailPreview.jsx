@@ -72,7 +72,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
     }
 
     function getStarClass() {
-        return mail.star ? 'star-active circle-icon' : 'circle-icon'
+        return mail.star ? 'star-active circle-icon' : 'circle-icon greyed'
     }
 
     function getReadIcon() {
@@ -86,7 +86,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
             </td>
             <td onClick={() => moveToPageDetails(mail.id)} className="list-sender">{mail.sender}</td>
             {/* <td>{mail.from}</td> */}
-            <td className="list-subject" onClick={() => moveToPageDetails(mail.id)}>{getFormattedSubject(mail)}</td>
+            <td className="list-subject" onClick={() => moveToPageDetails(mail.id)}>{getFormattedSubject(mail)} -</td>
             <td onClick={() => moveToPageDetails(mail.id)} className="mail-body-msg">{mail.body}</td>
             <td className="mail-actions-right-container">
                 <button className="mail-actions right" onClick={() => onSetRead(!mail.isRead, mail.id)}>{getReadIcon()}</button>
