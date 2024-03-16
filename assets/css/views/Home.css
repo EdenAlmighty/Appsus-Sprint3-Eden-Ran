@@ -4,26 +4,45 @@
 .hero {
     text-align: center;
     padding: 50px 20px;
-}
-
-.animated-squares {
     position: relative;
-    height: 100px; 
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
-.square {
-    position: absolute;
-    width: 50px; 
-    height: 50px; 
-    background-color: #000;
-    opacity: 0.5;
-    animation: moveAndFade 3s infinite;
+.hero-title{
+    text-align: left;
 }
 
-@keyframes moveAndFade {
-    0% { transform: translateX(0); opacity: 1; }
-    50% { transform: translateX(200px) rotate(180deg); opacity: 0.5; }
-    100% { transform: translateX(0) rotate(360deg); opacity: 1; }
+.hero h2{
+    font-size: 3.75em;
+}
+
+.hero p{
+    font-size: 1.625em;
+    font-family: google-sans;
+}
+
+.hero button {
+    height: 60px;
+    width: 240px;
+    background-color: #2558D3;
+    color: white;
+    border: none;
+    font-size: 1.625em;
+    margin-top: 3.75em;
+    cursor: pointer;
+    transition: .2s;
+    border-radius: .2em;
+}
+.hero button:hover {
+
+    background-color: #4276f0;
+   
+    cursor: pointer;
 }
 
 .features {
@@ -42,4 +61,37 @@
     background-color: #ddd; 
     margin-bottom: 10px;
     border-radius: 50%;
+}
+
+.rect {
+    animation: pulse 2s infinite ease-in-out;
+    position: absolute;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        transform: scaleX(1.05)scaleY(1.05);
+        opacity: 0.8;
+    }
+}
+
+.pulse1 {
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.pulse2 {
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+.pulse3 {
+    animation: pulse 3s infinite ease-in-out;
+}
+.pulse4 {
+    animation: pulse 2.2s infinite ease-in-out;
+}
+.pulse5 {
+    animation: pulse 2.8s infinite ease-in-out;
 }
