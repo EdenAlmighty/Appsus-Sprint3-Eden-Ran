@@ -1,9 +1,16 @@
 import { noteService } from "../services/note.service.js"
-const { useEffect, useState } = React
+const { useEffect, useState, useRef } = React
 
 export function AddNote({ onSaveNote }) {
     const [note, setNote] = useState(noteService.getEmptyNote())
     const [cmpType, setCmpType] = useState('NoteTxt')
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        if(inputRef.current) {
+            inputRef.current.focus()
+        }
+    },[])
 
     function onAddNote(ev) {
         ev.preventDefault()
@@ -45,27 +52,27 @@ export function AddNote({ onSaveNote }) {
 
 
     return (
-        <form onSubmit={onAddNote} >
+        <form className="input-container" onSubmit={onAddNote} >
             {/* <input
                 type="text"
                 placeholder="Title"
                 name="title"
                 onChange={handleChange}
             /> */}
+            <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChange} inputRef={inputRef}/>
             <section>
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChange} />
-                <label htmlFor="NoteTxt">Text</label>
+                <label htmlFor="NoteTxt"><span className="material-symbols-outlined">text_fields</span></label>
 
                 <input type="radio" id="NoteImg" name="cmpType" value="NoteImg" checked={cmpType === 'NoteImg'} onChange={handleChange} />
-                <label htmlFor="NoteImg">Image</label>
+                <label htmlFor="NoteImg"><span className="material-symbols-outlined">photo</span></label>
 
                 <input type="radio" id="NoteVideo" name="cmpType" value="NoteVideo" checked={cmpType === 'NoteVideo'} onChange={handleChange} />
-                <label htmlFor="NoteVideo">YouTube</label>
+                <label htmlFor="NoteVideo"><span className="material-symbols-outlined">youtube_activity</span></label>
 
                 <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChange} />
-                <label htmlFor="NoteTodos">Todo List</label>
+                <label htmlFor="NoteTodos"><span className="material-symbols-outlined">check_box</span></label>
             </section>
-            <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChange} />
 
 
             <button type="submit">add note</button>
@@ -74,27 +81,30 @@ export function AddNote({ onSaveNote }) {
 }
 
 //TODO: Make dynCmp
-function DynamicCmp({ cmpType, name, value, onChange }) {
+function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
     switch (cmpType) {
         case 'NoteImg' || 'NoteVideo':
             return (
                 <input type="text"
                     placeholder="Paste image URL here..."
                     name={name}
-                    onChange={onChange} />)
+                    onChange={onChange}
+                    className="google-keep-input" />)
         case 'NoteVideo':
             return (
                 <input type="text"
                     placeholder="Paste YouTube Video URL here..."
                     name={name}
-                    onChange={onChange} />)
+                    onChange={onChange}
+                    className="google-keep-input" />)
         case 'NoteTodos':
             return (
                 <textarea
                     placeholder="Create Todo List: (separate with commas)"
                     name="info"
                     value={value.todos.map(todo => todo.txt).join(', ')}
-                    onChange={onChange} />
+                    onChange={onChange}
+                    className="google-keep-input" />
             );
         case 'NoteTxt':
             return (
@@ -102,7 +112,9 @@ function DynamicCmp({ cmpType, name, value, onChange }) {
                     type="text"
                     placeholder="Take a note..."
                     name="text"
-                    onChange={onChange} />)
+                    onChange={onChange}
+                    ref={inputRef}
+                    className="google-keep-input" />)
         default:
             return null
     }

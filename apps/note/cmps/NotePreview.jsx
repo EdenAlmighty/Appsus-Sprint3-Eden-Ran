@@ -1,12 +1,14 @@
-const { useState, useEffect, useRef } = React
+const { useState,Fragment, useEffect, useRef } = React
 
 import { noteService } from "../services/note.service.js"
 
 import { NoteVideo } from "./noteTypes/NoteVideo.jsx"
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, onSaveNote, onToggleNotePin, onRemoveNote, onDuplicateNote, isPinned }) {
     const [editing, setEditing] = useState(false)
     const [content, setContent] = useState('NoteTxt')
+    const noteCardClasses = `material-symbols-outlined notes ${isPinned ? 'active-pin' : ''}`;
+
 
     const [editedNote, setEditedNote] = useState(note)
 
@@ -20,7 +22,7 @@ export function NotePreview({ note }) {
     }
 
 
-    function getVideoFromUrl(value){
+    function getVideoFromUrl(value) {
         const videoId = value.match(/(?:youtu\.be\/|youtube\.com\/(?:.*[\?&]v=|.*\/embed\/|.*\/v\/))([\w-]{11})/)
         return videoId ? videoId[1] : null
     }
@@ -61,14 +63,15 @@ export function NotePreview({ note }) {
         case 'NoteVideo':
             const videoId = getVideoFromUrl(note.info.url)
             console.log(videoId);
-            currContent = videoId ? <NoteVideo videoId={videoId}/> : 'invalid id' 
+            currContent = videoId ? <NoteVideo videoId={videoId} /> : 'invalid id'
             break
         default:
             currContent = note.info.title
             break
     }
 
-    return <article className='note-preview-container '>
+    return <Fragment >
+        <div onClick={() => { onToggleNotePin(note.id) }}><span className={noteCardClasses}>keep</span></div>
         <h1 className='note-card-title'>{note.info.title}</h1>
         <blockquote
             suppressContentEditableWarning
@@ -76,5 +79,11 @@ export function NotePreview({ note }) {
             onInput={(ev) => handleChangeInfo(ev)}>
             {currContent}
         </blockquote>
-    </article>
+        <section className="action-btns flex">
+            <div onClick={() => { onRemoveNote(note.id) }}><span className="material-symbols-outlined notes">delete</span></div>
+            <div onClick={() => { onDuplicateNote(note.id) }}><span className="material-symbols-outlined notes">content_copy</span></div>
+        </section>
+        {/* <div onClick={onRemoveNote}>Delete</div>
+        <div onClick={onDuplicateNote}>Duplicate</div> */}
+    </Fragment>
 }

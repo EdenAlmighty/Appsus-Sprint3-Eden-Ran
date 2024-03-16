@@ -24,12 +24,7 @@ export function NoteList({ notes, onRemoveNote, onSaveNote, onDuplicateNote, onT
                     <section className="pinned-notes">
                         {pinnedNotes.map((note) => (
                             <div className="note-card" key={note.id} style={{ backgroundColor: note.style.backgroundColor }}>
-                                <NotePreview note={note} onSaveNote={onSaveNote} />
-                                <section className="action-btns flex">
-                                    <div onClick={() => { onRemoveNote(note.id) }}><span className="material-symbols-outlined notes">delete</span></div>
-                                    <div onClick={() => { onDuplicateNote(note.id) }}><span className="material-symbols-outlined notes">content_copy</span></div>
-                                    <div onClick={() => { onToggleNotePin(note.id) }}><span className="material-symbols-outlined notes">keep</span></div>
-                                </section>
+                                <NotePreview note={note} onSaveNote={onSaveNote} onToggleNotePin={onToggleNotePin} onRemoveNote={onRemoveNote} onDuplicateNote={onDuplicateNote} isPinned={note.isPinned} />
                             </div>
                         ))}
                     </section>
@@ -39,14 +34,9 @@ export function NoteList({ notes, onRemoveNote, onSaveNote, onDuplicateNote, onT
             {unPinnedNotes.length !== 0 && (
                 <Fragment><h2>Notes</h2>
                     <section className="unPinned-notes">
-                        {notes.map((note) => (
+                        {unPinnedNotes.map((note) => (
                             <div className="note-card" key={note.id} style={{ backgroundColor: note.style.backgroundColor }}>
-                                <NotePreview note={note} onSaveNote={onSaveNote} />
-                                <section className="action-btns flex">
-                                    <div onClick={() => { onRemoveNote(note.id) }}><span className="material-symbols-outlined notes">delete</span></div>
-                                    <div onClick={() => { onDuplicateNote(note.id) }}><span className="material-symbols-outlined notes">content_copy</span></div>
-                                    <div onClick={() => { onToggleNotePin(note.id) }}><span className="material-symbols-outlined notes">keep</span></div>
-                                </section>
+                                <NotePreview note={note} onSaveNote={onSaveNote} onToggleNotePin={onToggleNotePin} onRemoveNote={onRemoveNote} onDuplicateNote={onDuplicateNote} isPinned={note.isPinned} />
                             </div>
                         ))}
                     </section>

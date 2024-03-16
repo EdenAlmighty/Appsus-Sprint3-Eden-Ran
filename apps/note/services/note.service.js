@@ -16,14 +16,14 @@ export const noteService = {
     getPinnedNotes,
     getUnPinnedNotes,
     addTodo
-
+    
 }
 
 const NOTE_KEY = 'notesDB'
 
 let gNotes = [
     {
-        id: 'n101',
+        id: utilService.makeId(),
         createdAt: 1112222,
         type: 'NoteTxt',
         isPinned: true,
@@ -35,11 +35,23 @@ let gNotes = [
         }
     },
     {
-        id: 'n102',
+        id: utilService.makeId(),
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'https://picsum.photos/250/300',
+            url: 'https://images.squarespace-cdn.com/content/v1/5682fafe1115e07a05683289/1657298175422-PRN4EOL3CQEVTZ93N6KP/munch-comp2.gif?format=750w',
+            title: 'My favorite MEME!'
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://picsum.photos/200/300',
             title: 'Random Image 1'
         },
         style: {
@@ -47,7 +59,19 @@ let gNotes = [
         }
     },
     {
-        id: 'n103',
+        id: utilService.makeId(),
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWM3amk1cmQ4Z2FwbDlpN3p4Y3Z2dWF5YXFiaTQ4bWhhZzV3NDR6ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/n03KjzUqXeDRe/giphy.gif',
+            title: 'YUM YUM!!!'
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
+        }
+    },
+    {
+        id: utilService.makeId(),
         type: 'NoteTodos',
         isPinned: false,
         info: {
@@ -62,7 +86,7 @@ let gNotes = [
         }
     },
     {
-        id: 'n104',
+        id: utilService.makeId(),
         type: 'NoteVideo',
         isPinned: false,
         info: {
@@ -74,7 +98,7 @@ let gNotes = [
         }
     },
     {
-        id: 'n105',
+        id: utilService.makeId(),
         type: 'NoteTodos',
         isPinned: false,
         info: {
@@ -89,19 +113,7 @@ let gNotes = [
         }
     },
     {
-        id: 'n106',
-        type: 'NoteImg',
-        isPinned: false,
-        info: {
-            url: 'https://picsum.photos/200/300',
-            title: 'Random Image 2'
-        },
-        style: {
-            backgroundColor: utilService.getRandomNoteColor()
-        }
-    },
-    {
-        id: 'n107',
+        id: utilService.makeId(),
         type: 'NoteTodos',
         isPinned: false,
         info: {
