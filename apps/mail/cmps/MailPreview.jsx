@@ -19,7 +19,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
     function getFormattedDate(mail) {
         const date = new Date(mail.sentAt)
         if (Date.now() - date < min*2){
-            return `Just now...`
+        return `Just now...`
         }
         if (Date.now() - date < hour) {
             return `${parseInt((Date.now() - date) / min)} minutes ago..`
@@ -34,7 +34,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
         if (Date.now - date < month){
             return `${date.getDate()} ${date.getMonth()} `
         }
-        return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
+        return `${date.getDate()} ${date.getMonth()}.${date.getFullYear()}`
     }
 
     function getFormattedSubject(mail) {

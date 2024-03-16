@@ -25,27 +25,34 @@
      align-items: center;
      justify-items: center;
      width: 250px;
-
-
+     justify-self: start;
  }
 
+ .mail-filter form {
+    justify-self: start;
+ }
+
+ .mail-filter select {
+    justify-self: start;
+    margin-left: 0.5em;
+ }
 
 
  #search-email {
      border-radius: 2em;
      border-color: transparent;
      padding: 10px;
-     height: 40px;
+     height: 35px;
      background-color: rgb(233, 241, 251);
      text-align: start;
      position: relative;
-     width: 100%;
+     width: 35vw;
 
  }
 
  #search-email:focus {
      outline: 0px;
-     scale: 1.1;
+     /* scale: 1.1; */
      background-color: #fff;
  }
 

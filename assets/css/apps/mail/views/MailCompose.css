@@ -80,3 +80,19 @@
     z-index: -1;
 }
 
+.email-compose .send-btn {
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    cursor: pointer;
+    width: 8em;
+    justify-self: end;
+    margin: 5px 5px;
+    border: none;
+    background-color: #2256d0;
+    color: whitesmoke;
+    font-family: poppins;
+    border-radius: 0.5em;
+
+}
+

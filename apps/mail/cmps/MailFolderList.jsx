@@ -1,10 +1,12 @@
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
+const { useNavigate } = ReactRouter
 
 import { mailService } from '../services/mail.service.js'
 
 export function MailFolderList({ onSetFilter, filterBy = getFilterFromParams(searchParams), unreadCount, setIsDetails }) {
 
+    const navigate = useNavigate()
 
     console.log(filterBy);
 
@@ -14,6 +16,8 @@ export function MailFolderList({ onSetFilter, filterBy = getFilterFromParams(sea
     }, [filterByToUpdate])
 
     function handleChange(value) {
+        navigate('/mail')
+
         setFilterByToUpdate({ ...filterBy, ['status']: value })
     }
 

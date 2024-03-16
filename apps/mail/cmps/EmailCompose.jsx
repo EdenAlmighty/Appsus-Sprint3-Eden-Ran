@@ -13,7 +13,7 @@ export function EmailCompose({ setIsComposing }) {
 
     const intervalIdRef = useRef()
 
-    console.log(mailToCompose,isExpanded);
+    console.log(mailToCompose, isExpanded);
 
     useEffect(() => {
         intervalIdRef.current = setInterval(() => {
@@ -57,18 +57,18 @@ export function EmailCompose({ setIsComposing }) {
 
                     showSuccessMsg('Draft saved')
                 })
-                
+
         }
         // saveDraftMail(mailToCompose)
     }
 
-    function onSetCompose(ev){
+    function onSetCompose(ev) {
         ev.preventDefault()
-        
+
         setIsComposing((prevIsComposing) => !prevIsComposing)
     }
 
-    function onSetExpanded(ev){
+    function onSetExpanded(ev) {
         ev.preventDefault()
         setIsExpanded((prevIsExpanded) => !prevIsExpanded)
     }
@@ -109,7 +109,7 @@ export function EmailCompose({ setIsComposing }) {
                 className={`${isExpanded ? 'input-expanded' : ''}`}
                 onChange={handleChange} required
             />
-            <button>Send</button>
+            <button className='send-btn'>Send<span className="material-symbols-outlined">send</span></button>
         </form>
     </section>
 }

@@ -43,6 +43,10 @@ export function MailIndex() {
         params.mailId ? setIsDetails(true) : setIsDetails(false)
     }, [params.mailId])
 
+    useEffect(() => {
+        loadMails()
+    },[isComposing])
+
     console.log(params);
 
     // useEffect(() => {
@@ -118,16 +122,20 @@ export function MailIndex() {
                     unreadCount={unreadCount}
                 />
             </div>
-            <div className="mail-list-and-filter">
+            
+         
+          
+           
+                {!isDetails &&  <div className="mail-list-and-filter">
                 <MailFilter
-                    onSetFilter={onSetFilter}
-                    loadMails={loadMails}
-                    filterBy={filterBy} />
+                     onSetFilter={onSetFilter}
+                     loadMails={loadMails}
+                     filterBy={filterBy} />
                 <MailSort
-                    onSetSort={onSetSort}
-                    sortBy={sortBy}
-                />
-                {!isDetails &&
+                     onSetSort={onSetSort}
+                     sortBy={sortBy}
+                 />
+               
                     <MailList
                         mails={mails}
                         loadMails={loadMails}
@@ -135,15 +143,21 @@ export function MailIndex() {
                         onRemoveMail={onRemoveMail}
                         onSetRead={onSetRead}
                     />
+                    </div>
                 }
-                {isDetails &&
+                {isDetails && <div className="mail-details-and-filter">
+
+                    <MailFilter
+                    onSetFilter={onSetFilter}
+                    loadMails={loadMails}
+                    filterBy={filterBy} />
                     <MailDetails
                         onStarMail={onStarMail}
                         onRemoveMail={onRemoveMail}
                         onSetRead={onSetRead}
-                    />
+                        />
+                        </div>
                 }
-            </div>
 
         </section>
     </section >

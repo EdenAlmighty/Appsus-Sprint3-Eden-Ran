@@ -18,7 +18,15 @@ export function MailDetails({ onSetRead, onRemoveMail, onStarMail }) {
 
     useEffect(() => {
         loadMail()
-    },[onStarMail])
+    }, [onStarMail])
+
+    useEffect(() => {
+        loadMail()
+    }, [onRemoveMail])
+
+    useEffect(() => {
+        loadMail()
+    }, [onSetRead])
 
     function loadMail() {
         setIsLoading(true)
@@ -34,7 +42,7 @@ export function MailDetails({ onSetRead, onRemoveMail, onStarMail }) {
 
     // function starMail(mailId){
     //     onStarMail(mailId)
-        
+
     // }
 
     function getStarClass() {
@@ -45,17 +53,22 @@ export function MailDetails({ onSetRead, onRemoveMail, onStarMail }) {
         return mail.isRead ? <span class="material-symbols-outlined circle-icon">drafts</span> : <span class="material-symbols-outlined circle-icon">mark_email_unread</span>
     }
 
+    function removeMail(mailId) {
+        onRemoveMail(mailId)
+        navigate('/mail')
+    }
+
 
     if (isLoading || !mail) return <div className="loader"><span>III</span></div>
 
     return <section className="mail-details">
 
-        <div className="mail-details actions">
-            <Link to="/mail"><button>Back</button></Link>
+        <div className="mail-details-back-btn">
+            <Link to="/mail"><button><span className="material-symbols-outlined circle-icon">navigate_before</span></button></Link>
         </div>
         <section className="mail-details-actions">
             <div className={`mails-details-action-btn`} onClick={() => onStarMail(mail.id)}><span class={`material-symbols-outlined ${getStarClass()}`}>star</span></div>
-            <button className="mails-details-action-btn" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined circle-icon">delete</span></button>
+            <button className="mails-details-action-btn" onClick={() => removeMail(mail.id)}><span className="material-symbols-outlined circle-icon">delete</span></button>
             <button className="mails-details-action-btn" onClick={() => onSetRead(!mail.isRead, mail.id)}>{getReadIcon()}</button>
 
         </section>

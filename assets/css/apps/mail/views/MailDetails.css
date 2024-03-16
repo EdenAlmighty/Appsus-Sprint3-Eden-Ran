@@ -1,0 +1,38 @@
+.mail-details { 
+    display: grid;
+}
+
+.mail-details-actions {
+    display: grid;
+    justify-self: end;
+    grid-auto-flow: column;
+    grid-row: 1;
+}
+
+.mail-details-back-btn { 
+    justify-self: start;
+    grid-row: 1;
+}
+
+.mail-details-back-btn button {
+    background-color: transparent;
+    border: none;
+}
+
+.mail-details-header {
+    display: grid;
+    margin-top: 1em;
+    grid-row: 2;
+    row-gap: 1em;
+}
+
+.mail-body { 
+    grid-row: 3;
+    margin-top: 1em;
+}
+
+.mails-details-action-btn { 
+    background-color: transparent;
+    border: none;
+
+}
