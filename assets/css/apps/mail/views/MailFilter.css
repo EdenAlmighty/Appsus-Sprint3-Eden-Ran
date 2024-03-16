@@ -14,3 +14,42 @@
     display: grid;
     row-gap: 0.5em;
 }
+
+#filter-select {
+    border: none;
+    appearance: none;
+    padding: 0 30px 0 15px;
+    width: 100px;
+    color: white;
+    background-color: #2883f9;
+    border-radius: 0.5em;
+    font-family: google-sans;
+}
+
+.select-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-width: 100px;
+    justify-self: start;
+    height: 2.5em;
+}
+
+.select-container .icon-container-select{
+    width: 50px;
+    height: 100%;
+    /* position: absolute; */
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color:  #2871f9; */
+}
+
+.icon-container-select i {
+    position: absolute;
+    font-size: 30px;
+    color: whitesmoke;
+    right: 4rem;
+    
+}

@@ -131,6 +131,8 @@ export function MailIndex() {
                      onSetFilter={onSetFilter}
                      loadMails={loadMails}
                      filterBy={filterBy} />
+                     <div className="sort-and-list-container">
+
                 <MailSort
                      onSetSort={onSetSort}
                      sortBy={sortBy}
@@ -143,6 +145,7 @@ export function MailIndex() {
                         onRemoveMail={onRemoveMail}
                         onSetRead={onSetRead}
                     />
+                          </div>
                     </div>
                 }
                 {isDetails && <div className="mail-details-and-filter">

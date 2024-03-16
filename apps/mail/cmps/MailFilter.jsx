@@ -31,14 +31,14 @@ export function MailFilter({ onSetFilter, filterBy = getFilterFromParams(searchP
         onSetFilter(filterByToUpdate)
     }
 
-    function onChangeSelect({target}) {
-        let {value} = target
+    function onChangeSelect({ target }) {
+        let { value } = target
         console.log(value);
-        if (value === 'star'){
+        if (value === 'star') {
             // value = !value
-            setFilterByToUpdate(() => ({...filterBy, [value]:true}))
+            setFilterByToUpdate(() => ({ ...filterBy, [value]: true }))
         } else {
-            setFilterByToUpdate(() => ({...filterBy, ['isRead']:value,star:false}))
+            setFilterByToUpdate(() => ({ ...filterBy, ['isRead']: value, star: false }))
         }
         console.log(value);
     }
@@ -57,11 +57,16 @@ export function MailFilter({ onSetFilter, filterBy = getFilterFromParams(searchP
                 />
             </div>
         </form>
-        <select onChange={(ev) => onChangeSelect(ev)} name="filter-by" id="filter-select">
-            <option value="all">All</option>
-            <option value="read">Read</option>
-            <option value="unread">Unread</option>
-            <option value="star">Starred</option>
-        </select>
+        <div className="select-container">
+            <select onChange={(ev) => onChangeSelect(ev)} name="filter-by" id="filter-select">
+                <option value="all">All</option>
+                <option value="read">Read</option>
+                <option value="unread">Unread</option>
+                <option value="star">Starred</option>
+            </select>
+            <div className="icon-container-select">
+                <i class = "fa-solid fa-caret-down "></i>
+            </div>
+        </div>
     </section>
 }
