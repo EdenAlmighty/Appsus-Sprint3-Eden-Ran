@@ -27,3 +27,9 @@
     border-radius: 1em;
     background-color: rgba(36, 182, 201, 0.428);
 }
+
+.note-preview-container blockquote[contenteditable="true"]:focus {
+    outline: none;
+    border: 1px solid #8d8d8d; /* Example: a subtle border */
+    background-color: #ffffff; /* Example: a light background */
+}

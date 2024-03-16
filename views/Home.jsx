@@ -42,6 +42,7 @@ export function Home() {
 
         <h1>Icons Hover -circle-icon</h1>
 
+        <span className="material-symbols-outlined">check_box</span>
         <span className="material-symbols-outlined circle-icon">palette</span>
         <span className="material-symbols-outlined circle-icon">delete</span>
         <span className="material-symbols-outlined circle-icon">content_copy</span>
