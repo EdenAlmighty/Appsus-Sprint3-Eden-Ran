@@ -3,7 +3,7 @@ const { Link, useSearchParams } = ReactRouterDOM
 
 import { mailService } from '../services/mail.service.js'
 
-export function MailFolderList({ onSetFilter, filterBy = getFilterFromParams(searchParams), unreadCount }) {
+export function MailFolderList({ onSetFilter, filterBy = getFilterFromParams(searchParams), unreadCount, setIsDetails }) {
 
 
     console.log(filterBy);

@@ -1,5 +1,6 @@
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
+const { useParams, useNavigate } = ReactRouter
 
 
 import { mailService } from '../services/mail.service.js'
@@ -20,6 +21,8 @@ export function MailIndex() {
     // console.log(filterBy);
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getFilterFromParams(searchParams))
+    const [isDetails, setIsDetails] = useState(false)
+    const params = useParams()
 
     useEffect(() => {
         setSearchParams(filterBy)
@@ -34,7 +37,13 @@ export function MailIndex() {
     useEffect(() => {
         mailService.getUnreadCount()
             .then((res) => setUnreadCount(res))
-    },[mails])
+    }, [mails])
+
+    useEffect(() => {
+        params.mailId ? setIsDetails(true) : setIsDetails(false)
+    }, [params.mailId])
+
+    console.log(params);
 
     // useEffect(() => {
     //     loadMails()
@@ -47,6 +56,13 @@ export function MailIndex() {
             })
     }
 
+    function loadMailDetails() {
+        return mailService.query(filterBy, sortBy)
+            .then(mail => {
+
+            })
+    }
+
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
     }
@@ -55,43 +71,78 @@ export function MailIndex() {
         setSortBy(sortBy)
     }
 
+    function onSetRead(isRead, mailId) {
+        return mailService.get(mailId)
+            .then(mail => {
+                mail.isRead = isRead
+                return mailService.save(mail)
+            })
+            .then(loadMails)
+
+    }
+
+    function onRemoveMail(mailId) {
+        mailService.get(mailId)
+            .then((mail) => {
+                if (mail.removedAt === null) {
+                    mail.removedAt = Date.now()
+                    return mailService.save(mail)
+                } else return mailService.remove(mailId)
+            }).then(loadMails)
+            .then(showSuccessMsg('Mail Removed'))
+    }
+
+    function onStarMail(mailId) {
+        mailService.get(mailId)
+            .then(mail => {
+                if (mail.star) {
+                    mail.star = false
+                } else {
+                    mail.star = true
+                }
+                return mailService.save(mail)
+            }).then(loadMails)
+    }
+
     return <section className="mail-index">
 
         <h2 className="page-title">misterEmail</h2>
         {isComposing && <EmailCompose setIsComposing={setIsComposing} />}
         <section className="mail-main-layout">
-
-
-
-
-
-
-
             <div className="main-mail-list-folder">
                 <button className='compose-btn' onClick={() => setIsComposing((prevComposing => !prevComposing))}><span className="material-symbols-outlined">edit</span>Compose</button>
 
                 <MailFolderList
                     onSetFilter={onSetFilter}
                     filterBy={filterBy}
-                    unreadCount = {unreadCount}
+                    unreadCount={unreadCount}
                 />
             </div>
             <div className="mail-list-and-filter">
-               
                 <MailFilter
                     onSetFilter={onSetFilter}
                     loadMails={loadMails}
                     filterBy={filterBy} />
-                     <MailSort
+                <MailSort
                     onSetSort={onSetSort}
-                    sortBy={sortBy} 
-                    />
-                <MailList
-                    mails={mails}
-                    loadMails={loadMails}
+                    sortBy={sortBy}
                 />
-                
-
+                {!isDetails &&
+                    <MailList
+                        mails={mails}
+                        loadMails={loadMails}
+                        onStarMail={onStarMail}
+                        onRemoveMail={onRemoveMail}
+                        onSetRead={onSetRead}
+                    />
+                }
+                {isDetails &&
+                    <MailDetails
+                        onStarMail={onStarMail}
+                        onRemoveMail={onRemoveMail}
+                        onSetRead={onSetRead}
+                    />
+                }
             </div>
 
         </section>

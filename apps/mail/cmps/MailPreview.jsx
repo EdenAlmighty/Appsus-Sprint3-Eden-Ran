@@ -4,8 +4,7 @@ const { useNavigate } = ReactRouter
 
 import { mailService } from "../services/mail.service.js"
 
-export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expandedRowId, setExpandedRowId }) {
-
+export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expandedRowId, setExpandedRowId, setIsDetails, setSelectedMail }) {
     const navigate = useNavigate()
 
     const min = 1000 * 60
@@ -53,6 +52,8 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
     function moveToPageDetails(mailId) {
         onSetRead(true,mailId)
         navigate(`/mail/${mailId}`)
+        // setSelectedMail(mailId)
+        // setIsDetails(true)
     }
 
     function moveToPagePreview(mailId) {
@@ -108,6 +109,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
                     <button className="mail-actions-extended" onClick={() => onSetRead(!mail.isRead, mail.id)}>{getReadIcon()}</button>
                     <button className="mail-actions-extended" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined circle-icon">delete</span></button>
                     <button className="mail-actions-extended go-to-mail-btn" onClick={() => moveToPageDetails(mail.id)}>Go to mail <i class="fa-solid fa-arrow-right"></i> </button>
+                 
                 </section>
             </tr>
 
