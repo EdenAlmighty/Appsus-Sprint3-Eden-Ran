@@ -47,16 +47,8 @@ export function Home() {
         <span className="material-symbols-outlined circle-icon">delete</span>
         <span className="material-symbols-outlined circle-icon">content_copy</span>
         <span className="material-symbols-outlined circle-icon">keep</span>
-        
-        <section className="logo-container flex align-center">
-            <img className='keep-logo' src="https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png" alt="keep-logo" />
-            <label className="keep-logo-txt" htmlFor="logo">Keep</label>
-        </section>
 
-        <section className="logo-container flex align-center">
-            <img className='mail-logo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_2x_r5.png" alt="mail-logo" />
-            <label htmlFor="logo"></label>
-        </section>
+     
 
 
 

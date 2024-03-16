@@ -32,6 +32,9 @@ img {
     object-fit: cover;
     user-select: none;
 }
+.main-logo{
+    height: 60px;
+}
 
 /* ICONS */
 
@@ -242,16 +245,3 @@ textarea {
     height: 200px;
 }
 
-.keep-logo {
-    height: 40px;
-    width: 40px;
-}
-.keep-logo-txt {
-    font-size: 1.375em;
-    font-family: google-sans;
-    
-}
-.mail-logo {
-    height: 40px;
-    width: 109px;
-}
