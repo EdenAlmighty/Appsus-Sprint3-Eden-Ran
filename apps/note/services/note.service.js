@@ -99,6 +99,18 @@ let gNotes = [
     },
     {
         id: utilService.makeId(),
+        type: 'NoteImg',
+        isPinned: true,
+        info: {
+            url: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTRqbHM2dndlNHZkc3J4ZXp2MW0xNno5MGRqNXg3cDJoa29tYWc3ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qvtLuBQ7WVD0ZurSUz/giphy.gif',
+            title: ''
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
+        }
+    },
+    {
+        id: utilService.makeId(),
         type: 'NoteTodos',
         isPinned: false,
         info: {
@@ -127,8 +139,7 @@ let gNotes = [
             backgroundColor: utilService.getRandomNoteColor()
         }
     },
-    // Add a few more notes here
-];
+]
 
 _createNotes()
 
@@ -200,7 +211,7 @@ function toggleNotePin(noteId) {
             if (!noteToToggle) {
                 throw new Error("Note not found...")
             }
-            console.log(noteToToggle);
+            console.log(noteToToggle)
             noteToToggle.isPinned = !noteToToggle.isPinned
             return storageService.put(NOTE_KEY, noteToToggle)
         })

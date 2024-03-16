@@ -23,9 +23,8 @@ nav {
 }
 
 nav a.active {
-    /* color: var(--cta-bgc); */
-    /* font-weight: bold; */
-    /* text-decoration: overline; */
+    color: var(--main-bgc);
+    font-weight: bold;
 }
 
 .logo-container{
@@ -52,5 +51,8 @@ nav a.active {
 }
 .mail-logo {
     height: 30px;
-    /* width: 109px; */
+}
+
+.main-logo{
+    height: 60px;
 }

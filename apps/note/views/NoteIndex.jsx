@@ -13,13 +13,13 @@ export function NoteIndex() {
     }, [])
 
     function loadNotes() {
-        console.log(notes);
+        console.log(notes)
         noteService.query(notes)
             .then(setNotes)
     }
 
     function onSaveNote(note) {
-        console.log(note);
+        console.log(note)
         noteService.save(note)
             .then(loadNotes)
     }

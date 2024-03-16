@@ -1,5 +1,5 @@
 import { noteService } from '../services/note.service.js'
-import { utilService } from '../../../services/util.service.js';
+import { utilService } from '../../../services/util.service.js'
 
 import { NotePreview } from "./NotePreview.jsx"
 
@@ -14,7 +14,7 @@ export function NoteList({ notes, onRemoveNote, onSaveNote, onDuplicateNote, onT
         setUnPinnedNotes(noteService.getUnPinnedNotes(notes))
     }, [notes])
 
-    console.log(notes);
+    console.log(notes)
 
     if (!notes) return <div className="loader"><span>III</span></div>
     return (

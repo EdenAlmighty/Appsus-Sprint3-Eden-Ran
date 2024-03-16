@@ -40,7 +40,7 @@ export function AddNote({ onSaveNote }) {
             setNote(prevNote => ({
                 ...prevNote,
                 info: { ...prevNote.info, todos: todosObjects }
-            }));
+            }))
         } else if (cmpType === 'NoteTxt') {
             setNote(prevNote => ({
                 ...prevNote,
@@ -105,7 +105,7 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, on
                     value={value.todos.map(todo => todo.txt).join(', ')}
                     onChange={onChange}
                     className="google-keep-input" />
-            );
+            )
         case 'NoteTxt':
             return (
                 <input
@@ -123,12 +123,12 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, on
 // function DynamicCmp(props) {
 //     switch (props.cmpType) {
 //         case 'Select':
-//             return <RateSelectInput {...props} />;
+//             return <RateSelectInput {...props} />
 //         case 'TextBox':
-//             return <RateTextInput {...props} />;
+//             return <RateTextInput {...props} />
 //         case 'Stars':
-//             return <RateStarsInput {...props} />;
+//             return <RateStarsInput {...props} />
 //         default:
-//             return null;
+//             return null
 //     }
 // }

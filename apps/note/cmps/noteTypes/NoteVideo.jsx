@@ -10,5 +10,5 @@ export function NoteVideo({ videoId }) {
                 allowFullScreen
             ></iframe>
         </div>
-    );
+    )
 }
