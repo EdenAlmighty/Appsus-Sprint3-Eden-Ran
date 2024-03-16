@@ -60,7 +60,26 @@ export function AddNote({ onSaveNote }) {
                 onChange={handleChange}
             /> */}
             <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChange} inputRef={inputRef}/>
-            <section>
+            
+
+
+            <button type="submit">add note</button>
+        </form>
+    )
+}
+
+//TODO: Make dynCmp
+function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChange, onAddNote }) {
+    switch (cmpType) {
+        case 'NoteImg' || 'NoteVideo':
+            return (
+                <Fragment>
+                <input type="text"
+                    placeholder="Paste image URL here..."
+                    name={name}
+                    onChange={onChange}
+                    className="google-keep-input" />
+                    <section>
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChange} />
                 <label htmlFor="NoteTxt"><span className="material-symbols-outlined">text_fields</span></label>
 
@@ -73,23 +92,8 @@ export function AddNote({ onSaveNote }) {
                 <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChange} />
                 <label htmlFor="NoteTodos"><span className="material-symbols-outlined">check_box</span></label>
             </section>
-
-
-            <button type="submit">add note</button>
-        </form>
-    )
-}
-
-//TODO: Make dynCmp
-function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
-    switch (cmpType) {
-        case 'NoteImg' || 'NoteVideo':
-            return (
-                <input type="text"
-                    placeholder="Paste image URL here..."
-                    name={name}
-                    onChange={onChange}
-                    className="google-keep-input" />)
+            </Fragment>
+                    )
         case 'NoteVideo':
             return (
                 <input type="text"

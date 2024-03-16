@@ -185,3 +185,24 @@ input[type="radio"] {
 textarea {
     font-family: google-sans;
 }
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.keep-logo {
+    height: 40px;
+    width: 40px;
+}
+.keep-logo-txt {
+    font-size: 1.375em;
+    font-family: google-sans;
+    
+}
+.mail-logo {
+    height: 40px;
+    width: 109px;
+}
