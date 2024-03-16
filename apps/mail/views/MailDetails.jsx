@@ -2,9 +2,10 @@ const { useState, useEffect } = React
 const { useParams, useNavigate } = ReactRouter
 const { Link } = ReactRouterDOM
 
+import { MailFolderList } from "../cmps/MailFolderList.jsx";
 import { mailService } from "../services/mail.service.js"
 
-export function MailDetails() {
+export function MailDetails({onSetFilter, loadMails, filterBy}) {
     console.log('here');
     const [isLoading, setIsLoading] = useState(true)
     const [mail, setMail] = useState(null)
@@ -26,7 +27,7 @@ export function MailDetails() {
                 setIsLoading(false)
             })
     }
-    
+    console.log(params);
     if (isLoading) return <div className="loader"><span>III</span></div>
     
     return <section className="mail-details">

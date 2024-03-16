@@ -90,7 +90,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
             <td className="mail-actions-right-container">
                 <button className="mail-actions right" onClick={() => onSetRead(!mail.isRead, mail.id)}>{getReadIcon()}</button>
                 <button className="mail-actions right" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined circle-icon">delete</span></button>
-                <button className="mail-actions right" onClick={() => moveToPagePreview(mail.id)}>Preview</button>
+                <button className="mail-actions right btn-preview" onClick={() => moveToPagePreview(mail.id)}>Preview</button>
             </td>
             <td className="mail-date-list" onClick={() => moveToPageDetails(mail.id)}>{getFormattedDate(mail)}</td>
         </tr>
@@ -107,7 +107,7 @@ export function MailPreview({ mail, onSetRead, onRemoveMail, onStarMail, expande
                 <section className="actions-buttons-extended-container">
                     <button className="mail-actions-extended" onClick={() => onSetRead(!mail.isRead, mail.id)}>{getReadIcon()}</button>
                     <button className="mail-actions-extended" onClick={() => onRemoveMail(mail.id)}><span className="material-symbols-outlined circle-icon">delete</span></button>
-                    <button className="mail-actions-extended" onClick={() => moveToPageDetails(mail.id)}>Go to mail</button>
+                    <button className="mail-actions-extended go-to-mail-btn" onClick={() => moveToPageDetails(mail.id)}>Go to mail <i class="fa-solid fa-arrow-right"></i> </button>
                 </section>
             </tr>
 

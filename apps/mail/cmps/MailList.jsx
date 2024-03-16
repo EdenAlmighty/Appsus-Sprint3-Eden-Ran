@@ -1,10 +1,12 @@
 const { useState, Fragment } = React
 const { Link } = ReactRouterDOM
-const { useNavigate } = ReactRouter
+const { useNavigate,useParams } = ReactRouter
+
 
 
 import { MailPreview } from "./MailPreview.jsx"
 import { mailService } from "../services/mail.service.js"
+import { LongTxt } from "../../books/books/cmps/LongTxt.jsx"
 
 export function MailList({ mails, loadMails }) {
 
@@ -12,6 +14,8 @@ export function MailList({ mails, loadMails }) {
     const [expandedRowId, setExpandedRowId] = useState('')
 
     const navigate = useNavigate()
+    const params = useParams()
+    console.log(params);
 
     function onSetRead(isRead, mailId) {
         return mailService.get(mailId)
@@ -73,5 +77,10 @@ export function MailList({ mails, loadMails }) {
             }
         </tbody>
     </table>
+    {/* <MailDetails
+                    onSetRead={onSetRead}
+                    onRemoveMail={onRemoveMail}
+                    onStarMail={onStarMail} /> */}
+                
     </section>
 }

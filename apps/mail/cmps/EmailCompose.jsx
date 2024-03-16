@@ -29,6 +29,7 @@ export function EmailCompose({ setIsComposing }) {
         console.log('submitted');
         ev.preventDefault()
         // setMailToCompose((prevMailToCompose) => ({...prevMailToCompose, isDraft:false}))
+        showSuccessMsg(('Email sent'))
         saveMail(mailToCompose)
     }
 
@@ -49,10 +50,12 @@ export function EmailCompose({ setIsComposing }) {
         const { subject, to } = mailToCompose
         console.log(subject, to);
         if (subject && to) {
+            showSuccessMsg(('Draft saved'))
             mailService.save(mailToCompose)
                 .then(mail => {
                     setMailToCompose(prevMailToCompose => ({ ...prevMailToCompose, id: mail.id }))
-                    showSuccessMsg('Draft saved',mail.id)
+
+                    showSuccessMsg('Draft saved')
                 })
                 
         }

@@ -69,7 +69,7 @@ img {
 
 .circle-icon:hover::before {
     z-index: 111;
-    transform: translate(-50%, -50%) scale(1); 
+    transform: translate(-50%, -50%) scale(1);
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -83,6 +83,7 @@ img {
         'GRAD' 0,
         'opsz' 24
 }
+
 .material-symbols-outlined.active-pin {
     cursor: pointer;
     color: #444746;
@@ -174,6 +175,52 @@ div.loader span {
         transform: rotate(0deg);
         scale: 1.5;
     }
+}
+
+input[type="radio"]:checked {
+    visibility: hidden;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#user-msg {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(5, 102, 0, 0.842);
+    grid-auto-flow: column;
+    width: 7em;
+    position: fixed;
+    top: 20vw;
+    left: 50%;
+    color: whitesmoke;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: 2px solid white;
+    animation: getIn;
+    animation-duration: 3s;
+    transform: translateX(-200%);
+    animation-iteration-count: infinite;
+    opacity: 0;
+}
+
+@keyframes getIn {
+   25%{
+    opacity: 1;
+    transform: translateY(0%);
+   }
+   50% {
+    opacity: 0;
+   }
+}
+
+#user-msg-btn {
+    border: none;
+    background-color: transparent;
+
 }
 
 input[type="radio"]:checked {

@@ -1,4 +1,4 @@
-.user-msg {
+/* .user-msg {
     background-color: rgba(241, 175, 41, 0.842);
     padding: .20em 2em;
     position: fixed;
@@ -8,7 +8,16 @@
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 2px;
-    border: 2px solid black
+    border: 2px solid black;
+ 
+
+} */
+
+@keyframes scaleUp {
+    to {
+        opacity: 1;
+        scale: 1.5;
+    }
 }
 
 .user-msg.success {

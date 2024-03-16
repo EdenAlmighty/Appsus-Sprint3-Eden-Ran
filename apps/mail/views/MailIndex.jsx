@@ -8,6 +8,7 @@ import { MailList } from '../cmps/MailList.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
 import { EmailCompose } from '../cmps/EmailCompose.jsx'
 import { MailSort } from '../cmps/MailSort.jsx'
+import { MailDetails } from './MailDetails.jsx'
 
 
 export function MailIndex() {
@@ -89,6 +90,7 @@ export function MailIndex() {
                     mails={mails}
                     loadMails={loadMails}
                 />
+                
 
             </div>
 
