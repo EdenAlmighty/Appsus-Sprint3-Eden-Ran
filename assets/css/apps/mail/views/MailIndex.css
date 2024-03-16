@@ -1,8 +1,6 @@
  /* mail index  */
 
- .mail-index {
-    /* background-color: white; */
-}
+
 
  .mail-main-layout {
     display: grid;
@@ -31,11 +29,7 @@
 
  }
 
- .filter-input-container span {
-     /* position: absolute; */
-     /* left: calc(50vw - 2em); */
-     /* top: 50vh; */
- }
+
 
  #search-email {
      border-radius: 2em;
