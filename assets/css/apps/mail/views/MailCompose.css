@@ -8,6 +8,7 @@
     bottom: 2vh;
     border-radius: 0.5em;
     z-index: 111;
+    font-family: poppins;
 }
 
 .email-compose form {
@@ -21,11 +22,19 @@
     border-radius: 1em;
     margin: 1vh 1vw;
     border: 1px solid gray;
+    
+}
+
+#compose-to-input , #compose-subject-input {
+    
+    font-family: poppins-light,Arial, Helvetica, sans-serif;
 }
 
 #compose-body-text {
+    
     vertical-align:top;
     height: 20vh;
+    font-family: poppins-light;
 }
 
 #compose-body-text.input-expanded{

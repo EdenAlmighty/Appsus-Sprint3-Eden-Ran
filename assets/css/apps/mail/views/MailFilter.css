@@ -1,3 +1,13 @@
 .filter-input-container {
     /* position: fixed; */
 }
+
+.sort-btn{
+    width: 7em;
+    height: 2.5em;
+    background: #c2e7ff;
+    border: 1px solid #c2e7ff;
+    border-radius: 1em;
+    transition: 0.5s;
+    margin: 3px 3px ;
+}

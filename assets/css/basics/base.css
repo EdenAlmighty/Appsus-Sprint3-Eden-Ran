@@ -171,3 +171,33 @@ input[type="radio"]:checked{
   }
   input[type="radio"]{
   display: none;}
+
+.user-msg {
+    background-color: #34a853(241, 175, 41, 0.842);
+    padding: .20em 2em;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: 2px solid black
+}
+
+#user-msg{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(5, 102, 0, 0.842);
+    padding: .20em 2em;
+    position: fixed;
+    top: 20vw;
+    left: 50%;
+    color: #444746;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: 2px solid black
+
+}

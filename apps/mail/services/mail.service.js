@@ -418,6 +418,10 @@ function sortMails(sortBy, mails) {
         console.log('sorrted by subject');
         mails = mails.sort((mailA, mailB) => mailA.subject.localeCompare(mailB.subject) * sortBy.subject)
     }
+    if (sortBy.sender) {
+        console.log('sorrted by sender');
+        mails = mails.sort((mailA, mailB) => mailA.sender.localeCompare(mailB.sender) * sortBy.sender)
+    }
     return mails
 }
 

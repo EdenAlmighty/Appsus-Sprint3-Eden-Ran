@@ -1,6 +1,7 @@
 .read-mail {
     color: var(--fade-clr);
     font-family: google-sans;
+    background: #f2f6fc;
 }
 
 .mail-actions {
@@ -12,7 +13,18 @@
 }
 
 .mail-actions-right-container {
+    /* position: absolute; */
+    /* z-index: 11; */
+    display: none;
+    right: 10vw;
+}
 
+.row-mail:hover .mail-actions-right-container {
+    display: block;
+}
+
+.row-mail:hover .mail-date-list{
+    display: none;
 }
 
 /* .mail-actions.right {

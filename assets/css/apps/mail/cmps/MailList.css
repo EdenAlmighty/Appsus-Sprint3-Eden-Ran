@@ -6,10 +6,12 @@
    grid-auto-flow: column;
    padding: 2px 2px;
    height: 40px;
-   grid-template-columns: auto auto auto 1fr auto;
-   column-gap: 2vw;
+   grid-template-columns: 2em 100px auto 1fr auto;
+   column-gap: 1em;
    justify-content: start;
    text-align: start;
+   align-items: center;
+   width: 99%;
  }
 
  .row-mail:hover {
@@ -30,18 +32,29 @@
    background: rgb(246, 248, 252);
  }
 
+ tbody {
+  margin: 0;
+  padding: 0;
+  width: 99%;
+  height: fit-content;
+}
  table.mail-list {
-   width: 100%;
-   /* z-index: -1; */
+   /* width: 100%; */
    background: white;
-   display: grid;
+   display: flex;
    justify-content: space-between;
-   grid-template-columns: auto auto auto minmax(1fr, 100%) auto auto;
    text-align: left;
    text-overflow: ellipsis;
-
-
-   /* height: 400px; */
+   align-content: start;
+   border-spacing: 0;
+   /* position: relative; */
+   /* height: 100%; */
+   border-collapse: collapse;
+   font-size: 0.9em;
+   min-width: 400px;
+  overflow: auto;
+  
+   /* height: 70vh; */
    /* overflow: scroll; */
  }
 
@@ -49,9 +62,7 @@
    height: auto;
  }
 
- .mail-date-list {
-   justify-self: center;
- }
+
 
 
  .list-subject {
@@ -89,6 +100,7 @@
  .mail-actions.left {
    width: 40px;
    height: 40px;
+   align-self: center;
 
  }
 
@@ -97,8 +109,9 @@
  }
 
  .mail-body-msg {
-   width: auto;
+   /* width: auto; */
    width: 100%;
+   /* width: 80vw; */
    overflow: hidden;
    text-wrap: nowrap;
    text-overflow: ellipsis;
@@ -108,10 +121,33 @@
 
  .mail-list-container {
 
-   position: relative;
-   overflow-y: auto;
-   height: 70vh;
+   /* position: relative; */
+   /* overflow-y: auto; */
+   /* display: grid; */
+   table-layout: fixed;
+   background: white;
+  padding: 5px 5px;
+  border-radius: 1em;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #f6f8fc;
+
+   
+   /* background-color: fff; */
  }
+
+ ::-webkit-scrollbar-thumb {
+  position: fixed;
+  background-color: rgb(221, 221, 221);
+  /* border-radius: 6px;  */
+}
+
+::-webkit-scrollbar {
+  width: 6px; /* Set width of the scrollbar */
+}
+
 
  .mail-folder-list-items {
    position: relative;

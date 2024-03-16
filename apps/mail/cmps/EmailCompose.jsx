@@ -1,6 +1,7 @@
 const { useState, useRef, useEffect } = React
 
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
+import { LongTxt } from '../../books/books/cmps/LongTxt.jsx'
 import { mailService } from '../services/mail.service.js'
 
 export function EmailCompose({ setIsComposing }) {
@@ -11,6 +12,8 @@ export function EmailCompose({ setIsComposing }) {
     const [mailSent, setMailSent] = useState()
 
     const intervalIdRef = useRef()
+
+    console.log(mailToCompose,isExpanded);
 
     useEffect(() => {
         intervalIdRef.current = setInterval(() => {
@@ -37,21 +40,38 @@ export function EmailCompose({ setIsComposing }) {
         setMailToCompose((prevMailToCompose) => ({ ...prevMailToCompose, [field]: value }))
     }
 
-    function saveMail() {
+    function saveMail(mailToCompose) {
         mailService.saveComposedMail(mailToCompose)
         setIsComposing(false)
     }
 
     function updateMailToCompose() {
-        console.log(mailToCompose);
         const { subject, to } = mailToCompose
+        console.log(subject, to);
         if (subject && to) {
             mailService.save(mailToCompose)
-                .then(mail => setMailToCompose(prevMailToCompose => ({ ...prevMailToCompose, id: mail.id })))
-                .then(() => showSuccessMsg('Draft saved'))
+                .then(mail => {
+                    setMailToCompose(prevMailToCompose => ({ ...prevMailToCompose, id: mail.id }))
+                    showSuccessMsg('Draft saved',mail.id)
+                })
+                
         }
         // saveDraftMail(mailToCompose)
     }
+
+    function onSetCompose(ev){
+        ev.preventDefault()
+        
+        setIsComposing((prevIsComposing) => !prevIsComposing)
+    }
+
+    function onSetExpanded(ev){
+        ev.preventDefault()
+        setIsExpanded((prevIsExpanded) => !prevIsExpanded)
+    }
+
+
+
     if (!mailToCompose) return <div>error</div>
     return <section className={`email-compose ${isExpanded ? 'expanded' : ''}`}>
         <div className={`${isExpanded ? 'backdrop-compose' : ''}`}></div>
@@ -59,32 +79,32 @@ export function EmailCompose({ setIsComposing }) {
             <div className='email-compose-header'>
                 <h2 >New Message</h2>
                 <div className="compose-small-actions">
-                    <button onClick={() => setIsComposing((prevIsComposing) => !prevIsComposing)}>-</button>
-                    <button onClick={() => setIsExpanded((prevIsExpanded) => !prevIsExpanded)}>+</button>
+                    <button onClick={(ev) => onSetCompose(ev)}>-</button>
+                    <button onClick={(ev) => onSetExpanded(ev)}>+</button>
                 </div>
             </div>
             <p>From: {mailToCompose.from}</p>
             <label htmlFor="compose-to-input"></label>
-            <input type="email"
+            <textarea type="email"
 
                 id='compose-to-input'
                 name='to'
                 placeholder='Recipients'
-                onChange={handleChange}
+                onChange={handleChange} required
             />
             <label htmlFor="compose-subject-input"></label>
-            <input type="text"
+            <textarea type="text"
                 id='compose-subject-input'
                 name='subject'
                 placeholder='Subject'
-                onChange={handleChange}
+                onChange={handleChange} required
             />
             <label htmlFor="compose-body-text"></label>
-            <input type="text"
+            <textarea type="text"
                 id='compose-body-text'
                 name='body'
                 className={`${isExpanded ? 'input-expanded' : ''}`}
-                onChange={handleChange}
+                onChange={handleChange} required
             />
             <button>Send</button>
         </form>
