@@ -20,7 +20,7 @@ export function NoteIndex() {
 
     function onSaveNote(note) {
         console.log(note)
-        noteService.save(note)
+        return noteService.save(note)
             .then(loadNotes)
     }
 

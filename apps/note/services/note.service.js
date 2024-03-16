@@ -179,7 +179,7 @@ function getUnPinnedNotes(notes) {
 function getEmptyNote() {
     return {
         // id,
-        type: '',
+        type: 'NoteTxt',
         createdAt: new Date().getDate(),
         isPinned: false,
         style: {

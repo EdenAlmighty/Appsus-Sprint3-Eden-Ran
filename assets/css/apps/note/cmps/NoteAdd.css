@@ -14,7 +14,8 @@
 
 
 .main-input-container {
-    display: flex;
+    display: grid;
+    row-gap: 10px;
     background-color: red;
 }
 .note-input-container {
