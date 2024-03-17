@@ -47,7 +47,6 @@ export function NoteIndex() {
     if (!notes) return <div className="loader"><span>III</span></div>
 
     return <section className="note-main-container">
-        <h2 className="page-title">Note app</h2>
         <AddNote onSaveNote={onSaveNote} />
         <NoteList notes={notes}
             onRemoveNote={onRemoveNote}

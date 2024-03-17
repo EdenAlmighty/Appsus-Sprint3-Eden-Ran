@@ -96,17 +96,17 @@ export function AddNote({ onSaveNote }) {
 
             <section className="note-input-container bottom">
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteTxt')} />
-                <label htmlFor="NoteTxt"><span className="material-symbols-outlined">text_fields</span></label>
+                <label htmlFor="NoteTxt"><span className="material-symbols-outlined circle-icon">text_fields</span></label>
 
                 <input type="radio" id="NoteImg" name="cmpType" value="NoteImg" checked={cmpType === 'NoteImg'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteImg')} />
-                <label htmlFor="NoteImg"><span className="material-symbols-outlined">photo</span></label>
+                <label htmlFor="NoteImg"><span className="material-symbols-outlined circle-icon">photo</span></label>
 
                 <input type="radio" id="NoteVideo" name="cmpType" value="NoteVideo" checked={cmpType === 'NoteVideo'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteVideo')}/>
-                <label htmlFor="NoteVideo"><span className="material-symbols-outlined">youtube_activity</span></label>
+                <label htmlFor="NoteVideo"><span className="material-symbols-outlined circle-icon">youtube_activity</span></label>
 
                 <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteTodos')}/>
                 <label htmlFor="NoteTodos"><span className="material-symbols-outlined">check_box</span></label>
-                <button className="note-submit" type="submit"><span class="material-symbols-outlined">task_alt</span></button>
+                <button className="note-submit" type="submit"><span class="material-symbols-outlined circle-icon">task_alt</span></button>
             </section>
 
         </form>

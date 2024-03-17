@@ -110,7 +110,6 @@ export function MailIndex() {
 
     return <section className="mail-index">
 
-        <h2 className="page-title">misterEmail</h2>
         {isComposing && <EmailCompose setIsComposing={setIsComposing} />}
         <section className="mail-main-layout">
             <div className="main-mail-list-folder">

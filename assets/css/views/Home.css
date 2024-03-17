@@ -134,7 +134,9 @@
 h2 {
     margin-bottom: 1rem;
 }
-
+.action-btns{
+    padding: 1em;
+}
 .team-section {
     display: flex;
     justify-content: space-around;
@@ -180,3 +182,46 @@ img.team{
     border-radius: 10em;
     box-shadow: 0px 2px 10px 0px #0000008c;
 }
+/* 
+.hamburger-menu {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.ham-bar {
+    width: 70%;
+    height: 4px;
+    background-color: white;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.6s, opacity 0.8s, top 0.6s;
+}
+
+.bar-top{
+    top: 25%;
+}
+
+.bar-bottom{
+    top: 75%;
+}
+
+.hamburger-menu.active .bar-top{
+    transform: translate(-50%, -50%) rotate(-315deg);
+    top: 50%;
+}
+
+.hamburger-menu.active .bar-mid{
+    transform: translate(-50%, -50%) rotate(-315deg);
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar-bottom{
+    transform: translate(-50%, -50%) rotate(315deg);
+    top: 50%;
+} */

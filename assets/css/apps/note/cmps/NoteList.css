@@ -17,3 +17,7 @@
     background-color: rgb(46, 124, 124);
     gap: 1em;
  } */
+
+ .action-btns span{
+    margin: 0.5em;
+ }

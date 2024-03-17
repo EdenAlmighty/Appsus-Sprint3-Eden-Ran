@@ -97,8 +97,8 @@ export function NotePreview({ note, onToggleNotePin, onRemoveNote, onDuplicateNo
             {currContent}
         </blockquote>
 
-        <section className="action-btns flex">
-            <span className="material-symbols-outlined notes"
+        <section className="action-btns  flex">
+            <span className="material-symbols-outlined circle-icon"
                 onClick={() => setShowColorPicker(show => !show)}>palette</span>
 
             {showColorPicker &&
@@ -109,11 +109,11 @@ export function NotePreview({ note, onToggleNotePin, onRemoveNote, onDuplicateNo
             }
 
             <div onClick={() => { onRemoveNote(note.id) }}>
-                <span className="material-symbols-outlined notes">delete</span>
+                <span className="material-symbols-outlined circle-icon">delete</span>
             </div>
 
             <div onClick={() => { onDuplicateNote(note.id) }}>
-                <span className="material-symbols-outlined notes">content_copy</span>
+                <span className="material-symbols-outlined circle-icon">content_copy</span>
             </div>
         </section>
     </Fragment>
