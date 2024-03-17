@@ -83,7 +83,7 @@ export function BookEdit(){
                 onChange={handleChange}
                 placeholder="Enter book price"
                 />
-                <button>Submit</button>
+                <button className="add-book-submit">Submit</button>
         </form>
     </section>
 }
