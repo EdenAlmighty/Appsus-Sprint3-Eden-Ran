@@ -1,6 +1,7 @@
 import { HeroSvg } from "../cmps/HeroSvg.jsx";
-
-
+import { MailSvg } from "../cmps/MailSvg.jsx";
+import { KeepSvg } from "../cmps/KeepSvg.jsx";
+import '../assets/img/'
 export function Home() {
     return (
         <section className="home">
@@ -15,11 +16,6 @@ export function Home() {
                     <section className="hero-svg">
                         <HeroSvg />
                     </section>
-                    {/* <div className="animated-squares">
-                        <div className="square" style={{ animationDelay: '0s' }}></div>
-                        <div className="square" style={{ animationDelay: '1s' }}></div>
-                        <div className="square" style={{ animationDelay: '2s' }}></div>
-                    </div> */}
                 </div>
             </header>
 
@@ -27,18 +23,55 @@ export function Home() {
                 <h2>Our Apps</h2>
                 <div className="feature">
                 </div>
-                    <div className="apps-container">
-                        <div className="app-info">
-                        <div className="mail-logo">mail</div>
-                        <p>Appsus is here to help you organize your life, and make it a little easier.</p>
+                <div className="apps-container">
+                    <div className="app-info">
+                        <div className="app-logo">
+                            <MailSvg />
                         </div>
-                        <div className="app-info">
-                        <div className="mail-logo">notes</div>
-                        <p>Appsus is here to help you organize your life, and make it a little easier.</p>
-                        </div>
+                        <p>appsus Mail</p>
                     </div>
+                    <div className="app-info">
+                        <div className="app-logo">
+                            <KeepSvg />
+                        </div>
+                        <p>appsus Keep</p>
+                    </div>
+                    <div className="app-info">
+                        <div className="app-logo">
+                            <KeepSvg />
+                        </div>
+                        <p>appsus Keep</p>
+                    </div>
+                </div>
 
             </section>
-        </section>
+
+            <section className="features">
+                <h2>Our Team</h2>
+                <div class="team-section">
+                    <div class="info-card">
+                        <div class="avatar-circle">
+                            <img src="./assets/img/eden.jpg" alt="" srcset="" />
+                        </div>
+                        <div class="info-content">
+                            <h2>Eden Gilady</h2>
+                            <p>28 years old from Tel Aviv, Israel. Always looking <br /> for a new challenge. All about learning new things.<br /> Studying web development in Coding-Academy.</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="avatar-circle">
+                            <img src="./assets/img/ran.jpg" alt="" srcset="" />
+                        </div>
+                        <div class="info-content">
+                            <h2>Ran Sabban</h2>
+                            <p>25 years old from Shoham, Israel. Always looking <br /> for a new challenge. All about learning new things.<br /> Studying web development in Coding-Academy.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+        </section >
     )
 }
