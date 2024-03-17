@@ -33,7 +33,7 @@ export function AddNote({ onSaveNote }) {
         let { value } = target
         console.log(value);
 
-        if (cmpType === 'NoteImg' || cmpType === 'NoteVideo') {
+        if (cmpType === 'NoteImg') {
             setNote(prevNote => ({
                 ...prevNote,
                 info: { ...prevNote.info, url: value }
