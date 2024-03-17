@@ -9,18 +9,3 @@
 
 @media (min-width: 640px) {}
 
-@media (min-width: 860px) {
-    .mail-main-layout {
-        grid-template-columns: 12.25em 1fr;
-        column-gap: 1em;
-    }
-}
-
-@media (min-width: 1040px) {
-    .note-main-container {
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: minmax(20px, 1fr) minmax(auto, 1060px) minmax(20px, 1fr);
-
-    }
-}
