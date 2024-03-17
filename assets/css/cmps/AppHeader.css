@@ -56,3 +56,6 @@ nav a.active {
 .main-logo{
     height: 60px;
 }
+.logo-container{
+    columns: 2;
+}

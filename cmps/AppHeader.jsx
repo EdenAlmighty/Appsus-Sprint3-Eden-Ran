@@ -1,9 +1,13 @@
 const { Link, NavLink } = ReactRouterDOM
+import { AppsusSvg } from "./AppsusSvg.jsx"
+import { MailSvg } from "./MailSvg.jsx"
 export function AppHeader() {
 
     return <header className="app-header">
         <Link to="/">
-            <img className='main-logo' src=".././assets/img/appsus-logo.png" alt="" />
+            {/* <img className='main-logo'  alt="" /> */}
+            <AppsusSvg />
+            
             {/* <h3 className='logo'>LOGO!</h3> */}
         </Link>
         
@@ -11,8 +15,9 @@ export function AppHeader() {
             <NavLink to="/"></NavLink>
             <NavLink to="/about"></NavLink>
 
-            <NavLink to="/mail"><section className="logo-container flex align-center">
-                <img className='mail-logo' src=".././assets/img/gmail-logo.png" alt="mail-logo" />
+            <NavLink to="/mail">
+                <section className="logo-container ">
+            <MailSvg/>
                 <label className="mail-logo-txt" htmlFor="logo">Mail</label>
             </section>
             </NavLink>

@@ -95,3 +95,15 @@
 .pulse5 {
     animation: pulse 2.8s infinite ease-in-out;
 }
+
+.apps-container{
+    display: flex;
+    gap: 3em;;
+}
+
+.app-info{
+    background-color: #4276f0;
+
+    margin-left: auto;
+    margin-right: auto
+}

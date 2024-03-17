@@ -26,9 +26,18 @@ export function Home() {
             <section className="features">
                 <h2>Our Apps</h2>
                 <div className="feature">
-                    <div className="icon-check"></div>
-                    <p>Appsus is here to help you organize your life, and make it a little easier.</p>
                 </div>
+                    <div className="apps-container">
+                        <div className="app-info">
+                        <div className="mail-logo">mail</div>
+                        <p>Appsus is here to help you organize your life, and make it a little easier.</p>
+                        </div>
+                        <div className="app-info">
+                        <div className="mail-logo">notes</div>
+                        <p>Appsus is here to help you organize your life, and make it a little easier.</p>
+                        </div>
+                    </div>
+
             </section>
         </section>
     )
