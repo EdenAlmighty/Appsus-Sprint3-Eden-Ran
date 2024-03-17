@@ -51,7 +51,7 @@ export function Home() {
                 <div class="team-section">
                     <div class="info-card">
                         <div class="avatar-circle">
-                            <img src="./assets/img/eden.jpg" alt="" srcset="" />
+                            <img className="team" src="./assets/img/eden.jpg" alt="" srcset="" />
                         </div>
                         <div class="info-content">
                             <h2>Eden Gilady</h2>
@@ -60,7 +60,7 @@ export function Home() {
                     </div>
                     <div class="info-card">
                         <div class="avatar-circle">
-                            <img src="./assets/img/ran.jpg" alt="" srcset="" />
+                            <img className="team" src="./assets/img/ran.jpg" alt="" srcset="" />
                         </div>
                         <div class="info-content">
                             <h2>Ran Sabban</h2>
@@ -68,7 +68,6 @@ export function Home() {
                         </div>
                     </div>
                 </div>
-
             </section>
 
 
