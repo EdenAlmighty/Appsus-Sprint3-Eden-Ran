@@ -108,3 +108,14 @@
     font-size: 1.375em;
     font-family: google-sans-medium;
 }
+.apps-container{
+    display: flex;
+    gap: 3em;;
+}
+
+.app-info{
+    background-color: #4276f0;
+
+    margin-left: auto;
+    margin-right: auto
+}
