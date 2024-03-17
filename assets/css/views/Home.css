@@ -235,24 +235,24 @@ img.team{
 }
 
 .material-symbols-outlined.book-destroyed:hover {
-    animation: escape;
+    /* animation: escape; */
     animation-duration: 0.1s;
+    transform: translateY(500%);
+
 
 }
 
 @keyframes escape {
     to {
-       transform: translateX(300%);
+       transform: translateX(0%);
     }
 }
 
 @keyframes movebaby {
     from { 
-        transform: translateY(100%);
+        transform: translateY(0%);
     }
     to { 
-        transform: scaleY(2.5);
-        transform: scaleX(2.5);
-        transform: translateY(50%);;
+        transform: translateY(100%);;
     }
 }
