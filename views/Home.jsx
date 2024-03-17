@@ -5,7 +5,7 @@ export function Home() {
     return (
         <section className="home">
             <header>
-
+                
                 <div className="hero">
                     <section className="hero-title">
                         <h2>Let's organize</h2>
