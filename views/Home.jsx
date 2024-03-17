@@ -1,3 +1,5 @@
+const { Link, NavLink } = ReactRouterDOM
+
 import { HeroSvg } from "../cmps/HeroSvg.jsx";
 import { MailSvg } from "../cmps/MailSvg.jsx";
 import { KeepSvg } from "../cmps/KeepSvg.jsx";
@@ -6,7 +8,7 @@ export function Home() {
     return (
         <section className="home">
             <header>
-                
+
                 <div className="hero">
                     <section className="hero-title">
                         <h2>Let's organize</h2>
@@ -25,22 +27,33 @@ export function Home() {
                 </div>
                 <div className="apps-container">
                     <div className="app-info">
-                        <div className="app-logo">
-                            <MailSvg />
-                        </div>
-                        <p>appsus Mail</p>
+                        <Link to="/mail">
+
+                            <div className="app-logo">
+                                <MailSvg />
+                            </div>
+                            <p>appsus Mail</p>
+
+                        </Link>
                     </div>
                     <div className="app-info">
-                        <div className="app-logo">
-                            <KeepSvg />
-                        </div>
-                        <p>appsus Keep</p>
+                        <Link to="/note">
+
+                            <div className="app-logo">
+                                <KeepSvg />
+                            </div>
+                            <p>appsus Keep</p>
+                        </Link>
+
                     </div>
                     <div className="app-info">
-                        <div className="app-logo">
-                            <KeepSvg />
-                        </div>
-                        <p>appsus Keep</p>
+                            <div className="app-logo">
+                        <Link to="/books">
+                                <span class="material-symbols-outlined book-destroyed">
+                                    menu_book
+                                </span>                           
+                        </Link> </div>
+                            <p>Catch the icon!</p>
                     </div>
                 </div>
 

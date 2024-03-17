@@ -223,3 +223,36 @@ img.team{
     transform: translate(-50%, -50%) rotate(315deg);
     top: 50%;
 } */
+
+.material-symbols-outlined.book-destroyed {
+    height: 200px;
+    width: 200px;
+    animation: movebaby;
+    animation-duration: 0.5s ;
+    animation-fill-mode: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.material-symbols-outlined.book-destroyed:hover {
+    animation: escape;
+    animation-duration: 0.1s;
+
+}
+
+@keyframes escape {
+    to {
+       transform: translateX(300%);
+    }
+}
+
+@keyframes movebaby {
+    from { 
+        transform: translateY(100%);
+    }
+    to { 
+        transform: scaleY(2.5);
+        transform: scaleX(2.5);
+        transform: translateY(50%);;
+    }
+}
