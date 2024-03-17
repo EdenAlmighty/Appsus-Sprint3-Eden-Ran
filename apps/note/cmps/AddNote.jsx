@@ -3,7 +3,6 @@ const { useEffect, useState, useRef } = React
 
 export function AddNote({ onSaveNote }) {
     const [note, setNote] = useState(noteService.getEmptyNote())
-    // const [formValue,setFormValue] = useState({title:'', txt:''})
     const [cmpType, setCmpType] = useState('')
     const inputRef = useRef(null)
 
@@ -14,7 +13,7 @@ export function AddNote({ onSaveNote }) {
         }
     }, [])
 
-    function onAddNote(ev,elForm) {
+    function onAddNote(ev, elForm) {
         ev.preventDefault()
         if (!cmpType) return
         onSaveNote(note)
@@ -25,18 +24,10 @@ export function AddNote({ onSaveNote }) {
     console.log(note);
 
     function handleChangeInfo({ target }) {
-        let { value, name } = target
+        let { value } = target
         console.log(value);
-        
-        // if (name === 'cmpType') {
-        //     setCmpType(value)
-        //     setNote(prevNote => ({
-        //         ...prevNote,
-        //         type: value,
-        //         info: { ...prevNote.info, [name]: value }
-        //     }))
-        // } else
-         if (cmpType === 'NoteImg' || cmpType === 'NoteVideo') {
+
+        if (cmpType === 'NoteImg' || cmpType === 'NoteVideo') {
             setNote(prevNote => ({
                 ...prevNote,
                 info: { ...prevNote.info, url: value }
@@ -70,8 +61,10 @@ export function AddNote({ onSaveNote }) {
 
 
     return (
+
         <form className="main-input-container" onSubmit={onAddNote} >
             <input
+                className="google-keep-input top"
                 type="text"
                 placeholder="Title"
                 name="title"
@@ -80,9 +73,10 @@ export function AddNote({ onSaveNote }) {
                 onClick={((ev) => toggleMainInput(ev))}
             />
 
-            <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChangeInfo} inputRef={inputRef} />
+            <DynamicCmp cmpType={cmpType} name="info" value={note.info} onChange={handleChangeInfo} inputRef={inputRef}
+            />
 
-            <section className="note-input-container">
+            <section className="note-input-container bottom">
                 <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChangeInfo} />
                 <label htmlFor="NoteTxt"><span className="material-symbols-outlined">text_fields</span></label>
 
@@ -94,16 +88,15 @@ export function AddNote({ onSaveNote }) {
 
                 <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChangeInfo} />
                 <label htmlFor="NoteTodos"><span className="material-symbols-outlined">check_box</span></label>
+                <button className="note-submit" type="submit"><span class="material-symbols-outlined">task_alt</span></button>
             </section>
 
-
-            <button type="submit">add note</button>
         </form>
     )
 }
 
 // TODO: Make dynCmp
-function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChangeInfo, onAddNote }) {
+function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
     switch (cmpType) {
         case 'NoteImg':
             return (
@@ -141,6 +134,7 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef, handleChangeInfo
                     value={value.txt}
                     className="google-keep-input" />)
         default:
-            return null
+            break
     }
+    
 }

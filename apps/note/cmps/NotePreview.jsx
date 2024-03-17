@@ -118,7 +118,3 @@ export function NotePreview({ note, onToggleNotePin, onRemoveNote, onDuplicateNo
         </section>
     </Fragment>
 }
-
-// input : selected div {
-
-// }
