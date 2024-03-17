@@ -96,7 +96,6 @@
     animation: pulse 2.8s infinite ease-in-out;
 }
 
-
 .logo-container svg {
     width: 40px;
 }
@@ -108,14 +107,76 @@
     font-size: 1.375em;
     font-family: google-sans-medium;
 }
+
 .apps-container{
     display: flex;
     gap: 3em;;
 }
 
 .app-info{
-    background-color: #4276f0;
-
+    background-color: #ededed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    width: 300px;
+    height: 400px;
     margin-left: auto;
     margin-right: auto
+}
+
+.team-section {
+    text-align: center;
+    margin: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+.team-section {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px; 
+}
+
+.info-card {
+    display: flex;
+    position: relative; 
+    align-items: center;
+    margin-bottom: 1rem;
+    margin: 10em;
+    width: 100%; 
+}
+
+.avatar-circle {
+    position: absolute;
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%;
+    left: 100px;
+    z-index: 2; 
+    transform: translateX(-50%); 
+   
+}
+
+.info-content {
+    border: 2px solid #0000003a;
+    border-radius: 1em;
+    width: 600px; 
+    height: 200px; 
+    margin-left: 100px; 
+    text-align: left;
+    padding-left: 150px;
+    padding-top: 50px;
+    position: relative; 
+    z-index: 1; 
+}
+
+img{
+    border-radius: 10em;
+    box-shadow: 0px 2px 10px 0px #0000008c;
 }

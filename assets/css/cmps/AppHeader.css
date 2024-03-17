@@ -57,29 +57,3 @@ nav a.active {
     height: 60px;
 }
 
-.burger-toggle{
-    position: fixed;
-    top: 2em;
-    right: 2em;
-    width: 50px;
-    color: black;
-    opacity: 1;
-    cursor: pointer;
-}
-
-.app-header .burger-toggle.hide{
-    opacity: 0;
-}
-
-nav.show {
-    transform: translateX(0%);
-}
-
-nav.hide {
-    transform: translateX(-200%);
-
-}
-
-.logo-container{
-    columns: 2;
-}
