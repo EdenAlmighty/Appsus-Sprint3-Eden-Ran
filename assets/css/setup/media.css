@@ -1,0 +1,11 @@
+@media (max-width: 860px) {
+    html {
+        font-size: 14px;
+    }
+    
+}
+
+/* SMALL */
+
+@media (min-width: 640px) {}
+

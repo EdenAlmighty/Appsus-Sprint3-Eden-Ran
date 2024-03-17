@@ -41,6 +41,7 @@ export function App() {
                 </Routes>
             </main>
             <UserMsg />
+            <div className="burger-toggle-backdrop"></div>
         </section>
     </Router>
 }

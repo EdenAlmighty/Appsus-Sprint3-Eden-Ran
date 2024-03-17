@@ -17,7 +17,8 @@ export const mailService = {
     sortMails,
     getUnreadCount,
     saveComposedMail,
-    getFilterFromParams
+    getFilterFromParams,
+    getRandomTime
 }
 
 
@@ -28,7 +29,7 @@ const gEmails = [
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'user@appsus.com',
         to: 'user@appsus.com'
@@ -39,7 +40,7 @@ const gEmails = [
         subject: 'Meeting Reminder',
         body: 'Just a reminder about our meeting tomorrow at 10 AM.',
         isRead: true,
-        sentAt: 1551183455000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'user@appsus.com',
         to: 'user@appsus.com'
@@ -50,8 +51,8 @@ const gEmails = [
         subject: 'Weekend Plans',
         body: 'Hey there! Any plans for the weekend?',
         isRead: false,
-        sentAt: 1551210238000,
-        removedAt: 1551183455000,
+        sentAt: getRandomTime(),
+        removedAt: getRandomTime(),
         from: 'alice@example.com',
         to: 'user@appsus.com'
     },
@@ -61,7 +62,7 @@ const gEmails = [
         subject: 'Project Update',
         body: 'Attached is the latest project update. Let me know if you have any questions.',
         isRead: false,
-        sentAt: 1551245021000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'mark@example.com',
         to: 'user@appsus.com'
@@ -72,8 +73,8 @@ const gEmails = [
         subject: 'Happy Birthday!',
         body: 'Wishing you a fantastic birthday filled with joy and laughter!',
         isRead: true,
-        sentAt: 1551289327000,
-        removedAt: 1551183455000,
+        sentAt: getRandomTime(),
+        removedAt: getRandomTime(),
         from: 'emma@example.com',
         to: 'user@appsus.com'
     },
@@ -82,11 +83,12 @@ const gEmails = [
         sender: 'David',
         subject: 'Regarding the Proposal',
         body: 'I have some feedback on the proposal we discussed. Let\'s schedule a meeting to discuss further.',
-        isRead: false,
+        isRead: true,
         sentAt: 1551332394000,
         removedAt: null,
         from: 'david@example.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
+        star: true
     },
     {
         id: 'e107',
@@ -94,7 +96,7 @@ const gEmails = [
         subject: 'Quick Question',
         body: 'Hey, I have a quick question regarding the upcoming event. Can you please give me a call when you\'re available?',
         isRead: true,
-        sentAt: 1551370846000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'sophie@example.com',
         to: 'user@appsus.com'
@@ -104,11 +106,12 @@ const gEmails = [
         sender: 'Michael',
         subject: 'Weekend Getaway',
         body: 'I\'m planning a weekend getaway. Would you like to join?',
-        isRead: false,
-        sentAt: 1551407623000,
+        isRead: true,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'michael@example.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
+        star:true
     },
     {
         id: 'e109',
@@ -116,7 +119,7 @@ const gEmails = [
         subject: 'Volunteer Opportunity',
         body: 'We have a volunteering opportunity this weekend. Are you interested?',
         isRead: true,
-        sentAt: 1551446132000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'lily@example.com',
         to: 'user@appsus.com'
@@ -126,8 +129,8 @@ const gEmails = [
         sender: 'James',
         subject: 'Project Deadline',
         body: 'Just a reminder that the project deadline is approaching. Let\'s ensure everything is on track.',
-        isRead: false,
-        sentAt: 1551483911000,
+        isRead: true,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'james@example.com',
         to: 'user@appsus.com',
@@ -139,11 +142,12 @@ const gEmails = [
         subject: 'Coffee Meeting',
         body: 'Would you like to grab coffee this afternoon?',
         isRead: true,
-        sentAt: 1551522100000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'olivia@example.com',
         to: 'user@appsus.com',
-        isDraft: true
+        isDraft: true,
+        star:true
     },
     {
         id: 'e112',
@@ -151,7 +155,7 @@ const gEmails = [
         subject: 'New Task Assignment',
         body: 'I\'ve assigned you a new task. Please review and let me know if you have any questions.',
         isRead: false,
-        sentAt: 1551559789000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'daniel@example.com',
         to: 'user@appsus.com'
@@ -162,7 +166,7 @@ const gEmails = [
         subject: 'Lunch Invitation',
         body: 'Hey! I\'m organizing a lunch gathering next week. Would you like to join us?',
         isRead: true,
-        sentAt: 1551598654000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'sophia@example.com',
         to: 'user@appsus.com',
@@ -174,7 +178,7 @@ const gEmails = [
         subject: 'Team Meeting Agenda',
         body: 'Attached is the agenda for our team meeting tomorrow. Please review it.',
         isRead: false,
-        sentAt: 1551640712000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'jack@example.com',
         to: 'user@appsus.com'
@@ -185,7 +189,7 @@ const gEmails = [
         subject: 'Feedback Request',
         body: 'I would appreciate your feedback on the latest project proposal.',
         isRead: true,
-        sentAt: 1551684423000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'isabella@example.com',
         to: 'user@appsus.com'
@@ -196,7 +200,7 @@ const gEmails = [
         subject: 'Weekend Hike',
         body: 'I\'m planning a hike this weekend. Would you like to join me?',
         isRead: false,
-        sentAt: 1551730085000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'ethan@example.com',
         to: 'user@appsus.com'
@@ -207,7 +211,7 @@ const gEmails = [
         subject: 'New Product Launch',
         body: 'We\'re launching a new product next month. Stay tuned for more details!',
         isRead: true,
-        sentAt: 1551777456000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: 'mia@example.com',
         to: 'user@appsus.com'
@@ -218,7 +222,7 @@ const gEmails = [
         subject: "Travel Plans",
         body: "I'm planning a trip next month. Do you have any recommendations?",
         isRead: false,
-        sentAt: 1551826312000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "alexander@example.com",
         to: "user@appsus.com"
@@ -229,7 +233,7 @@ const gEmails = [
         subject: "Volunteer Opportunity",
         body: "We have a volunteering opportunity this weekend. Are you interested?",
         isRead: true,
-        sentAt: 1551862932000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "lily@example.com",
         to: "user@appsus.com"
@@ -240,7 +244,7 @@ const gEmails = [
         subject: "Project Deadline",
         body: "Just a reminder that the project deadline is approaching. Let's ensure everything is on track.",
         isRead: false,
-        sentAt: 1551909831000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "james@example.com",
         to: "user@appsus.com"
@@ -251,7 +255,7 @@ const gEmails = [
         subject: "Coffee Meeting",
         body: "Would you like to grab coffee this afternoon?",
         isRead: true,
-        sentAt: 1551957991000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "olivia@example.com",
         to: "user@appsus.com"
@@ -262,7 +266,7 @@ const gEmails = [
         subject: "Lunch Invitation",
         body: "Hey! I'm organizing a lunch gathering next week. Would you like to join us?",
         isRead: true,
-        sentAt: 1552006154000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "sophia@example.com",
         to: "user@appsus.com"
@@ -273,7 +277,7 @@ const gEmails = [
         subject: "Team Meeting Agenda",
         body: "Attached is the agenda for our team meeting tomorrow. Please review it.",
         isRead: false,
-        sentAt: 1552054232000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "jack@example.com",
         to: "user@appsus.com"
@@ -284,7 +288,7 @@ const gEmails = [
         subject: "Feedback Request",
         body: "I would appreciate your feedback on the latest project proposal.",
         isRead: true,
-        sentAt: 1552102231000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "isabella@example.com",
         to: "user@appsus.com"
@@ -295,7 +299,7 @@ const gEmails = [
         subject: "Weekend Hike",
         body: "I'm planning a hike this weekend. Would you like to join me?",
         isRead: false,
-        sentAt: 1552150395000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "ethan@example.com",
         to: "user@appsus.com"
@@ -306,7 +310,7 @@ const gEmails = [
         subject: "New Product Launch",
         body: "We're launching a new product next month. Stay tuned for more details!",
         isRead: true,
-        sentAt: 1552197756000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "mia@example.com",
         to: "user@appsus.com"
@@ -317,7 +321,7 @@ const gEmails = [
         subject: "Travel Plans",
         body: "I'm planning a trip next month. Do you have any recommendations?",
         isRead: false,
-        sentAt: 1552246632000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "alexander@example.com",
         to: "user@appsus.com"
@@ -328,7 +332,7 @@ const gEmails = [
         subject: "Dinner Invitation",
         body: "Hey! I'm hosting a dinner party next Saturday. Are you available?",
         isRead: true,
-        sentAt: 1552295511000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "sophie@example.com",
         to: "user@appsus.com"
@@ -339,7 +343,7 @@ const gEmails = [
         subject: "Weekend Plans",
         body: "Hey there! Any plans for the weekend?",
         isRead: false,
-        sentAt: 1552344391000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "noah@example.com",
         to: "user@appsus.com"
@@ -350,7 +354,7 @@ const gEmails = [
         subject: "Quick Question",
         body: "Hey, I have a quick question for you. Can you please help me?",
         isRead: true,
-        sentAt: 1552393191000,
+        sentAt: getRandomTime(),
         removedAt: null,
         from: "mia@example.com",
         to: "user@appsus.com"
@@ -458,6 +462,12 @@ function getFilterFromParams(searchParams){
             
         }
 
+}
+
+function getRandomTime() {
+    const randomOffset = Math.floor(Math.random() * 30);
+    const date = new Date(Date.now() - randomOffset * 24 * 60 * 60 * 1000)
+    return date
 }
 
 function getFilterBy() {
