@@ -188,8 +188,10 @@ function getEmptyNote() {
         info: {
             txt: '',
             title: '',
-            todos: []
+            todos: [],
+            url: '',
         }
+        
     }
 }
 

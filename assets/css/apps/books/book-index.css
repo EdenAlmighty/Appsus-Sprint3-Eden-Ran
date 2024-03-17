@@ -1,17 +1,17 @@
-.book-index{
+.book-index {
     display: grid;
 }
 
-.book-index a{
+.book-index a {
     justify-self: center;
 }
 
-.books-index-actions{
+.books-index-actions {
     display: flex;
     justify-content: space-around;
 }
 
-.books-index-actions button{
+.books-index-actions button {
     text-transform: uppercase;
     color: var(--gray3);
     font-size: 0.8em;
@@ -24,12 +24,27 @@
     width: 10vw;
     height: 5em;
     transition: 0.5s;
+    appearance: none;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+
 }
 
 .books-index-actions button:hover {
-    scale: 1.1;    
+    /* scale: 1.1; */
 }
 
-.book-index a button img{
-    max-width: 2em;   
+.book-index a button img {
+    max-width: 2em;
+}
+
+.books-index-actions .addbook-fromgoogle-btn {
+    background-color: #4385f4;
+    color: whitesmoke;
+}
+
+.books-index-actions .addbook-btn {
+    background-color: #85c798;
+    color: whitesmoke;
 }

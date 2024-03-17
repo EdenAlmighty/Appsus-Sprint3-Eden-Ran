@@ -22,11 +22,11 @@
     background: #FFF5DC;
 }
 
-.book-card:hover {
-    /* animation: pulse; */
-    /* scale: 1.05; */
-    /* animation-duration: 1s; */
-}
+/* .book-card:hover {
+    animation: pulse;
+    scale: 1.05;
+    animation-duration: 1s;
+} */
 
 .card-container {
     border-top: 2px solid transparent;
@@ -37,7 +37,7 @@
     padding: 10px 10px;
 }
 
-.card-container:hover {
+/* .card-container:hover {
     animation: fadeinrow;
     animation-direction: alternate-reverse;
     animation-duration: 1s;
@@ -47,7 +47,7 @@
     animation: fadeinrow;
     animation-direction: alternate-reverse;
     animation-duration: 1s;
-}
+} */
 
 @keyframes fadeinrow {
     from {
@@ -86,10 +86,21 @@
 .book-card button {
     display: inline-block;
     text-transform: uppercase;
+    appearance: none;
+    border: none;
+    background-color: rgba(253, 192, 79, 0.802);
+    width: 10em;
+    height: 5em;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+
 }
 
 .book-actions {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 0.5em;
+
 }
 
 .book-actions button {}
