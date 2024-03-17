@@ -17,9 +17,10 @@ export function AddNote({ onSaveNote }) {
         ev.preventDefault()
         if (!cmpType) return
         onSaveNote(note)
-            .then(setCmpType('NoteTxt'))
-            .then(setNote(noteService.getEmptyNote()))
+        // .then(setCmpType('NoteTxt'))
+        setNote(noteService.getEmptyNote())
     }
+
 
     console.log(note);
 
@@ -95,14 +96,15 @@ export function AddNote({ onSaveNote }) {
     )
 }
 
+
 // TODO: Make dynCmp
 function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
     switch (cmpType) {
         case 'NoteImg':
             return (
                 <input type="text"
-                    placeholder="Paste image URL here..."
                     name={name}
+                    placeholder="Paste image URL here..."
                     onChange={onChange}
                     value={value.url}
                     className="google-keep-input" />)
@@ -119,7 +121,7 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
                 <textarea
                     placeholder="Create Todo List: (separate with commas)"
                     name="info"
-                    value={value.todos.map(todo => todo.txt).join(', ')}
+                    value={value.todos.map(todo => todo.txt).join(' , ')}
                     onChange={onChange}
                     className="google-keep-input" />
             )
@@ -130,11 +132,11 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
                     placeholder="Take a note..."
                     name="text"
                     onChange={onChange}
-                    ref={inputRef}
+                    // ref={inputRef}
                     value={value.txt}
                     className="google-keep-input" />)
         default:
             break
     }
-    
+
 }
