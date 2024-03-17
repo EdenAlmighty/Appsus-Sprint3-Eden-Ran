@@ -13,11 +13,14 @@ export function AddNote({ onSaveNote }) {
         }
     }, [])
 
-    function onAddNote(ev, elForm) {
+    
+
+    function onAddNote(ev) {
         ev.preventDefault()
         if (!cmpType) return
+        note.type = cmpType
         onSaveNote(note)
-            .then(setCmpType('NoteTxt'))
+            // .then(setCmpType(''))
             .then(setNote(noteService.getEmptyNote()))
     }
 
@@ -59,6 +62,18 @@ export function AddNote({ onSaveNote }) {
         setCmpType('NoteTxt')
     }
 
+    function onSetCmpType(cmpType){
+        setCmpType(cmpType)
+        setNote(prevNote => ({...prevNote, type: cmpType}))
+        setNote(prevNote => ({...prevNote , info: {
+            txt: '',
+            title: '',
+            todos: [],
+            url: '',
+        }}))
+        
+    }
+
 
     return (
 
@@ -77,16 +92,16 @@ export function AddNote({ onSaveNote }) {
             />
 
             <section className="note-input-container bottom">
-                <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChangeInfo} />
+                <input type="radio" id="NoteTxt" name="cmpType" value="NoteTxt" checked={cmpType === 'NoteTxt'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteTxt')} />
                 <label htmlFor="NoteTxt"><span className="material-symbols-outlined">text_fields</span></label>
 
-                <input type="radio" id="NoteImg" name="cmpType" value="NoteImg" checked={cmpType === 'NoteImg'} onChange={handleChangeInfo} />
+                <input type="radio" id="NoteImg" name="cmpType" value="NoteImg" checked={cmpType === 'NoteImg'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteImg')} />
                 <label htmlFor="NoteImg"><span className="material-symbols-outlined">photo</span></label>
 
-                <input type="radio" id="NoteVideo" name="cmpType" value="NoteVideo" checked={cmpType === 'NoteVideo'} onChange={handleChangeInfo} />
+                <input type="radio" id="NoteVideo" name="cmpType" value="NoteVideo" checked={cmpType === 'NoteVideo'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteVideo')}/>
                 <label htmlFor="NoteVideo"><span className="material-symbols-outlined">youtube_activity</span></label>
 
-                <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChangeInfo} />
+                <input type="radio" id="NoteTodos" name="cmpType" value="NoteTodos" checked={cmpType === 'NoteTodos'} onChange={handleChangeInfo} onClick={() => onSetCmpType('NoteTodos')}/>
                 <label htmlFor="NoteTodos"><span className="material-symbols-outlined">check_box</span></label>
                 <button className="note-submit" type="submit"><span class="material-symbols-outlined">task_alt</span></button>
             </section>
@@ -103,7 +118,7 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
                 <input type="text"
                     placeholder="Paste image URL here..."
                     name={name}
-                    onChange={onChange}
+                    onInput={onChange}
                     value={value.url}
                     className="google-keep-input" />)
         case 'NoteVideo':
@@ -111,7 +126,7 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
                 <input type="text"
                     placeholder="Paste YouTube Video URL here..."
                     name={name}
-                    onChange={onChange}
+                    onInput={onChange}
                     value={value.url}
                     className="google-keep-input" />)
         case 'NoteTodos':
@@ -119,8 +134,8 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
                 <textarea
                     placeholder="Create Todo List: (separate with commas)"
                     name="info"
-                    value={value.todos.map(todo => todo.txt).join(', ')}
-                    onChange={onChange}
+                    value={value.todos.map(todo => todo.txt).join(' , ')}
+                    onInput={onChange}
                     className="google-keep-input" />
             )
         case 'NoteTxt':
@@ -129,7 +144,7 @@ function DynamicCmp({ cmpType, name, value, onChange, inputRef }) {
                     type="text"
                     placeholder="Take a note..."
                     name="text"
-                    onChange={onChange}
+                    onInput={onChange}
                     ref={inputRef}
                     value={value.txt}
                     className="google-keep-input" />)
