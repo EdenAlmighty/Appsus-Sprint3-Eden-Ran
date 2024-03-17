@@ -50,3 +50,14 @@
 .book-filter form label{
     font-size: 1.5em;
 }
+
+.add-book-submit{
+    text-decoration: none;
+    border: 1px solid white;
+    background-color: #fdcb6e;
+    width: 10em;
+    height: 3em;
+    border-radius: 0.5em;
+    font-family: poppins;
+    justify-self: center;
+}

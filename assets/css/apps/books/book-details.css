@@ -77,10 +77,11 @@
 }
 
 #add-review-full-name {
-    width: 20vw;
+    width: 30vw;
 }
 
 #add-review-free-text {
+    width: 30vw;
     padding-bottom: 10vh;
 }
 
@@ -101,7 +102,7 @@
     display: grid;
     justify-items: center;
     row-gap: 0.5vh;
-    border: 2px solid rgba(233, 110, 28, 0.201);
+    border: 2px solid rgba(233, 110, 28, 0.bo201);
     color: var(--gray3);
     background: #fff5dcdc;
 }
@@ -110,3 +111,26 @@
     position: absolute;
     left: 1.5vw;
 }
+
+.book-details button { 
+    text-decoration: none;
+    border: 1px solid white;
+    background-color: #fdcb6e;
+    width: 10em;
+    height: 3em;
+    border-radius: 0.5em;
+    font-family: poppins;
+    
+    
+}
+
+.book-details .see-more-btn {
+    background-color: transparent;
+    font-size: 0.5em;
+    text-align: start;
+}
+
+.book-details .book-details-btn-back {
+    top :10vh;
+}
+

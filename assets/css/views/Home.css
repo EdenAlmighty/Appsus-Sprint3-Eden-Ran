@@ -96,6 +96,19 @@
     animation: pulse 2.8s infinite ease-in-out;
 }
 
+
+.logo-container svg {
+    width: 40px;
+    
+}
+
+.logo-container span {
+    cursor: pointer;
+    color: var(--logoTxt-clr);
+    margin-left: 0.3em;
+    font-size: 1.375em;
+    font-family: google-sans-medium;
+}
 .apps-container{
     display: flex;
     gap: 3em;;
