@@ -38,7 +38,7 @@ let gNotes = [
     {
         id: utilService.makeId(),
         type: 'NoteImg',
-        isPinned: false,
+        isPinned: true,
         info: {
             url: 'https://images.squarespace-cdn.com/content/v1/5682fafe1115e07a05683289/1657298175422-PRN4EOL3CQEVTZ93N6KP/munch-comp2.gif?format=750w',
             title: 'YUM YUM!!!'
@@ -92,7 +92,7 @@ let gNotes = [
         isPinned: false,
         info: {
             url: 'https://www.youtube.com/watch?v=QNTeq4QdOsQ',
-            title: 'Rick Astley - Never Gonna Give You Up'
+            title: 'css tips'
         },
         style: {
             backgroundColor: utilService.getRandomNoteColor()
@@ -112,13 +112,28 @@ let gNotes = [
     },
     {
         id: utilService.makeId(),
+        type: 'NoteImg',
+        isPinned: true,
+        info: {
+            url: 'https://i.pinimg.com/564x/61/f6/6d/61f66da611c9a8cefca49499d3c074c4.jpg',
+            title: ''
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
+        }
+    },
+    {
+        id: utilService.makeId(),
         type: 'NoteTodos',
         isPinned: false,
         info: {
-            title: 'Get my stuff together',
+            title: 'Todays main quest',
             todos: [
-                { txt: 'Driving license', doneAt: null },
-                { txt: 'Coding power', doneAt: 187111111 }
+                { txt: 'go to the gym', doneAt: null },
+                { txt: 'buy groceries for dinner', doneAt: 187111111 },
+                { txt: 'finish your book', doneAt: 187111111 },
+                { txt: 'cook dinner', doneAt: 187111111 },
+                { txt: 'no going to bed until everything done', doneAt: 187111111 },
             ]
         },
         style: {
@@ -130,11 +145,37 @@ let gNotes = [
         type: 'NoteTodos',
         isPinned: false,
         info: {
-            title: 'Get my stuff together',
+            title: 'Project missions:',
             todos: [
-                { txt: 'Driving license', doneAt: null },
-                { txt: 'Coding power', doneAt: 187111111 }
+                { txt: 'create mood board', doneAt: null },
+                { txt: 'create a document with detailed information about the project', doneAt: 187111111 },
+                { txt: 'organize what is important, crucial and nice to have', doneAt: 187111111 },
+                { txt: 'make low fidelity wireframe', doneAt: 187111111 },
             ]
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            title: 'mmm coffee...',
+            url: 'https://i.pinimg.com/564x/cf/49/a8/cf49a823bb4062a3329e2e22becf0cbf.jpg'
+        },
+        style: {
+            backgroundColor: utilService.getRandomNoteColor()
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            title: 'cool arrows',
+            url: 'https://i.pinimg.com/564x/fd/21/0f/fd210f348dc0dfd0485e09b3ad5b448f.jpg'
         },
         style: {
             backgroundColor: utilService.getRandomNoteColor()
