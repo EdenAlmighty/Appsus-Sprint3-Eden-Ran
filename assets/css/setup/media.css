@@ -2,10 +2,26 @@
     html {
         font-size: 14px;
     }
-    
+
+
+
+
 }
 
 /* SMALL */
 
-@media (min-width: 640px) {}
-
+@media (max-width: 1199px) {
+    .pinned-notes,
+    .unPinned-notes {
+        columns: 2;
+        column-gap: 2em;
+        row-gap: 2em;
+        margin: 2em;
+    }
+}
+@media (max-width: 1600px) {
+    .pinned-notes,
+    .unPinned-notes {
+        columns: 4;
+    }
+}
