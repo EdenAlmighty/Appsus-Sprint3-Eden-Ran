@@ -4,448 +4,259 @@ import { storageService } from './async-storage.service.js'
 const BOOK_KEY = 'bookDB'
 var gFilterBy = {title: '', price: 0, page: 0}
 
-var gBooks = [
-    {
-      "id": "OXeMG8wNskc",
-      "title": "metus hendrerit",
-      "subtitle": "mi est eros convallis auctor arcu dapibus himenaeos",
+var gBooks = 
+[
+  {
+      "title": "The Lord of the Rings",
+      "subtitle": "",
       "authors": [
-        "Barbara Cartland"
+          "John Ronald Reuel Tolkien"
       ],
-      "publishedDate": 1999,
-      "description": "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse",
-      "pageCount": 713,
+      "publishedDate": "1991",
+      "description": "A beautiful illustrated boxed set collecting the two most popular Tolkien hardbacks -- the Centenary edition of The Lord of the Rings and the 60th Anniversary edition of The Hobbit, both illustrated by Alan Lee. Since they were first published, The Hobbit and The Lord of the Rings have been two books people have treasured. Steeped in unrivalled magic and otherworldliness, these works of sweeping fantasy have touched the hearts of young and old alike. Between them, nearly 100 million copies have been sold around the world. And no editions have proved more popular than the two that were illustrated by award-winning artist, Alan Lee -- the Centenary edition of The Lord of the Rings and the 60th Anniversary edition of The Hobbit. Now, for the first time, these two beautifully illustrated hardbacks have been collected together into one deluxe boxed set. Readers will be able to follow the complete story of the Hobbits and their part in the quest for the Ring -- beginning with Bilbo's fateful visit from Gandalf and culminating in the dramatic climax between Frodo and Gollum atop Mount Doom -- while also enjoying over seventy full-page colour paintings and numerous illustrations which acco",
+      "pageCount": 1193,
       "categories": [
-        "Computers",
-        "Hack"
+          "Adventure stories"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=Jelk7EMpA7sC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 109,
-        "currencyCode": "EUR",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "JYOJa2NpSCq",
-      "title": "morbi",
-      "subtitle": "lorem euismod dictumst inceptos mi",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Jelk7EMpA7sC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Jelk7EMpA7sC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "id": "VVxOS"
+  },
+  {
+      "title": "The Lord of the Rings",
+      "subtitle": "",
       "authors": [
-        "Barbara Cartland"
+          "J. R. R. Tolkien"
       ],
-      "publishedDate": 1978,
-      "description": "aliquam pretium lorem laoreet etiam odio cubilia iaculis placerat aliquam tempor nisl auctor",
-      "pageCount": 129,
+      "publishedDate": "2022-08-18",
+      "description": "Begin your journey into Middle-earth. A New Legend Begins on Prime Video, in The Lord of the Rings: The Rings of Power. This one-volume, paperback edition includes The Fellowship of the Ring, The Two Towers, and The Return of the King, together with the Appendices in full. Sauron, the Dark Lord, has gathered to him all the Rings of Power - the means by which he intends to rule Middle-earth. All he lacks in his plans for dominion is the One Ring - the ring that rules them all - which has fallen into the hands of the hobbit, Bilbo Baggins. In a sleepy village in the Shire, young Frodo Baggins finds himself faced with an immense task, as the Ring is entrusted to his care. He must leave his home and make a perilous journey across the realms of Middle-earth to the Crack of Doom, deep inside the territories of the Dark Lord. There he must destroy the Ring forever and foil the Dark Lord in his evil purpose.",
+      "pageCount": 0,
       "categories": [
-        "Computers",
-        "Hack"
+          "Fiction"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/14.jpg",
-      "language": "sp",
-      "listPrice": {
-        "amount": 44,
-        "currencyCode": "EUR",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "1y0Oqts35DQ",
-      "title": "at viverra venenatis",
-      "subtitle": "gravida libero facilisis rhoncus urna etiam",
-      "authors": [
-        "Dr. Seuss"
-      ],
-      "publishedDate": 1999,
-      "description": "lorem molestie ut euismod ad quis mi ultricies nisl cursus suspendisse dui tempor sit suscipit metus etiam euismod tortor sagittis habitant",
-      "pageCount": 972,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
-      "language": "he",
-      "listPrice": {
-        "amount": 108,
-        "currencyCode": "ILS",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "kSnfIJyikTP",
-      "title": "dictum",
-      "subtitle": "augue eu consectetur class curabitur conubia ligula in ullamcorper",
-      "authors": [
-        "Danielle Steel"
-      ],
-      "publishedDate": 1978,
-      "description": "interdum inceptos mauris habitant primis neque tempus lacus morbi auctor cras consectetur euismod vehicula neque netus enim vivamus augue molestie imperdiet tincidunt aliquam",
-      "pageCount": 303,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/16.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=GfrqzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 30,
-        "currencyCode": "EUR",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "f4iuVmbuKCC",
-      "title": "sem himenaeos aptent",
-      "subtitle": "interdum per habitasse luctus purus est",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=GfrqzgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=GfrqzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "id": "Aso9o"
+  },
+  {
+      "title": "The Lord of the Rings: The Fellowship of the Ring, The Two Towers, The Return of the King",
+      "subtitle": "",
       "authors": [
-        "Dr. Seuss"
+          "J. R. R. Tolkien"
       ],
-      "publishedDate": 2011,
-      "description": "et vehicula faucibus amet accumsan lectus cras nulla cubilia arcu neque litora mi habitasse quis amet augue facilisis sed",
-      "pageCount": 337,
+      "publishedDate": "2009-04-20",
+      "description": "All three parts of the epic masterpiece The Lord of the Rings – The Fellowship of the Ring, The Two Towers & The Return of the King – available as one download, featuring the definitive edition of the text, hyperlinked footnotes and page references, and 3 maps including a detailed map of Middle-earth.",
+      "pageCount": 1227,
       "categories": [
-        "Computers",
-        "Hack"
+          "Fiction"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/12.jpg",
-      "language": "sp",
-      "listPrice": {
-        "amount": 19,
-        "currencyCode": "USD",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "U2rfZO6oBZf",
-      "title": "mi ante posuere",
-      "subtitle": "sapien curae consectetur ultrices fringilla blandit ipsum curae faucibus",
-      "authors": [
-        "Leo Tolstoy"
-      ],
-      "publishedDate": 1978,
-      "description": "senectus habitant nam imperdiet nostra elit dapibus nisl adipiscing in",
-      "pageCount": 748,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/1.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=FKziXsnqLTEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 91,
-        "currencyCode": "USD",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "xI0wrXaaAcq",
-      "title": "non",
-      "subtitle": "leo tortor per dapibus mattis ut conubia porttitor ligula viverra",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=FKziXsnqLTEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=FKziXsnqLTEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "id": "ZiLSh"
+  },
+  {
+      "title": "The Fellowship of the Ring (The Lord of the Rings, Book 1)",
+      "subtitle": "",
       "authors": [
-        "Leo Tolstoy"
+          "J. R. R. Tolkien"
       ],
-      "publishedDate": 2011,
-      "description": "nec scelerisque id cursus platea sit ullamcorper bibendum ultrices tempus ante mi aliquet cras tortor dapibus dictum scelerisque",
-      "pageCount": 65,
+      "publishedDate": "2009-04-20",
+      "description": "The first part of J. R. R. Tolkien’s epic adventure THE LORD OF THE RINGS ‘A most remarkable feat’ Guardian",
+      "pageCount": 442,
       "categories": [
-        "Computers",
-        "Hack"
+          "Fiction"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/14.jpg",
-      "language": "he",
-      "listPrice": {
-        "amount": 90,
-        "currencyCode": "USD",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "9laHCEdSpFy",
-      "title": "tristique",
-      "subtitle": "consectetur a eu tincidunt condimentum amet nisi",
-      "authors": [
-        "Dr. Seuss"
-      ],
-      "publishedDate": 1999,
-      "description": "magna quisque venenatis laoreet purus in semper habitant proin pellentesque sed egestas cursus faucibus nam enim id sit mi ligula risus curabitur senectus curabitur sodales fames sem",
-      "pageCount": 299,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/11.jpg",
-      "language": "he",
-      "listPrice": {
-        "amount": 176,
-        "currencyCode": "EUR",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "nGhVwZvGCGp",
-      "title": "urna ornare gravida",
-      "subtitle": "sem vestibulum semper convallis pharetra tempor himenaeos ut",
-      "authors": [
-        "Jin Yong"
-      ],
-      "publishedDate": 2011,
-      "description": "porttitor nisl sodales id eu tellus venenatis laoreet auctor dictumst nulla",
-      "pageCount": 803,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
-      "language": "sp",
-      "listPrice": {
-        "amount": 116,
-        "currencyCode": "USD",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "Q8Q9Lsd03BD",
-      "title": "consequat neque volutpat",
-      "subtitle": "vel quis taciti fermentum feugiat ullamcorper curae praesent",
-      "authors": [
-        "Dr. Seuss"
-      ],
-      "publishedDate": 1978,
-      "description": "curabitur bibendum in dolor neque magna phasellus arcu nulla cubilia senectus maecenas ullamcorper neque accumsan facilisis dictumst ornare",
-      "pageCount": 891,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/5.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=xFr92V2k3PIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 145,
-        "currencyCode": "EUR",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "bd7a76kARao",
-      "title": "risus",
-      "subtitle": "pretium bibendum pharetra curabitur quisque dictumst",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=xFr92V2k3PIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=xFr92V2k3PIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "id": "XCHEg"
+  },
+  {
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "subtitle": "",
       "authors": [
-        "Danielle Steel"
+          "J.K. Rowling"
       ],
-      "publishedDate": 2018,
-      "description": "auctor amet nostra luctus molestie proin platea cubilia netus sed purus egestas a primis eu tristique interdum litora lorem venenatis mattis senectus",
-      "pageCount": 86,
+      "publishedDate": "2015-12-08",
+      "description": "Turning the envelope over, his hand trembling, Harry saw a purple wax seal bearing a coat of arms; a lion, an eagle, a badger and a snake surrounding a large letter 'H'. Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin! Having become classics of our time, the Harry Potter eBooks never fail to bring comfort and escapism. With their message of hope, belonging and the enduring power of truth and love, the story of the Boy Who Lived continues to delight generations of new readers.",
+      "pageCount": 311,
       "categories": [
-        "Computers",
-        "Hack"
+          "Juvenile Fiction"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/16.jpg",
-      "language": "sp",
-      "listPrice": {
-        "amount": 157,
-        "currencyCode": "ILS",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "qKyG0vqeO3e",
-      "title": "interdum etiam vulputate",
-      "subtitle": "velit sapien eget tincidunt nunc tortor",
-      "authors": [
-        "Danielle Steel"
-      ],
-      "publishedDate": 2018,
-      "description": "aenean mauris porta netus accumsan turpis etiam vestibulum vivamus sagittis nullam nec tellus quam mattis est pellentesque nisi litora sit ad",
-      "pageCount": 882,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/17.jpg",
-      "language": "sp",
-      "listPrice": {
-        "amount": 57,
-        "currencyCode": "USD",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "2RvT48ZNInj",
-      "title": "sagittis justo",
-      "subtitle": "etiam primis proin praesent placerat nisi fermentum nisi",
-      "authors": [
-        "Agatha Christie"
-      ],
-      "publishedDate": 2011,
-      "description": "nec faucibus arcu suspendisse tempus potenti lobortis aliquam quisque augue integer consectetur etiam ultrices curabitur tristique metus",
-      "pageCount": 598,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/8.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 167,
-        "currencyCode": "ILS",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "5z2s9pDXAYj",
-      "title": "quam ullamcorper himenaeos",
-      "subtitle": "ut placerat eu dapibus sapien sodales laoreet",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "id": "ZWWJk"
+  },
+  {
+      "title": "The Irresistible Rise of Harry Potter",
+      "subtitle": "",
       "authors": [
-        "Danielle Steel"
+          "Andrew Blake"
       ],
-      "publishedDate": 1999,
-      "description": "etiam nec aliquam euismod platea vel laoreet quisque condimentum sapien neque ut aliquam torquent in nam",
-      "pageCount": 608,
+      "publishedDate": "2002-12-17",
+      "description": "Blake's examination of the Potter phenomenon raises serious questions about the condition of the publishing industry, filmmaking, and the ways in which the Potter consumer campaign has changed ideas about literature and reading.",
+      "pageCount": 140,
       "categories": [
-        "Computers",
-        "Hack"
+          "Language Arts & Disciplines"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/3.jpg",
-      "language": "he",
-      "listPrice": {
-        "amount": 150,
-        "currencyCode": "USD",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "zBZu5cDEWha",
-      "title": "quis",
-      "subtitle": "suscipit turpis etiam turpis libero lobortis",
-      "authors": [
-        "Jin Yong"
-      ],
-      "publishedDate": 2011,
-      "description": "etiam pretium urna fusce lobortis curae viverra aptent metus semper nisi litora feugiat elementum purus nunc consequat lorem ultricies non primis phasellus sociosqu donec dolor",
-      "pageCount": 583,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/6.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 58,
-        "currencyCode": "ILS",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "aOI7tQuPZ2f",
-      "title": "aliquam aliquet dapibus",
-      "subtitle": "neque eu purus euismod placerat adipiscing odio egestas consequat",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "id": "tMbDH"
+  },
+  {
+      "title": "Harry Potter and the Deathly Hallows",
+      "subtitle": "",
       "authors": [
-        "Leo Tolstoy"
+          "J. K. Rowling"
       ],
-      "publishedDate": 2011,
-      "description": "dolor morbi malesuada eleifend purus taciti sit interdum aliquet commodo ut libero tincidunt",
-      "pageCount": 497,
+      "publishedDate": "2007",
+      "description": "\"The final adventure in J.K. Rowling's phenomenal, best-selling Harry Potter book series\"--Provided by publisher.",
+      "pageCount": 792,
       "categories": [
-        "Computers",
-        "Hack"
+          "Bildungsromans"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/7.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=GZAoAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 78,
-        "currencyCode": "USD",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "WBooB82Uvwu",
-      "title": "class",
-      "subtitle": "elit enim ultricies amet imperdiet a molestie class elementum venenatis",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=GZAoAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=GZAoAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "id": "hLmV4"
+  },
+  {
+      "title": "The Irresistible Rise of Harry Potter",
+      "subtitle": "",
       "authors": [
-        "Danielle Steel"
+          "Andrew Blake"
       ],
-      "publishedDate": 1999,
-      "description": "rhoncus odio netus consectetur aenean hendrerit massa scelerisque elementum aptent lobortis pharetra maecenas quam nulla volutpat turpis non habitasse aenean ante sodales lobortis quisque libero imperdiet gravida eleifend nulla",
-      "pageCount": 804,
+      "publishedDate": "2002-12-17",
+      "description": "Blake's examination of the Potter phenomenon raises serious questions about the condition of the publishing industry, filmmaking, and the ways in which the Potter consumer campaign has changed ideas about literature and reading.",
+      "pageCount": 140,
       "categories": [
-        "Computers",
-        "Hack"
+          "Language Arts & Disciplines"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
+      "thumbnail": "http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       "language": "en",
       "listPrice": {
-        "amount": 118,
-        "currencyCode": "ILS",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "xm1z5bbZjlS",
-      "title": "vitae",
-      "subtitle": "class habitant at commodo semper ligula a bibendum",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "id": "FAWCr"
+  },
+  {
+      "title": "Modern JavaScript Web Development Cookbook",
+      "subtitle": "",
       "authors": [
-        "Leo Tolstoy"
+          "Federico Kereki"
       ],
-      "publishedDate": 1999,
-      "description": "himenaeos quis iaculis orci libero egestas quam varius primis erat lacus facilisis blandit dictum tristique interdum litora quisque purus senectus pretium purus",
-      "pageCount": 231,
+      "publishedDate": "2018-12-26",
+      "description": "Over 90 recipes to help you write clean code, solve common JavaScript problems, and work on popular use cases like SPAs, microservices, native mobile development with Node, React, React Native and Electron. Key FeaturesOver 90 practical recipes to help you write clean and maintainable JavaScript codes with the latest ES8Leverage the power of leading web frameworks like Node and React to build modern web appsFeatures comprehensive coverage of tools and techniques needed to create multi-platform apps with JavaScriptBook Description JavaScript has evolved into a language that you can use on any platform. Modern JavaScript Web Development Cookbook is a perfect blend of solutions for traditional JavaScript development and modern areas that developers have lately been exploring with JavaScript. This comprehensive guide teaches you how to work with JavaScript on servers, browsers, mobile phones and desktops. You will start by exploring the new features of ES8. You will then move on to learning the use of ES8 on servers (with Node.js), with the objective of producing services and microservices and dealing with authentication and CORS. Once you get accustomed to ES8, you will learn to apply it to browsers using frameworks, such as React and Redux, which interact through Ajax with services. You will then understand the use of a modern framework to develop the UI. In addition to this, development for mobile devices with React Native will walk you through the benefits of creating native apps, both for Android and iOS. Finally, you’ll be able to apply your new-found knowledge of server-side and client-side tools to develop applications with Electron. What you will learnUse the latest features of ES8 and learn new ways to code with JavaScriptDevelop server-side services and microservices with Node.jsLearn to do unit testing and to debug your codeBuild client-side web applications using React and ReduxCreate native mobile applications for Android and iOS with React NativeWrite desktop applications with ElectronWho this book is for This book is for developers who want to explore the latest JavaScript features, frameworks, and tools for building complete mobile, desktop and web apps, including server and client-side code. You are expected to have working knowledge of JavaScript to get the most out of this book.",
+      "pageCount": 632,
       "categories": [
-        "Computers",
-        "Hack"
+          "Computers"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/12.jpg",
-      "language": "he",
+      "thumbnail": "http://books.google.com/books/content?id=y52BDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "language": "en",
       "listPrice": {
-        "amount": 60,
-        "currencyCode": "EUR",
-        "isOnSale": false
-      }
-    },
-    {
-      "id": "u3j6QIKLlJb",
-      "title": "rhoncus vivamus",
-      "subtitle": "nullam class risus amet senectus scelerisque etiam curabitur",
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=y52BDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=y52BDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "id": "rj7B8"
+  },
+  {
+      "title": "JavaScript by Example",
+      "subtitle": "",
       "authors": [
-        "Agatha Christie"
+          "Ellie Quigley"
       ],
-      "publishedDate": 1978,
-      "description": "torquent in et id lacus vivamus aptent cursus erat integer venenatis risus ac ante quam etiam euismod feugiat risus suscipit rhoncus pharetra quisque felis",
-      "pageCount": 652,
+      "publishedDate": "2004",
+      "description": "This is the definitive JavaScript tutorial for the serious nonprogrammer who is interested in mastering the full power of the language. Includes hundreds of example JavaScript programs that demonstrate both the fun and practical aspects.",
+      "pageCount": 756,
       "categories": [
-        "Computers",
-        "Hack"
+          "Computers"
       ],
-      "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
-      "language": "he",
+      "thumbnail": "http://books.google.com/books/content?id=IAJv2N1n9JAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "language": "en",
       "listPrice": {
-        "amount": 110,
-        "currencyCode": "USD",
-        "isOnSale": true
-      }
-    },
-    {
-      "id": "vxYYYdVlEH3",
-      "title": "donec mi ullamcorper",
-      "subtitle": "varius malesuada augue molestie sollicitudin faucibus mi eu tempus",
-      "authors": [
-        "William Shakespeare"
-      ],
-      "publishedDate": 2011,
-      "description": "aliquet euismod mi vivamus bibendum donec etiam quisque iaculis ullamcorper est sed",
-      "pageCount": 904,
-      "categories": [
-        "Computers",
-        "Hack"
-      ],
-      "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
-      "language": "sp",
-      "listPrice": {
-        "amount": 186,
-        "currencyCode": "ILS",
-        "isOnSale": true
-      }
-    }
-  ]
+          "amount": 100,
+          "currencyCode": "🚫(From Google)",
+          "isOnSale": false
+      },
+      "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=IAJv2N1n9JAC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=IAJv2N1n9JAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "id": "trdpm"
+  }
+]
 
 
 
@@ -1354,4 +1165,3 @@ function _setNextPrevBookId(book){
     return book
   })
 }
-

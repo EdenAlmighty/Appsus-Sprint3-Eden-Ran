@@ -22,7 +22,9 @@ export function AppHeader() {
                 <img className='keep-logo' src="https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png" alt="keep-logo" />
                 <label className="logo-txt" htmlFor="logo">Keep</label>
             </section>
+            
             </NavLink>
+            <NavLink to="/books">Book</NavLink>
         </nav>
     </header>
 }

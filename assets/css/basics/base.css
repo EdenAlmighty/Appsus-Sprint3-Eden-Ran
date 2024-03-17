@@ -214,6 +214,10 @@ textarea {
 
 }
 
+button:hover { 
+    cursor: pointer;
+}
+
 /* .mail-logo {
     height: 40px;
     width: 109px;
